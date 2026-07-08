@@ -14,9 +14,9 @@
 }
 
 :root {
-  --background: #111028;
+  --background: #131226;
   --foreground: #ffffff;
-  --accent: #1dcdff; /* Default accent color, dynamically switched */
+  --accent: #f58331; /* Default accent color, dynamically switched */
   --brand-orange: #f27820;
 }
 
@@ -147,4 +147,15 @@ body {
 
 .animate-float-circle {
   animation: floatCircle 5s ease-in-out infinite;
+}
+
+/* Hide Next.js Dev Indicator */
+nextjs-portal,
+#nextjs-build-indicator,
+.next-route-announcer,
+[class*="nextjs-toast"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

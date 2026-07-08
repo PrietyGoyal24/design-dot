@@ -4,66 +4,57 @@ import { motion } from 'framer-motion';
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="relative py-24 bg-[#ffffff] text-slate-900 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+    <section id="why-us" className="relative bg-[#ffffff] text-[#111111] overflow-hidden select-none w-full">
+      {/* Right side orange column background block for desktop (Exactly 50%) */}
+      <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2 bg-[#f27820] hidden md:block" />
+
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[550px]">
         {/* Left Content Column */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="md:col-span-7 space-y-6 text-left"
-        >
+        <div className="flex flex-col justify-center py-16 md:py-24 px-8 md:pl-[60px] lg:pl-[120px] md:pr-[20px] lg:pr-[40px] text-left bg-white z-10">
           {/* Index and Section Name */}
-          <div className="flex items-center gap-4 text-xs font-display font-semibold tracking-widest text-[#f27820]">
-            <span>00.</span>
-            <div className="w-12 h-[1px] bg-[#f27820]/40" />
-            <span className="uppercase">Why Us</span>
+          <div className="flex items-center gap-[16px] text-[#111111] mb-12">
+            <span className="font-extrabold text-[16px] tracking-wider">00.</span>
+            <div className="w-[50px] h-[1px] bg-[#111111]" />
+            <span className="font-extrabold text-[16px] tracking-widest capitalize">Why Us.</span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight font-display text-slate-900 leading-tight">
-            A CREATIVE DIGITAL AGENCY<span className="text-[#f27820]">.</span>
+          <h2 className="text-[25px] md:text-[28px] lg:text-[38px] font-black tracking-[-0.01em] font-sans text-[#111111] leading-[1.2] uppercase flex items-end gap-[6px] mb-8">
+            A CREATIVE DIGITAL AGENCY<div className="w-[10px] h-[10px] md:w-[12px] md:h-[12px] rounded-full bg-[#111111] mb-[6px] md:mb-[8px]" />
           </h2>
 
-          {/* Decorative single line separator */}
-          <div className="w-24 h-[3px] bg-[#f27820]" />
+          {/* Separator line */}
+          <div className="w-[120px] h-[1px] bg-[#111111] mb-10" />
 
-          {/* Description Paragraph */}
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium">
-            DesignDot is a Global creative agency. We <strong className="text-slate-900 font-bold">Design & Build Brands, UI / UX, Interface & Application Development, Campaigns & Digital Projects, Signage & Advertising, Visualisation & Interior, Exhibition & Event</strong> {"{360 Services, support and solutions}"} provider for businesses across the world. We are at our best in the following areas...
+          {/* Description Paragraph (Exact copy of the reference including the typo) */}
+          <p className="text-[#111111] text-[14px] md:text-[16px] lg:text-[17px] leading-[1.8] font-medium w-full lg:w-[95%]">
+            DesignDot is a Global creative agency. We <strong className="font-extrabold">Design & Build Brands, UI / UX, Interface & Application Development, Campaigns & Digital Projects, Signage & Advertising, Visualisation & Interior, Exhibition & Event</strong> {"{360 Services, support and solutions}"} provider for businesses provider for businesses Small, Medium, Large Enterprises across the world. We are at our best in the following areas...
           </p>
 
-          {/* EXPLORE Link button block */}
-          <div className="pt-4">
+          {/* EXPLORE button block */}
+          <div className="pt-8 flex items-center gap-6">
+            <div className="w-[40px] h-[1px] bg-[#111111]" />
             <a
               href="https://dd.mocup.in/about-us"
-              className="inline-flex items-center gap-3 text-xs font-display font-bold tracking-widest text-slate-950 hover:text-[#f27820] transition-colors relative py-1 group cursor-pointer"
+              className="bg-[#f27820] text-[#111111] px-6 py-2.5 font-bold tracking-[0.2em] text-[10px] uppercase select-none cursor-pointer"
             >
-              <span className="w-8 h-[2px] bg-slate-950 group-hover:bg-[#f27820] transition-colors" />
-              <span>EXPLORE</span>
+              EXPLORE
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Brand Image/Graphic Column */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="md:col-span-5 flex justify-end"
-        >
-          <div className="relative border-4 border-[#f27820] p-1 rounded-sm overflow-hidden bg-slate-950 w-full max-w-[450px] aspect-[5/6] shadow-2xl flex items-center justify-center">
-            {/* Using the original brand image url */}
-            <img
-              src="https://dd.mocup.in/assets/web/images/d-logo-2.jpg"
-              alt="DesignDot Graphic"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+        <div className="bg-[#f27820] flex items-center justify-center py-16 md:py-0 z-10 min-h-[400px] md:min-h-0">
+          <div className="w-[85%] max-w-[550px] aspect-square bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex items-center justify-center">
+            {/* Recreated logo with guaranteed round dot and perfect sharpness */}
+            <div className="relative flex items-center justify-center -translate-x-[15px] md:-translate-x-[20px]">
+              <span className="text-[#111111] font-black leading-none tracking-tighter select-none text-[250px] md:text-[320px] lg:text-[400px]" style={{ fontFamily: 'Montserrat, "Plus Jakarta Sans", sans-serif' }}>
+                d
+              </span>
+              <div className="w-[25px] h-[25px] md:w-[35px] md:h-[35px] lg:w-[45px] lg:h-[45px] bg-[#111111] rounded-full absolute bottom-[35px] right-[-35px] md:bottom-[45px] md:right-[-45px] lg:bottom-[55px] lg:right-[-55px]" />
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

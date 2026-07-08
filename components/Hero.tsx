@@ -74,41 +74,64 @@ export default function Hero() {
   }, [typedHeading, typedParagraph, isDeleting, slideIndex]);
 
   return (
-    <section 
-      ref={containerRef}
-      data-cursor="paint"
-      className="relative w-full flex flex-col items-center justify-center pt-36 pb-28 md:pt-48 md:pb-36 lg:pt-56 lg:pb-44 overflow-hidden bg-transparent select-none animate-in fade-in duration-500 cursor-none"
-    >
-      {/* Centered content */}
-      <div className="max-w-[1100px] w-full px-6 flex flex-col items-center text-center z-10">
-        
-        {/* Heading */}
-        <h1 
-          className="font-display font-extrabold text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-white uppercase select-none mb-4 max-w-4xl"
-        >
-          {typedHeading}
-          {/* Typing Cursor (only active when paragraph is empty and heading is typing) */}
-          {typedParagraph.length === 0 && (
-            <span 
-              className="inline-block ml-1 w-[3px] h-[22px] sm:h-[30px] md:h-[38px] lg:h-[44px] bg-white animate-[pulse_1s_infinite] align-middle"
-            />
-          )}
-        </h1>
+    <>
+      <section
+        ref={containerRef}
+        data-cursor="paint"
+        className="relative w-full flex flex-col items-center justify-center pt-[150px] pb-[220px] md:pt-[200px] md:pb-[320px] lg:pt-[240px] lg:pb-[420px] overflow-hidden bg-transparent select-none animate-in fade-in duration-500 cursor-none"
+      >
+        {/* Centered content */}
+        <div className="max-w-[1100px] w-full px-6 flex flex-col items-center text-center z-10">
 
-        {/* Paragraph */}
-        {typedParagraph.length > 0 && (
-          <p 
-            className="text-[11.5px] sm:text-[13px] md:text-[14px] font-extrabold tracking-wider uppercase text-slate-300 max-w-2xl leading-[1.5] select-none"
+          {/* Heading */}
+          <h1
+            className="font-display font-extrabold text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-white uppercase select-none mb-4 max-w-4xl"
           >
-            {typedParagraph}
-            {/* Typing Cursor on Paragraph */}
-            <span 
-              className="inline-block ml-1 w-[2px] h-[12px] sm:h-[13px] md:h-[14px] bg-white animate-[pulse_1s_infinite] align-middle"
-            />
-          </p>
-        )}
+            {typedHeading}
+            {/* Typing Cursor (only active when paragraph is empty and heading is typing) */}
+            {typedParagraph.length === 0 && (
+              <span
+                className="inline-block ml-1 w-[3px] h-[22px] sm:h-[30px] md:h-[38px] lg:h-[44px] bg-white animate-[pulse_1s_infinite] align-middle"
+              />
+            )}
+          </h1>
 
+          {/* Paragraph */}
+          {typedParagraph.length > 0 && (
+            <p
+              className="text-[11.5px] sm:text-[13px] md:text-[14px] font-extrabold tracking-wider uppercase text-slate-300 max-w-2xl leading-[1.5] select-none"
+            >
+              {typedParagraph}
+              {/* Typing Cursor on Paragraph */}
+              <span
+                className="inline-block ml-1 w-[3px] h-[4px] sm:h-[9px] md:h-[2px] bg-white animate-[pulse_1s_infinite] align-middle"
+              />
+            </p>
+          )}
+
+        </div>
+      </section>
+
+      {/* Video Mockup Section (Recreating the original website portfolio player with split background) */}
+      <div
+        data-cursor="paint"
+        className="w-full bg-[#fcf9f6] relative pb-12 md:pb-16 z-20 cursor-none select-none flow-root"
+      >
+        <div className="w-full max-w-[1250px] mx-auto px-4 md:px-[40px] lg:px-[60px] -mt-[160px] md:-mt-[240px] lg:-mt-[330px] z-30 relative animate-in fade-in slide-in-from-bottom-6 duration-1000">
+          <div className="bg-[#333333] border border-white/10 rounded-xl p-[6px] md:p-[10px] lg:p-[14px] shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
+            <div className="relative w-full overflow-hidden rounded-[6px] bg-white">
+              <video
+                src="https://dd.mocup.in/assets/web/images/video/designdot.mp4"
+                className="w-full h-auto block"
+                playsInline
+                autoPlay
+                loop
+                muted
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </>
   );
 }

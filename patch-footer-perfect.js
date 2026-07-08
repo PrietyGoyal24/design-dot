@@ -1,59 +1,17 @@
-'use client';
+const fs = require('fs');
+const path = './components/Footer.tsx';
+let content = fs.readFileSync(path, 'utf8');
 
-import { useState, useEffect } from 'react';
-import { Check } from 'lucide-react';
+const startIndex = content.search(/return \(\s*<footer/);
+const endIndexRegexMatch = content.match(/<\/footer>\s*\);\s*\}/);
 
-export default function Footer() {
-  const [localTime, setLocalTime] = useState('');
-  const [captchaAnswer, setCaptchaAnswer] = useState('');
-  const [captchaError, setCaptchaError] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    budget: '',
-    idea: '',
-    nda: false
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+if (startIndex === -1 || !endIndexRegexMatch) {
+  console.error('Could not find bounds of the return statement.');
+  process.exit(1);
+}
+const endIndex = endIndexRegexMatch.index + endIndexRegexMatch[0].length;
 
-  useEffect(() => {
-    const updateTime = () => {
-      const today = new Date();
-      const daylist = ["Sun", "Mon", "Tue", "Wed", "Thus", "Fri", "Sat"];
-      const localday = daylist[today.getDay()];
-      let hour = today.getHours();
-      const prepand = hour >= 12 ? " PM " : " AM ";
-      hour = hour >= 12 ? hour - 12 : hour;
-      if (hour === 0) hour = 12; // 12 AM/PM instead of 0
-      setLocalTime(`/ ${localday} , ${hour}${prepand} /`);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 60000); // update every minute
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) return;
-    
-    // Captcha validation
-    if (captchaAnswer.trim() !== '10') {
-      setCaptchaError(true);
-      return;
-    }
-
-    setCaptchaError(false);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', budget: '', idea: '', nda: false });
-      setCaptchaAnswer('');
-    }, 2500);
-  };
-
-  return (
+const newReturn = `return (
     <footer className="relative w-full overflow-hidden select-none bg-white font-sans text-slate-900 pt-[100px] pb-12">
       <div className="max-w-[1280px] mx-auto px-[40px] md:px-[60px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-[80px] items-start">
@@ -377,14 +335,18 @@ export default function Footer() {
         href="https://api.whatsapp.com/send?phone=+919873282812&text=Hii"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-[30px] right-[30px] z-50 bg-[#25d366] text-white w-[56px] h-[56px] rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:bg-[#128c7e] transition-all hover:-translate-y-1 flex items-center justify-center cursor-pointer"
+        className="fixed bottom-[30px] right-[30px] z-50 bg-[#25d366] text-white p-[14px] rounded-full shadow-lg hover:bg-[#128c7e] transition-all hover:scale-105 flex items-center justify-center cursor-pointer"
         aria-label="Chat on WhatsApp"
       >
-        <svg className="w-[30px] h-[30px] fill-current ml-[2px] mt-[1px]" viewBox="0 0 24 24">
+        <svg className="w-[30px] h-[30px] fill-current" viewBox="0 0 24 24">
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.727-1.465L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.023-5.116-2.887-6.98C16.584 1.896 14.1 1.87 11.666 1.872 6.232 1.872 1.81 6.29 1.806 11.724c-.001 1.677.443 3.31 1.285 4.757l-.973 3.555 3.639-.954zm10.974-6.843c-.27-.136-1.602-.79-1.85-.88-.25-.09-.43-.136-.61.136-.18.27-.69.88-.85 1.05-.15.18-.3.2-.57.06-.27-.136-1.136-.418-2.16-1.332-.798-.712-1.337-1.59-1.493-1.86-.15-.27-.015-.417.12-.553.124-.122.27-.318.4-.478.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.477-.06-.136-.61-1.477-.84-2.02-.22-.53-.45-.45-.61-.46-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.4s1.01 2.79 1.15 2.97c.14.18 1.99 3.038 4.82 4.258.67.29 1.2.46 1.61.59.68.21 1.3.18 1.78.11.54-.08 1.6-.66 1.83-1.28.22-.61.22-1.14.16-1.28-.07-.14-.25-.22-.52-.36z" />
         </svg>
       </a>
 
     </footer>
   );
-}
+}`;
+
+const prefix = content.substring(0, startIndex);
+fs.writeFileSync(path, prefix + newReturn, 'utf8');
+console.log('Footer updated to exact match precision, v4.');

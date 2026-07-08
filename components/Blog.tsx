@@ -9,25 +9,27 @@ export default function Blog() {
     <section className="relative py-24 bg-[#f8f9fc] text-slate-900 overflow-hidden select-none border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 space-y-12">
         {/* Section Heading */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 space-y-4 text-left">
-            <div className="flex items-center gap-4 text-xs font-display font-semibold tracking-widest text-[#f27820] shrink-0">
-              <span>07.</span>
-              <div className="w-12 h-[1px] bg-[#f27820]/40" />
-            </div>
+        <div className="flex items-center w-full whitespace-nowrap mb-10">
+          <span className="text-[15px] font-extrabold tracking-widest text-[#f27820] mr-6">
+            07.
+          </span>
+          <div className="w-[80px] h-[1.5px] bg-[#f27820] mr-6" />
+          <span className="text-[22px] font-extrabold tracking-wide text-slate-900">
+            Blog .
+          </span>
+          <div className="flex-1" />
+          <div className="w-[60px] h-[1px] bg-slate-900 mr-6 hidden sm:block" />
+          <a
+            href="https://blog.deesigndot.com/"
+            target="_blank"
+            className="bg-[#f27820] text-slate-950 hover:bg-black hover:text-white transition-colors px-[14px] py-[6px] text-[11px] font-bold tracking-widest uppercase"
+          >
+            EXPLORE
+          </a>
+        </div>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#f27820]">
-                blog
-              </span>
-              <a
-                href="https://blog.deesigndot.com/"
-                target="_blank"
-                className="inline-flex items-center gap-2 text-[10px] font-display font-bold tracking-widest text-slate-900 hover:text-[#f27820] transition-colors py-0.5 border-b border-slate-950 hover:border-[#f27820]"
-              >
-                <span>EXPLORE</span>
-              </a>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-5 text-left">
 
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight font-display text-slate-900 leading-tight">
               Ideas. Innovation. Influence.<span className="text-[#f27820]">.</span>
