@@ -194,9 +194,20 @@ export default function PaintSwitcher() {
       triggerRipple(x, y, nextColor, accentColor);
     };
 
+    (window as any).cycleTheme = (x: number, y: number) => {
+      setThemeIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % THEMES.length;
+        const nextTheme = THEMES[nextIndex];
+        document.documentElement.style.setProperty('--background', nextTheme.background);
+        document.documentElement.style.setProperty('--accent', nextTheme.accent);
+        triggerRipple(x, y, nextTheme.background, nextTheme.accent);
+        return nextIndex;
+      });
+    };
+
     const handleDocumentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
+
       // Only change color if clicking within the hero paint area
       if (!target.closest('[data-cursor="paint"]')) {
         return;
@@ -210,7 +221,7 @@ export default function PaintSwitcher() {
       ) {
         return;
       }
-      
+
       setThemeIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % THEMES.length;
         const nextTheme = THEMES[nextIndex];
@@ -232,6 +243,7 @@ export default function PaintSwitcher() {
       document.removeEventListener('mousedown', handleDocumentClick);
       timeouts.forEach(clearTimeout);
       delete (window as any).triggerThemeRipple;
+      delete (window as any).cycleTheme;
     };
   }, []);
 

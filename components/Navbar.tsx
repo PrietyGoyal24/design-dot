@@ -361,6 +361,7 @@ export default function Navbar() {
 
   // Active mega menu hovered/selected
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   // Active submenus inside mega menus
   const [activeExpertiseCategory, setActiveExpertiseCategory] = useState("ENGINEERING");
@@ -390,6 +391,13 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const handleMegaTabClick = (e: React.MouseEvent, menuKey: string) => {
+    setActiveMenu(menuKey);
+    if (typeof window !== 'undefined' && (window as any).cycleTheme) {
+      (window as any).cycleTheme(e.clientX, e.clientY);
+    }
+  };
+
   const handleMobileSectionToggle = (section: string) => {
     setMobileOpenSection(mobileOpenSection === section ? null : section);
     setMobileOpenSubSection(null);
@@ -413,7 +421,7 @@ export default function Navbar() {
   };
 
   const renderLinkLabel = (label: string, isScrolled: boolean, menuKey: string) => {
-    const isActive = hoveredMenu === menuKey;
+    const isActive = hoveredMenu === menuKey || activeMenu === menuKey;
     if (label.toLowerCase() === 'ai ingenuity') {
       return (
         <span className="relative flex items-center py-2 h-full focus:outline-none focus-visible:outline-none select-none">
@@ -441,7 +449,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-40 bg-[#111028] shadow-lg py-0 border-b border-white/5">
+      <header className="fixed top-0 left-0 w-full z-40 bg-[var(--background)] shadow-lg py-0 border-b border-white/5 transition-colors duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
         {/* Main Navbar (Always Compact Single-Row) */}
         <div className="max-w-[1440px] mx-auto px-10 flex justify-between items-center h-13 relative">
           
@@ -476,6 +484,7 @@ export default function Navbar() {
                     ) : (
                       <a
                         href={link.href}
+                        onClick={() => setActiveMenu(link.key)}
                         className="hover:text-[#f58331] transition-colors h-full flex items-center border-b-2 border-transparent focus:outline-none focus-visible:outline-none"
                       >
                         {renderLinkLabel(link.label, true, link.key)}
@@ -512,8 +521,8 @@ export default function Navbar() {
           <div className="flex items-center pl-2 select-none">
             <a href="#" className="flex flex-col items-end select-none focus:outline-none focus-visible:outline-none">
               <img 
-                src="https://dd.mocup.in/assets/web/images/logo-icon.svg" 
-                className="w-9 h-9 object-contain" 
+                src="https://dd.mocup.in/assets/web/images/designdot_logo.svg" 
+                className="h-[18px] w-auto object-contain" 
                 alt="DesignDot" 
               />
             </a>
@@ -526,6 +535,7 @@ export default function Navbar() {
             <div
               onMouseEnter={() => handleMouseEnter('expertise')}
               onMouseLeave={handleMouseLeave}
+              onMouseDown={(e) => handleMegaTabClick(e, 'expertise')}
               className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
@@ -622,6 +632,7 @@ export default function Navbar() {
             <div
               onMouseEnter={() => handleMouseEnter('ai-ingenuity')}
               onMouseLeave={handleMouseLeave}
+              onMouseDown={(e) => handleMegaTabClick(e, 'ai-ingenuity')}
               className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
@@ -739,6 +750,7 @@ export default function Navbar() {
             <div
               onMouseEnter={() => handleMouseEnter('technology')}
               onMouseLeave={handleMouseLeave}
+              onMouseDown={(e) => handleMegaTabClick(e, 'technology')}
               className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
@@ -856,6 +868,7 @@ export default function Navbar() {
             <div
               onMouseEnter={() => handleMouseEnter('corporate')}
               onMouseLeave={handleMouseLeave}
+              onMouseDown={(e) => handleMegaTabClick(e, 'corporate')}
               className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
