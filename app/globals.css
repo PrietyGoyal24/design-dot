@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: var(--accent);
+  --color-accent-cyan: #1dcdff;
+  --color-accent-yellow: #ffe315;
+  --color-accent-pink: #ff226d;
+  --color-accent-purple: #9f2de4;
+  --color-bg-dark: #131126;
+  --color-brand-orange: #f27820;
+  
+  --font-sans: var(--font-plus-jakarta), sans-serif;
+  --font-display: var(--font-plus-jakarta), sans-serif;
+}
+
+:root {
+  --background: #111028;
+  --foreground: #ffffff;
+  --accent: #1dcdff; /* Default accent color, dynamically switched */
+  --brand-orange: #f27820;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2e73;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1), color 0.5s ease;
+}
+
+/* Custom Selection style */
+::selection {
+  background-color: var(--accent);
+  color: #14122b;
+}
+
+/* Custom Cursor styling (optimized for performance) */
+#pointer-dot {
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+#pointer-ring {
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent);
+  position: fixed;
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: width 0.2s, height 0.2s, border-color 0.3s;
+}
+
+/* Custom cursor hover state classes */
+.cursor-hover #pointer-ring {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(29, 205, 255, 0.05); /* matches theme */
+}
+
+/* Theme accent transitions */
+* {
+  transition-property: border-color, text-decoration-color, fill, stroke;
+  transition-duration: 300ms;
+}
+
+/* Mega menu styles */
+.mega-menu-container {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Infinite logos marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollSegment {
+  0% {
+    transform: translateY(-100%);
+  }
+  80% {
+    transform: translateY(300%);
+  }
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+.scroll-segment-anim {
+  animation: scrollSegment 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes floatCircle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-circle {
+  animation: floatCircle 5s ease-in-out infinite;
+}
