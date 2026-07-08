@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 const THEMES = [
-  { name: 'Navy', background: '#111028', accent: '#1dcdff' },
+  { name: 'Navy', background: '#131226', accent: '#f58331' },
   { name: 'Sky Blue', background: '#1dcdff', accent: '#f58331' },
-  { name: 'Orange', background: '#ff9f1c', accent: '#111028' },
+  { name: 'Yellow', background: '#ffe315', accent: '#ff226d' },
+  { name: 'Pink', background: '#ff226d', accent: '#9f2de4' },
   { name: 'Purple', background: '#9f2de4', accent: '#1dcdff' },
 ];
 

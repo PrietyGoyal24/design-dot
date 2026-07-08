@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Send, Cpu, Settings, BrainCircuit, Eye, Cloud, Database, BarChart3, ArrowUpRight } from 'lucide-react';
+import { Send, Cpu, Settings, BrainCircuit, Eye, Cloud, Database, BarChart3, ArrowRight } from 'lucide-react';
 import { INDUSTRY_ITEMS } from '@/constants';
 
 const ICON_MAP: Record<string, any> = {
@@ -19,33 +19,26 @@ export default function Solutions() {
     <section className="relative py-24 bg-[#131126] text-white overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
           {/* Left Column - Pinned/Sticky */}
           <div className="lg:col-span-6 lg:sticky lg:top-28 self-start space-y-8 text-left">
             {/* Heading */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-4 text-xs font-display font-semibold tracking-widest text-[var(--accent)]">
-                <span>02.</span>
-                <div className="w-12 h-[1px] bg-[var(--accent)]/40" />
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight font-display text-white leading-tight uppercase">
-                We Build Smarter, Faster Solutions<span className="text-[var(--accent)]">.</span>
+            <div className="flex items-center gap-4 flex-wrap select-none mb-4">
+              <span className="text-[#f58331] font-bold text-sm">02.</span>
+              <div className="w-16 h-[1.5px] bg-slate-700" />
+              <h2 className="text-xl md:text-2xl font-extrabold tracking-wider font-display text-white uppercase flex items-center gap-1.5">
+                We Build Smarter, Faster Solutions<span className="w-1.5 h-1.5 rounded-full bg-white inline-block" />
               </h2>
             </div>
 
             {/* Left Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-white/5 border border-slate-700/40 p-8 rounded-[20px] max-w-md shadow-xl flex flex-col justify-between"
-            >
+            <div className="bg-[#18181c] border border-white/5 p-8 rounded-[16px] max-w-md shadow-2xl flex flex-col justify-between space-y-6">
               <div className="space-y-6">
-                <div className="w-12 h-12 bg-[var(--accent)] text-[#131126] rounded-xl flex items-center justify-center">
-                  <Send size={20} className="-rotate-45" />
+                <div className="text-white flex items-center justify-start shrink-0">
+                  <Send size={28} className="-rotate-45" />
                 </div>
                 <div>
-                  <h5 className="text-xl font-bold font-display text-white mb-2">
+                  <h5 className="text-xl font-bold font-display text-white mb-1">
                     Fuel Your Digital-First Idea
                   </h5>
                   <p className="text-slate-400 text-xs tracking-wider uppercase font-medium">
@@ -54,52 +47,51 @@ export default function Solutions() {
                 </div>
               </div>
               
-              <div className="pt-8">
+              <div className="pt-4">
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center bg-[var(--accent)] hover:bg-white text-[#131126] hover:text-[#131126] px-6 py-3 rounded-full text-xs font-bold font-display tracking-widest transition-colors cursor-pointer"
+                  className="inline-flex items-center justify-center bg-[#f58331] hover:bg-white text-white hover:text-black px-6 py-2.5 rounded-full text-xs font-bold font-display tracking-widest transition-colors cursor-pointer uppercase"
                 >
                   Innovate With Us
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Column - Scrollable list */}
-          <div className="lg:col-span-6 space-y-6 text-left lg:pt-16">
+          <div className="lg:col-span-6 space-y-1 text-left lg:pt-16">
             {INDUSTRY_ITEMS.map((item, index) => {
               const IconComponent = ICON_MAP[item.icon] || Cpu;
               return (
-                <motion.div
+                <div
                   key={item.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group bg-white/5 border border-slate-800 hover:border-[var(--accent)] p-6 rounded-[20px] transition-all duration-300 hover:bg-white/10"
+                  className="group relative border-b border-slate-800/80 last:border-b-0 py-5 transition-all duration-300 cursor-pointer"
                 >
-                  <div className="flex gap-4 items-center">
+                  {/* Hover background highlight effect */}
+                  <div className="absolute inset-0 bg-[#1b1a32] border border-white/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mx-4 -my-1 -z-10 shadow-lg" />
+                  
+                  <div className="flex gap-4 items-center px-2">
                     {/* Left Icon */}
-                    <div className="w-12 h-12 bg-white/5 text-[var(--accent)] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[var(--accent)] group-hover:text-[#131126] transition-colors duration-300">
-                      <IconComponent size={22} />
+                    <div className="text-[var(--accent)] shrink-0 flex items-center justify-center w-8 h-8">
+                      <IconComponent size={20} className="text-white group-hover:text-[#f58331] transition-colors duration-300" />
                     </div>
 
                     {/* Middle Info */}
                     <div className="flex-1 space-y-1 pr-4">
-                      <h5 className="text-base font-bold font-display text-white group-hover:text-[var(--accent)] transition-colors">
+                      <h5 className="text-sm md:text-[14.5px] font-extrabold font-display text-white group-hover:text-[#f58331] transition-colors duration-300 uppercase tracking-wider">
                         {item.title}
                       </h5>
-                      <p className="text-slate-400 text-xs leading-relaxed font-medium">
+                      <p className="text-slate-400 text-[12.5px] leading-relaxed font-medium">
                         {item.description}
                       </p>
                     </div>
 
                     {/* Right Arrow */}
-                    <div className="shrink-0 text-slate-500 group-hover:text-[var(--accent)] transition-colors duration-300">
-                      <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <div className="shrink-0 text-slate-500 group-hover:text-[#f58331] transition-colors duration-300">
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

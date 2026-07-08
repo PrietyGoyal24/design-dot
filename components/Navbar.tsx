@@ -424,25 +424,17 @@ export default function Navbar() {
     const isActive = hoveredMenu === menuKey || activeMenu === menuKey;
     if (label.toLowerCase() === 'ai ingenuity') {
       return (
-        <span className="relative flex items-center py-2 h-full focus:outline-none focus-visible:outline-none select-none">
+        <span className="relative flex items-center py-2 h-full focus:outline-none focus-visible:outline-none select-none text-[13px] font-display">
           <span className={isActive ? 'text-white' : 'text-slate-200'}>AI&nbsp;</span>
           <span className="text-[#f58331]">INGENUITY</span>
-          {/* Active Highlight Underline */}
-          <span className={`absolute bottom-0 left-0 w-full h-[2px] transition-all duration-200 origin-left ${
-            isActive ? 'bg-[#f58331] scale-x-100' : 'bg-transparent scale-x-0'
-          }`} />
         </span>
       );
     }
 
     const displayLabel = label.toUpperCase();
     return (
-      <span className="relative py-2 h-full flex items-center focus:outline-none focus-visible:outline-none select-none">
+      <span className="relative py-2 h-full flex items-center focus:outline-none focus-visible:outline-none select-none text-[13px] font-display">
         <span>{displayLabel}</span>
-        {/* Active Highlight Underline */}
-        <span className={`absolute bottom-0 left-0 w-full h-[2px] transition-all duration-200 origin-left ${
-          isActive ? 'bg-[#f58331] scale-x-100' : 'bg-transparent scale-x-0'
-        }`} />
       </span>
     );
   };
@@ -451,15 +443,15 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 w-full z-40 bg-[var(--background)] shadow-lg py-0 border-b border-white/5 transition-colors duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
         {/* Main Navbar (Always Compact Single-Row) */}
-        <div className="max-w-[1440px] mx-auto px-10 flex justify-between items-center h-13 relative">
+        <div className="w-full px-[50px] flex justify-between items-center h-[72px] relative">
           
-          {/* Left Side Group (Hamburger + Links) */}
-          <div className="flex items-center gap-6 flex-1 h-full">
+          {/* Left/Middle Group: Navigation links, Support and Consultation button */}
+          <div className="flex items-center gap-[25px] h-full">
             {/* Hamburger Menu trigger (hidden on desktop) */}
             <div className="flex lg:hidden items-center">
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="flex items-center gap-2 text-white hover:text-[#f58331] font-bold text-xs tracking-wider cursor-pointer focus:outline-none focus-visible:outline-none"
+                className="flex items-center gap-2 text-white hover:text-[#f58331] font-bold text-xs tracking-wider cursor-pointer focus:outline-none focus-visible:outline-none font-display"
               >
                 <Menu size={16} />
                 <span>MENU</span>
@@ -467,7 +459,9 @@ export default function Navbar() {
             </div>
 
             {/* Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-[18px] font-display font-bold text-[10.5px] tracking-widest text-white h-full">
+            <nav className={`hidden lg:flex items-center gap-[25px] font-display font-bold text-[13px] text-white h-full ${
+              isScrolled ? '!hidden' : ''
+            }`}>
               {NAVIGATION_LINKS.map((link) => {
                 return (
                   <div 
@@ -479,7 +473,6 @@ export default function Navbar() {
                     {link.hasMegaMenu ? (
                       <button className="flex items-center gap-0.5 hover:text-[#f58331] transition-colors cursor-pointer h-full border-b-2 border-transparent focus:outline-none focus-visible:outline-none">
                         {renderLinkLabel(link.label, true, link.key)} 
-                        <ChevronDown size={9} className="ml-0.5 opacity-60 text-slate-400" />
                       </button>
                     ) : (
                       <a
@@ -494,35 +487,37 @@ export default function Navbar() {
                 );
               })}
             </nav>
-          </div>
 
-          {/* Right Area: Support & Consultation (Always visible on desktop) */}
-          <div className="hidden lg:flex items-center gap-5 mr-4 text-[10.5px] font-bold text-white transition-all duration-300 select-none">
-            {/* support numbers with 24 hours support icon */}
-            <div className="flex items-center gap-1.5 text-white font-bold">
-              <img 
-                src="https://dd.mocup.in/assets/web/images/all/support-icon.svg" 
-                alt="Support Icon" 
-                className="w-[18px] h-[18px] filter brightness-100"
-              />
-              <span>+91 9873282812/+1 4694410125</span>
+            {/* Support Numbers & Consultation Button (Grouped with links for fixed spacing) */}
+            <div className={`hidden lg:flex items-center gap-[25px] select-none ${
+              isScrolled ? '!hidden' : ''
+            }`}>
+              {/* support numbers with 24 hours support icon */}
+              <div className="flex items-center gap-2.5 text-white font-medium text-[13px] h-[34px] font-display">
+                <img 
+                  src="https://dd.mocup.in/assets/web/images/all/support-icon.svg" 
+                  alt="Support Icon" 
+                  className="w-[34px] h-[34px]"
+                />
+                <span className="whitespace-nowrap">+91 9873282812 / +1 4694410125</span>
+              </div>
+              
+              {/* Orange consultation button */}
+              <button
+                onClick={triggerModal}
+                className="bg-[#f58331] text-white hover:bg-white hover:text-black transition-colors w-[186.24px] h-[44px] rounded-[4px] font-bold text-[13px] uppercase cursor-pointer flex items-center justify-center whitespace-nowrap px-[15px] focus:outline-none focus-visible:outline-none font-display"
+              >
+                FREE CONSULTATION
+              </button>
             </div>
-            
-            {/* Orange consultation capsule button */}
-            <button
-              onClick={triggerModal}
-              className="bg-[#f58331] text-white hover:bg-white hover:text-black transition-colors px-3.5 py-2 rounded-[6px] font-bold tracking-widest text-[9.5px] uppercase shadow-lg shadow-black/20 cursor-pointer focus:outline-none focus-visible:outline-none"
-            >
-              FREE CONSULTATION
-            </button>
           </div>
 
           {/* Right Logo */}
-          <div className="flex items-center pl-2 select-none">
+          <div className="flex items-center pl-6 select-none shrink-0">
             <a href="#" className="flex flex-col items-end select-none focus:outline-none focus-visible:outline-none">
               <img 
-                src="https://dd.mocup.in/assets/web/images/designdot_logo.svg" 
-                className="h-[18px] w-auto object-contain" 
+                src={isScrolled ? "https://dd.mocup.in/assets/web/images/logo-icon.svg" : "https://dd.mocup.in/assets/web/images/designdot_logo.svg"} 
+                className={isScrolled ? "w-[36px] h-[36px] object-contain" : "w-[202px] h-[56px] object-contain"} 
                 alt="DesignDot" 
               />
             </a>
@@ -536,7 +531,7 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('expertise')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'expertise')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
+              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
                 {/* Left Column (col-span-4) */}
@@ -546,22 +541,22 @@ export default function Navbar() {
                     alt="Expertise Development"
                     className="w-full h-40 object-cover rounded-lg mb-5 shadow-sm border border-slate-100"
                   />
-                  <h3 className="font-extrabold text-[15px] tracking-wider text-slate-900 mb-1">
+                  <h3 className="font-extrabold text-[18px] tracking-wider text-slate-900 mb-1">
                     {EXPERTISE_MENU.left.title}
                   </h3>
-                  <p className="text-[11px] text-slate-500 font-semibold mb-6">
+                  <p className="text-[13px] text-slate-500 font-semibold mb-6">
                     {EXPERTISE_MENU.left.subtitle}
                   </p>
 
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-[24px]">
                     {EXPERTISE_MENU.left.items.map((item: any) => (
-                      <div key={item.title} className="flex items-start gap-3">
-                        <img src={item.icon} alt={item.title} className="w-8 h-8 flex-shrink-0 mt-0.5" />
+                      <div key={item.title} className="grid grid-cols-[auto_1fr] items-start gap-4">
+                        <img src={item.icon} alt={item.title} className="w-[32px] h-[32px] mt-1" />
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-extrabold tracking-widest text-slate-800 uppercase leading-snug">
+                          <span className="text-[13px] font-[800] tracking-widest text-slate-800 uppercase leading-snug">
                             {item.title}
                           </span>
-                          <span className="text-[10.5px] text-slate-500 font-medium leading-normal mt-0.5">
+                          <span className="text-[12px] text-slate-600 font-[400] leading-normal mt-1">
                             {item.desc}
                           </span>
                         </div>
@@ -571,13 +566,13 @@ export default function Navbar() {
                 </div>
 
                 {/* Center Column (col-span-3) */}
-                <div className="col-span-3 border-r border-slate-200 pr-4 flex flex-col gap-1 select-none">
+                <div className="col-span-3 border-r-[2.5px] border-slate-200 pr-[32px] flex flex-col gap-4 select-none">
                   {EXPERTISE_MENU.center.categories.map((cat) => (
                     <button
                       key={cat}
                       onMouseEnter={() => setActiveExpertiseCategory(cat)}
                       onClick={() => setActiveExpertiseCategory(cat)}
-                      className={`flex items-center justify-between w-full text-left px-4 py-[9px] font-bold text-[11px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeExpertiseCategory === cat
+                      className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeExpertiseCategory === cat
                           ? 'bg-[#00539c] text-white shadow-sm'
                           : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
                         }`}
@@ -598,12 +593,12 @@ export default function Navbar() {
                     </h4>
                     <div className="flex-1 h-[1px] bg-slate-200" />
                   </div>
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-3.5 pr-4">
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-[16px] pr-4">
                     {(EXPERTISE_MENU.center.subServices[activeExpertiseCategory as keyof typeof EXPERTISE_MENU.center.subServices] || []).map((serv) => (
                       <a
                         key={serv}
                         href="#"
-                        className="text-slate-600 hover:text-[#00539c] transition-colors text-[11.5px] font-bold tracking-wide py-0.5"
+                        className="text-[#333333] hover:text-[#00539c] transition-colors text-[13px] font-[200] leading-[24px] py-0.5"
                       >
                         {serv}
                       </a>
@@ -633,7 +628,7 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('ai-ingenuity')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'ai-ingenuity')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
+              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
                 {/* Left Column (col-span-4) */}
@@ -643,29 +638,29 @@ export default function Navbar() {
                     alt="AI Innovation Models"
                     className="w-full h-40 object-cover rounded-lg mb-5 shadow-sm border border-slate-100"
                   />
-                  <h3 className="font-extrabold text-[15px] tracking-wider text-slate-900 mb-1">
+                  <h3 className="font-extrabold text-[18px] tracking-wider text-slate-900 mb-1">
                     {AI_MENU.left.title}
                   </h3>
-                  <p className="text-[11px] text-slate-500 font-semibold mb-6">
+                  <p className="text-[13px] text-slate-500 font-semibold mb-6">
                     {AI_MENU.left.subtitle}
                   </p>
 
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-[24px]">
                     {AI_MENU.left.items.map((item: any) => (
-                      <div key={item.title} className="flex items-start gap-3">
+                      <div key={item.title} className="grid grid-cols-[auto_1fr] items-start gap-4">
                         {item.icon ? (
-                          <img src={item.icon} alt={item.title} className="w-8 h-8 flex-shrink-0 mt-0.5" />
+                          <img src={item.icon} alt={item.title} className="w-[32px] h-[32px] mt-1" />
                         ) : (
-                          <div className="w-8 h-8 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-[#f58331] font-bold text-xs mt-0.5">
+                          <div className="w-[32px] h-[32px] bg-slate-100 rounded-lg flex items-center justify-center text-[#f58331] font-bold text-xs mt-1">
                             AI
                           </div>
                         )}
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-extrabold tracking-widest text-slate-800 uppercase leading-snug">
+                          <span className="text-[13px] font-[800] tracking-widest text-slate-800 uppercase leading-snug">
                             {item.title}
                           </span>
                           {item.desc && (
-                            <span className="text-[10.5px] text-slate-500 font-medium leading-normal mt-0.5">
+                            <span className="text-[12px] text-slate-600 font-[400] leading-normal mt-1">
                               {item.desc}
                             </span>
                           )}
@@ -675,7 +670,7 @@ export default function Navbar() {
                                 <a
                                   key={lnk.label}
                                   href={lnk.href}
-                                  className="text-[#00539c] font-bold text-[10.5px] tracking-widest hover:underline hover:text-[#f58331] transition-colors"
+                                  className="text-[#00539c] font-bold text-[12px] tracking-widest hover:underline hover:text-[#f58331] transition-colors"
                                 >
                                   {lnk.label}
                                 </a>
@@ -689,13 +684,13 @@ export default function Navbar() {
                 </div>
 
                 {/* Center Column (col-span-3) */}
-                <div className="col-span-3 border-r border-slate-200 pr-4 flex flex-col gap-1 select-none">
+                <div className="col-span-3 border-r-[2.5px] border-slate-200 pr-[32px] flex flex-col gap-4 select-none">
                   {AI_MENU.center.categories.map((cat) => (
                     <button
                       key={cat}
                       onMouseEnter={() => setActiveAICategory(cat)}
                       onClick={() => setActiveAICategory(cat)}
-                      className={`flex items-center justify-between w-full text-left px-4 py-[9px] font-bold text-[11px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeAICategory === cat
+                      className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeAICategory === cat
                           ? 'bg-[#00539c] text-white shadow-sm'
                           : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
                         }`}
@@ -716,12 +711,12 @@ export default function Navbar() {
                     </h4>
                     <div className="flex-1 h-[1px] bg-slate-200" />
                   </div>
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-3.5 pr-4">
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-[16px] pr-4">
                     {(AI_MENU.center.subServices[activeAICategory as keyof typeof AI_MENU.center.subServices] || []).map((serv) => (
                       <a
                         key={serv}
                         href="#"
-                        className="text-slate-600 hover:text-[#00539c] transition-colors text-[11.5px] font-bold tracking-wide py-0.5"
+                        className="text-[#333333] hover:text-[#00539c] transition-colors text-[13px] font-[200] leading-[24px] py-0.5"
                       >
                         {serv}
                       </a>
@@ -751,7 +746,7 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('technology')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'technology')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
+              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
                 {/* Left Column (col-span-4) */}
@@ -761,29 +756,29 @@ export default function Navbar() {
                     alt="Technologies"
                     className="w-full h-40 object-cover rounded-lg mb-5 shadow-sm border border-slate-100"
                   />
-                  <h3 className="font-extrabold text-[15px] tracking-wider text-slate-900 mb-1">
+                  <h3 className="font-extrabold text-[18px] tracking-wider text-slate-900 mb-1">
                     {TECH_MENU.left.title}
                   </h3>
-                  <p className="text-[11px] text-slate-500 font-semibold mb-6">
+                  <p className="text-[13px] text-slate-500 font-semibold mb-6">
                     {TECH_MENU.left.subtitle}
                   </p>
 
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-[24px]">
                     {TECH_MENU.left.items.map((item: any) => (
-                      <div key={item.title} className="flex items-start gap-3">
+                      <div key={item.title} className="grid grid-cols-[auto_1fr] items-start gap-4">
                         {item.icon ? (
-                          <img src={item.icon} alt={item.title} className="w-8 h-8 flex-shrink-0 mt-0.5" />
+                          <img src={item.icon} alt={item.title} className="w-[32px] h-[32px] mt-1" />
                         ) : (
-                          <div className="w-8 h-8 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-[#f58331] font-bold text-xs mt-0.5">
+                          <div className="w-[32px] h-[32px] bg-slate-100 rounded-lg flex items-center justify-center text-[#f58331] font-bold text-xs mt-1">
                             ⚙
                           </div>
                         )}
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-extrabold tracking-widest text-slate-800 uppercase leading-snug">
+                          <span className="text-[13px] font-[800] tracking-widest text-slate-800 uppercase leading-snug">
                             {item.title}
                           </span>
                           {item.desc && (
-                            <span className="text-[10.5px] text-slate-500 font-medium leading-normal mt-0.5">
+                            <span className="text-[12px] text-slate-600 font-[400] leading-normal mt-1">
                               {item.desc}
                             </span>
                           )}
@@ -793,7 +788,7 @@ export default function Navbar() {
                                 <a
                                   key={lnk.label}
                                   href={lnk.href}
-                                  className="text-[#00539c] font-bold text-[10.5px] tracking-widest hover:underline hover:text-[#f58331] transition-colors"
+                                  className="text-[#00539c] font-bold text-[12px] tracking-widest hover:underline hover:text-[#f58331] transition-colors"
                                 >
                                   {lnk.label}
                                 </a>
@@ -807,13 +802,13 @@ export default function Navbar() {
                 </div>
 
                 {/* Center Column (col-span-3) */}
-                <div className="col-span-3 border-r border-slate-200 pr-4 flex flex-col gap-1 select-none">
+                <div className="col-span-3 border-r-[2.5px] border-slate-200 pr-[32px] flex flex-col gap-4 select-none">
                   {TECH_MENU.center.categories.map((cat) => (
                     <button
                       key={cat}
                       onMouseEnter={() => setActiveTechCategory(cat)}
                       onClick={() => setActiveTechCategory(cat)}
-                      className={`flex items-center justify-between w-full text-left px-4 py-[9px] font-bold text-[11px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeTechCategory === cat
+                      className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeTechCategory === cat
                           ? 'bg-[#00539c] text-white shadow-sm'
                           : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
                         }`}
@@ -834,12 +829,12 @@ export default function Navbar() {
                     </h4>
                     <div className="flex-1 h-[1px] bg-slate-200" />
                   </div>
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-3.5 pr-4">
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-[16px] pr-4">
                     {(TECH_MENU.center.subServices[activeTechCategory as keyof typeof TECH_MENU.center.subServices] || []).map((serv) => (
                       <a
                         key={serv}
                         href="#"
-                        className="text-slate-600 hover:text-[#00539c] transition-colors text-[11.5px] font-bold tracking-wide py-0.5"
+                        className="text-[#333333] hover:text-[#00539c] transition-colors text-[13px] font-[200] leading-[24px] py-0.5"
                       >
                         {serv}
                       </a>
@@ -869,7 +864,7 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('corporate')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'corporate')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[52px]"
+              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
               <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
                 {/* Left Column (col-span-4) */}
@@ -879,22 +874,22 @@ export default function Navbar() {
                     alt="Corporate Models"
                     className="w-full h-40 object-cover rounded-lg mb-5 shadow-sm border border-slate-100"
                   />
-                  <h3 className="font-extrabold text-[15px] tracking-wider text-slate-900 mb-1">
+                  <h3 className="font-extrabold text-[18px] tracking-wider text-slate-900 mb-1">
                     {CORPORATE_MENU.left.title}
                   </h3>
-                  <p className="text-[11px] text-slate-500 font-semibold mb-6">
+                  <p className="text-[13px] text-slate-500 font-semibold mb-6">
                     {CORPORATE_MENU.left.subtitle}
                   </p>
 
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-[24px]">
                     {CORPORATE_MENU.left.items.map((item: any) => (
-                      <div key={item.title} className="flex items-start gap-3">
-                        <img src={item.icon} alt={item.title} className="w-8 h-8 flex-shrink-0 mt-0.5" />
+                      <div key={item.title} className="grid grid-cols-[auto_1fr] items-start gap-4">
+                        <img src={item.icon} alt={item.title} className="w-[32px] h-[32px] mt-1" />
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-extrabold tracking-widest text-slate-800 uppercase leading-snug">
+                          <span className="text-[13px] font-[800] tracking-widest text-slate-800 uppercase leading-snug">
                             {item.title}
                           </span>
-                          <span className="text-[10.5px] text-slate-500 font-medium leading-normal mt-0.5">
+                          <span className="text-[12px] text-slate-600 font-[400] leading-normal mt-1">
                             {item.desc}
                           </span>
                         </div>
