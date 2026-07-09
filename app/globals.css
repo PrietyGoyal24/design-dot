@@ -1,5 +1,48 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'GT-Walsheim-Pro-Black';
+    src: url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Black.woff") format("woff"), url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Black.ttf") format("ttf");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Bold.woff") format("woff"), url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Regular.woff") format("woff"), url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GT-Walsheim-Pro';
+    src: url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Light.woff") format("woff"), url("https://dd.mocup.in/assets/web/fonts/GTWalsheimPro-Light.ttf") format("ttf");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SocialGothic';
+    src: url("https://dd.mocup.in/assets/web/fonts/SocialGothic-Bold.woff") format("woff"), url("https://dd.mocup.in/assets/web/fonts/SocialGothic-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SocialGothic';
+    src: url("https://dd.mocup.in/assets/web/fonts/SocialGothic.woff") format("woff"), url("https://dd.mocup.in/assets/web/fonts/SocialGothic-Bold.ttf") format("ttf"); /* According to their CSS */
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
   --color-accent: var(--accent);
   --color-accent-cyan: #1dcdff;
@@ -9,8 +52,9 @@
   --color-bg-dark: #131126;
   --color-brand-orange: #f27820;
   
-  --font-sans: var(--font-plus-jakarta), sans-serif;
-  --font-display: var(--font-plus-jakarta), sans-serif;
+  --font-sans: 'GT-Walsheim-Pro', sans-serif;
+  --font-display: 'SocialGothic', sans-serif;
+  --font-walsheim-black: 'GT-Walsheim-Pro-Black', sans-serif;
 }
 
 :root {

@@ -9,35 +9,33 @@ export default function Blog() {
     <section className="relative py-24 bg-[#f8f9fc] text-slate-900 overflow-hidden select-none border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 space-y-12">
         {/* Section Heading */}
-        <div className="flex items-center w-full whitespace-nowrap mb-10">
-          <span className="text-[15px] font-extrabold tracking-widest text-[#f27820] mr-6">
-            07.
-          </span>
-          <div className="w-[80px] h-[1.5px] bg-[#f27820] mr-6" />
-          <span className="text-[22px] font-extrabold tracking-wide text-slate-900">
-            Blog .
-          </span>
-          <div className="flex-1" />
-          <div className="w-[60px] h-[1px] bg-slate-900 mr-6 hidden sm:block" />
-          <a
-            href="https://blog.deesigndot.com/"
-            target="_blank"
-            className="bg-[#f27820] text-slate-950 hover:bg-black hover:text-white transition-colors px-[14px] py-[6px] text-[11px] font-bold tracking-widest uppercase"
-          >
-            EXPLORE
-          </a>
+        <div className="flex items-center flex-wrap md:flex-nowrap text-left mb-10 w-full">
+          <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">07.</p>
+          <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+          <h2 className="text-[24px] leading-[30px] font-bold font-sans text-[#111111] tracking-[1px] flex items-center flex-wrap capitalize">
+            Blog<span className="w-[8px] h-[8px] rounded-full bg-black inline-block ml-[2px] shrink-0" />
+          </h2>
+          <div className="hidden md:flex flex-1 items-center gap-[15px] justify-end">
+            <div className="w-[96px] h-[2px] bg-[#727272]" />
+            <a
+              href="https://blog.deesigndot.com/"
+              target="_blank"
+              className="bg-[#f27820] text-[#111111] px-[12px] py-[6px] rounded-[10px] text-[12px] font-bold font-sans tracking-[1px] uppercase transition-colors"
+            >
+              EXPLORE
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5 text-left">
-
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight font-display text-slate-900 leading-tight">
-              Ideas. Innovation. Influence.<span className="text-[#f27820]">.</span>
+            <h2 className="text-[24px] leading-[30px] font-bold font-sans text-black mb-[20px]">
+              Ideas. Innovation. Influence.
             </h2>
           </div>
 
-          <div className="lg:col-span-7 lg:pt-10 text-left">
-            <p className="text-slate-500 font-sans text-sm md:text-base leading-relaxed font-medium max-w-2xl">
+          <div className="lg:col-span-7 text-left">
+            <p className="text-[16px] leading-[1.5] font-sans font-light text-black max-w-2xl">
               A redefinition of the global. Stay updated with DesignDot insights, branding tips, ecommerce engineering trends, and software audits.
             </p>
           </div>
@@ -67,7 +65,7 @@ export default function Blog() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
                     />
-                    
+
                     {/* Floating Date Info block */}
                     <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-sm text-white p-3 rounded-xl flex flex-col items-center justify-center text-center shadow-lg min-w-[70px]">
                       <span className="text-lg font-bold font-display leading-none text-[var(--accent)]">{day}</span>
@@ -80,10 +78,10 @@ export default function Blog() {
 
                   {/* Body Content */}
                   <div className="p-6 flex-1 flex flex-col justify-between">
-                    <h3 className="text-base font-extrabold font-display text-slate-900 group-hover:text-[#f27820] transition-colors leading-snug line-clamp-3">
+                    <h3 className="text-[20px] leading-[26px] font-bold font-sans text-slate-900 group-hover:text-[#f27820] transition-colors line-clamp-3">
                       {post.title}
                     </h3>
-                    
+
                     {/* Read More link arrow */}
                     <div className="flex justify-between items-center pt-6 mt-auto border-t border-slate-50">
                       <span className="text-[10px] font-bold font-display tracking-widest text-[#f27820]">

@@ -19,38 +19,38 @@ export default function Solutions() {
     <section className="relative py-24 bg-[#131126] text-white overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column - Pinned/Sticky */}
           <div className="lg:col-span-6 lg:sticky lg:top-28 self-start space-y-8 text-left">
             {/* Heading */}
-            <div className="flex items-center gap-4 flex-wrap select-none mb-4">
-              <span className="text-[#f58331] font-bold text-sm">02.</span>
-              <div className="w-16 h-[1.5px] bg-slate-700" />
-              <h2 className="text-xl md:text-2xl font-extrabold tracking-wider font-display text-white uppercase flex items-center gap-1.5">
-                We Build Smarter, Faster Solutions<span className="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+            <div className="flex items-center flex-wrap md:flex-nowrap select-none mb-[60px] text-left">
+              <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">02.</p>
+              <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+              <h2 className="text-[24px] leading-[30px] font-bold font-sans text-white tracking-[1px] flex items-center flex-wrap capitalize">
+                We Build Smarter, Faster Solutions<span className="w-[8px] h-[8px] rounded-full bg-white inline-block ml-[2px] shrink-0" />
               </h2>
             </div>
 
             {/* Left Card */}
-            <div className="bg-[#18181c] border border-white/5 p-8 rounded-[16px] max-w-md shadow-2xl flex flex-col justify-between space-y-6">
+            <div className="bg-[#18181c] border border-white/5 p-[30px] rounded-[16px] max-w-md shadow-2xl flex flex-col justify-between space-y-6">
               <div className="space-y-6">
                 <div className="text-white flex items-center justify-start shrink-0">
                   <Send size={28} className="-rotate-45" />
                 </div>
                 <div>
-                  <h5 className="text-xl font-bold font-display text-white mb-1">
+                  <h5 className="text-[24px] leading-[30px] font-bold font-sans text-white mb-1">
                     Fuel Your Digital-First Idea
                   </h5>
-                  <p className="text-slate-400 text-xs tracking-wider uppercase font-medium">
+                  <p className="text-[#a1a1aa] text-[16px] leading-[24px] tracking-wider uppercase font-sans font-light">
                     With 1600+ Transformation Experts
                   </p>
                 </div>
               </div>
-              
+
               <div className="pt-4">
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center bg-[#f58331] hover:bg-white text-white hover:text-black px-6 py-2.5 rounded-full text-xs font-bold font-display tracking-widest transition-colors cursor-pointer uppercase"
+                  className="inline-flex items-center justify-center bg-[#f58331] hover:bg-white text-white hover:text-black px-6 py-2.5 rounded-full text-[13px] font-bold font-sans tracking-widest transition-colors cursor-pointer uppercase"
                 >
                   Innovate With Us
                 </a>
@@ -69,7 +69,7 @@ export default function Solutions() {
                 >
                   {/* Hover background highlight effect */}
                   <div className="absolute inset-0 bg-[#1b1a32] border border-white/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mx-4 -my-1 -z-10 shadow-lg" />
-                  
+
                   <div className="flex gap-4 items-center px-2">
                     {/* Left Icon */}
                     <div className="text-[var(--accent)] shrink-0 flex items-center justify-center w-8 h-8">
@@ -78,10 +78,10 @@ export default function Solutions() {
 
                     {/* Middle Info */}
                     <div className="flex-1 space-y-1 pr-4">
-                      <h5 className="text-sm md:text-[14.5px] font-extrabold font-display text-white group-hover:text-[#f58331] transition-colors duration-300 uppercase tracking-wider">
+                      <h5 className="text-[24px] leading-[30px] font-bold font-sans text-white group-hover:text-[#f58331] transition-colors duration-300 uppercase tracking-wider">
                         {item.title}
                       </h5>
-                      <p className="text-slate-400 text-[12.5px] leading-relaxed font-medium">
+                      <p className="text-slate-400 text-[16px] leading-[24px] font-sans font-light">
                         {item.description}
                       </p>
                     </div>

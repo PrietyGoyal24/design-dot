@@ -533,13 +533,13 @@ export const INDUSTRY_ITEMS = [
 
 export const GRID_TECH_DATA = {
   frontend: [
-    { name: "HTML5", img: "https://dd.mocup.in/assets/web/images/icon/html-logo.svg" },
-    { name: "CSS3", img: "https://dd.mocup.in/assets/web/images/icon/css-logo.svg" },
-    { name: "JavaScript", img: "https://dd.mocup.in/assets/web/images/icon/javascript-lg.svg" },
-    { name: "React", img: "https://dd.mocup.in/assets/web/images/icon/react-logo-icon.svg" },
-    { name: "Nextjs", img: "https://dd.mocup.in/assets/web/images/icon/nextlogo.svg" },
-    { name: "Vue.js", img: "https://dd.mocup.in/assets/web/images/icon/vuejs-logo.svg" },
-    { name: "Angular", img: "https://dd.mocup.in/assets/web/images/icon/ng-logo.svg" },
+    { name: "HTML", img: "https://dd.mocup.in/assets/web/images/icon/html-logo.svg" },
+    { name: "CSS", img: "https://dd.mocup.in/assets/web/images/icon/css-logo.svg" },
+    { name: "JAVASCRIPT", img: "https://dd.mocup.in/assets/web/images/icon/javascript-lg.svg" },
+    { name: "REACT", img: "https://dd.mocup.in/assets/web/images/icon/react-logo-icon.svg" },
+    { name: "NEXTJS", img: "https://dd.mocup.in/assets/web/images/icon/nextlogo.svg" },
+    { name: "VUE.JS", img: "https://dd.mocup.in/assets/web/images/icon/vuejs-logo.svg" },
+    { name: "ANGULAR", img: "https://dd.mocup.in/assets/web/images/icon/ng-logo.svg" },
   ],
   backend: [
     { name: "Node.js", img: "https://dd.mocup.in/assets/web/images/icon/node_js.svg" },

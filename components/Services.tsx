@@ -24,14 +24,12 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row md:items-center gap-4 text-left"
+          className="flex items-center flex-wrap md:flex-nowrap text-left mb-[60px]"
         >
-          <div className="flex items-center gap-4 text-xs font-display font-semibold tracking-widest text-[#f27820] shrink-0">
-            <span>01.</span>
-            <div className="w-12 h-[1px] bg-[#f27820]/40" />
-          </div>
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight font-display text-slate-900 uppercase">
-            Navigate The Digital Frontier With Our Engineering Excellence<span className="text-[#f27820]">.</span>
+          <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">01.</p>
+          <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+          <h2 className="text-[24px] leading-[30px] font-bold font-sans text-[#111111] tracking-[1px] flex items-center flex-wrap">
+            Navigate The Digital Frontier With Our Engineering Excellence<span className="w-[8px] h-[8px] rounded-full bg-black inline-block ml-[2px] shrink-0" />
           </h2>
         </motion.div>
 
@@ -46,19 +44,19 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#363266] rounded-[20px] p-8 min-h-[460px] flex flex-col justify-between text-left hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#363266]/20 transition-all duration-300 group"
+                className="bg-[#33305a] rounded-[20px] p-[30px] min-h-[500px] flex flex-col justify-start text-left hover:-translate-y-[5px] transition-transform duration-300 group"
               >
                 {/* Icon wrapper */}
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)] group-hover:text-[#131126] transition-colors duration-300">
-                  <IconComponent size={24} />
+                <div className="text-white mb-auto opacity-90 group-hover:opacity-100 transition-opacity">
+                  <IconComponent size={28} strokeWidth={1.5} />
                 </div>
 
                 {/* Content */}
-                <div className="space-y-4 mt-auto">
-                  <h3 className="text-xl font-bold font-display text-white leading-snug">
+                <div className="mt-auto flex flex-col">
+                  <h3 className="text-[24px] font-sans font-bold text-white leading-[30px] mb-[28px] min-h-[65px]">
                     {card.title}
                   </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed font-medium">
+                  <p className="text-white text-[18px] leading-[30px] font-sans font-light flex-grow">
                     {card.description}
                   </p>
                 </div>

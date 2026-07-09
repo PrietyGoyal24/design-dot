@@ -85,7 +85,7 @@ export default function Hero() {
 
           {/* Heading */}
           <h1
-            className="font-display font-extrabold text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-white uppercase select-none mb-4 max-w-4xl"
+            className="font-walsheim-black text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-white uppercase select-none mb-4 max-w-4xl"
           >
             {typedHeading}
             {/* Typing Cursor (only active when paragraph is empty and heading is typing) */}
@@ -99,7 +99,7 @@ export default function Hero() {
           {/* Paragraph */}
           {typedParagraph.length > 0 && (
             <p
-              className="text-[11.5px] sm:text-[13px] md:text-[14px] font-extrabold tracking-wider uppercase text-slate-300 max-w-2xl leading-[1.5] select-none"
+              className="text-[16px] font-sans tracking-wide text-white/90 max-w-2xl leading-[1.5] select-none mt-2"
             >
               {typedParagraph}
               {/* Typing Cursor on Paragraph */}

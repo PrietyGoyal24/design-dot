@@ -12,10 +12,10 @@ export default function WhyUs() {
         {/* Left Content Column */}
         <div className="flex flex-col justify-center py-16 md:py-24 px-8 md:pl-[60px] lg:pl-[120px] md:pr-[20px] lg:pr-[40px] text-left bg-white z-10">
           {/* Index and Section Name */}
-          <div className="flex items-center gap-[16px] text-[#111111] mb-12">
-            <span className="font-extrabold text-[16px] tracking-wider">00.</span>
-            <div className="w-[50px] h-[1px] bg-[#111111]" />
-            <span className="font-extrabold text-[16px] tracking-widest capitalize">Why Us.</span>
+          <div className="flex items-center flex-wrap md:flex-nowrap text-[#111111] mb-[60px] text-left">
+            <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">00.</p>
+            <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+            <span className="font-bold text-[24px] leading-[30px] font-sans tracking-[1px] capitalize">Why Us.</span>
           </div>
 
           {/* Heading */}
@@ -36,7 +36,7 @@ export default function WhyUs() {
             <div className="w-[40px] h-[1px] bg-[#111111]" />
             <a
               href="https://dd.mocup.in/about-us"
-              className="bg-[#f27820] text-[#111111] px-6 py-2.5 font-bold tracking-[0.2em] text-[10px] uppercase select-none cursor-pointer"
+              className="bg-[#f27820] text-[#111111] px-[12px] py-[6px] rounded-[10px] text-[12px] font-bold font-sans tracking-[1px] uppercase transition-colors"
             >
               EXPLORE
             </a>
