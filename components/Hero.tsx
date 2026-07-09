@@ -40,11 +40,11 @@ export default function Hero() {
       if (typedHeading.length < currentSlide.heading.length) {
         timer = setTimeout(() => {
           setTypedHeading(currentSlide.heading.slice(0, typedHeading.length + 1));
-        }, 60); // Heading typing speed
+        }, 90); // Heading typing speed (reduced)
       } else if (typedParagraph.length < currentSlide.paragraph.length) {
         timer = setTimeout(() => {
           setTypedParagraph(currentSlide.paragraph.slice(0, typedParagraph.length + 1));
-        }, 30); // Paragraph typing speed
+        }, 50); // Paragraph typing speed (reduced)
       } else {
         // Pause once fully typed
         timer = setTimeout(() => {
@@ -88,12 +88,6 @@ export default function Hero() {
             className="font-walsheim-black font-black text-[28px] sm:text-[36px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-tight text-white uppercase select-none mb-4 w-full"
           >
             {typedHeading}
-            {/* Typing Cursor (only active when paragraph is empty and heading is typing) */}
-            {typedParagraph.length === 0 && (
-              <span
-                className="inline-block ml-1 w-[3px] h-[22px] sm:h-[30px] md:h-[38px] lg:h-[44px] bg-white animate-[pulse_1s_infinite] align-middle"
-              />
-            )}
           </h1>
 
           {/* Paragraph */}
@@ -102,10 +96,6 @@ export default function Hero() {
               className="text-[16px] font-sans tracking-wide text-white/90 max-w-none leading-[1.5] select-none mt-2"
             >
               {typedParagraph}
-              {/* Typing Cursor on Paragraph */}
-              <span
-                className="inline-block ml-1 w-[3px] h-[4px] sm:h-[9px] md:h-[2px] bg-white animate-[pulse_1s_infinite] align-middle"
-              />
             </p>
           )}
 
@@ -117,9 +107,12 @@ export default function Hero() {
         data-cursor="paint"
         className="w-full bg-[#fcf9f6] relative pb-12 md:pb-16 z-20 cursor-none select-none flow-root"
       >
-        <div className="w-full max-w-[1250px] mx-auto px-4 md:px-[40px] lg:px-[60px] -mt-[160px] md:-mt-[240px] lg:-mt-[330px] z-30 relative animate-in fade-in slide-in-from-bottom-6 duration-1000">
-          <div className="bg-[#333333] border border-white/10 rounded-xl p-[6px] md:p-[10px] lg:p-[14px] shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
-            <div className="relative w-full overflow-hidden rounded-[6px] bg-white">
+        <div className="w-full max-w-[1400px] mx-auto px-4 md:px-[40px] lg:px-[85px] -mt-[160px] md:-mt-[240px] lg:-mt-[330px] z-30 relative animate-in fade-in slide-in-from-bottom-6 duration-1000">
+          <div 
+            className="bg-[#333333] border border-white/10 rounded-none shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+            style={{ padding: '10px' }}
+          >
+            <div className="relative w-full overflow-hidden rounded-none bg-white">
               <video
                 src="https://dd.mocup.in/assets/web/images/video/designdot.mp4"
                 className="w-full h-auto block"

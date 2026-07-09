@@ -8,10 +8,10 @@ export default function WhyUs() {
 
       {/* Desktop Absolute White Box (anchored to right edge, precise aspect ratio) */}
       <div className="absolute right-0 top-[40px] lg:top-[60px] h-[calc(100%-80px)] lg:h-[calc(100%-120px)] aspect-[645/778] flex items-center justify-center overflow-hidden hidden md:flex z-20">
-        <img 
-          src="https://designdot.co.in/assets/web/images/d-logo-2.jpg" 
-          alt="DesignDot Logo" 
-          className="w-full h-full object-cover" 
+        <img
+          src="https://designdot.co.in/assets/web/images/d-logo-2.jpg"
+          alt="DesignDot Logo"
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -75,10 +75,10 @@ export default function WhyUs() {
       {/* Mobile-only Layout for Right Column Graphics */}
       <div className="w-full flex md:hidden flex-col items-center justify-center py-12 mt-10 relative z-10 px-6">
         <div className="w-full max-w-[320px] aspect-[645/778] flex items-center justify-center overflow-hidden">
-          <img 
-            src="https://designdot.co.in/assets/web/images/d-logo-2.jpg" 
-            alt="DesignDot Logo" 
-            className="w-full h-full object-cover" 
+          <img
+            src="https://designdot.co.in/assets/web/images/d-logo-2.jpg"
+            alt="DesignDot Logo"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

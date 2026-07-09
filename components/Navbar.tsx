@@ -387,7 +387,7 @@ export default function Navbar() {
   }, []);
 
   const triggerModal = () => {
-    setIsModalOpen(true);
+    setIsModalOpen((prev) => !prev);
     setIsMobileMenuOpen(false);
   };
 
@@ -424,17 +424,23 @@ export default function Navbar() {
     const isActive = hoveredMenu === menuKey || activeMenu === menuKey;
     if (label.toLowerCase() === 'ai ingenuity') {
       return (
-        <span className="relative flex items-center py-2 h-full focus:outline-none focus-visible:outline-none select-none text-[13px] font-display">
-          <span className={isActive ? 'text-white' : 'text-[#B2C5D4] transition-colors'}>AI&nbsp;</span>
-          <span className="bg-gradient-to-r from-[#D1C0AE] to-[#F67E29] text-transparent bg-clip-text transition-colors inline-block">INGENUITY</span>
+        <span className="relative flex items-center h-full focus:outline-none focus-visible:outline-none select-none">
+          <span className="relative">
+            <span className={isActive ? 'text-white' : 'text-[#B2C5D4] transition-colors'}>AI&nbsp;</span>
+            <span className="bg-gradient-to-r from-[#D1C0AE] to-[#F67E29] text-transparent bg-clip-text transition-colors inline-block">INGENUITY</span>
+            <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] bg-white transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+          </span>
         </span>
       );
     }
 
     const displayLabel = label.toUpperCase();
     return (
-      <span className="relative py-2 h-full flex items-center focus:outline-none focus-visible:outline-none select-none text-[13px] font-display">
-        <span>{displayLabel}</span>
+      <span className="relative flex items-center h-full focus:outline-none focus-visible:outline-none select-none">
+        <span className="relative text-white">
+          {displayLabel}
+          <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] bg-white transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+        </span>
       </span>
     );
   };
@@ -444,7 +450,7 @@ export default function Navbar() {
       <header className={`fixed top-0 left-0 w-full z-40 bg-[var(--background)] py-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'shadow-lg border-b border-white/5' : ''}`}>
         {/* Main Navbar (Always Compact Single-Row) */}
         <div className={`w-full px-[50px] flex justify-between items-center relative transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
-          
+
           {/* Left/Middle Group: Navigation links, Support and Consultation button */}
           <div className="flex items-center gap-[25px] h-full">
             {/* Hamburger Menu trigger (hidden on desktop) */}
@@ -458,67 +464,77 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Navigation Links */}
-            <nav className={`hidden lg:flex items-center gap-[25px] font-display font-bold text-[13px] text-white h-full ${
-              isScrolled ? '!hidden' : ''
-            }`}>
+            {/* Navigation Links and Support/Consultation */}
+            <ul
+              className={`desk-menu navbar px-0 hidden lg:flex items-center gap-[25px] h-full -mt-2 ${isScrolled ? '!hidden' : ''}`}
+              style={{
+                color: '#1A1A1A',
+                fontFamily: 'GTWalsheimPro-Bold, sans-serif',
+                fontSize: '14px',
+                padding: '8px 0px',
+                margin: 0,
+                listStyle: 'none'
+              }}
+            >
               {NAVIGATION_LINKS.map((link) => {
                 return (
-                  <div 
-                    key={link.label} 
+                  <li
+                    key={link.label}
                     className="h-full flex items-center"
                     onMouseEnter={() => handleMouseEnter(link.key)}
                     onMouseLeave={handleMouseLeave}
                   >
                     {link.hasMegaMenu ? (
-                      <button className="flex items-center gap-0.5 hover:text-[#f58331] transition-colors cursor-pointer h-full border-b-2 border-transparent focus:outline-none focus-visible:outline-none">
-                        {renderLinkLabel(link.label, true, link.key)} 
+                      <button className="group flex items-center gap-0.5 transition-colors cursor-pointer h-full border-b-2 border-transparent focus:outline-none focus-visible:outline-none">
+                        {renderLinkLabel(link.label, true, link.key)}
                       </button>
                     ) : (
                       <a
                         href={link.href}
                         onClick={() => setActiveMenu(link.key)}
-                        className="hover:text-[#f58331] transition-colors h-full flex items-center border-b-2 border-transparent focus:outline-none focus-visible:outline-none"
+                        className="group transition-colors h-full flex items-center border-b-2 border-transparent focus:outline-none focus-visible:outline-none"
                       >
                         {renderLinkLabel(link.label, true, link.key)}
                       </a>
                     )}
-                  </div>
+                  </li>
                 );
               })}
-            </nav>
 
-            {/* Support Numbers & Consultation Button (Grouped with links for fixed spacing) */}
-            <div className={`hidden lg:flex items-center gap-[25px] select-none ${
-              isScrolled ? '!hidden' : ''
-            }`}>
-              {/* support numbers with 24 hours support icon */}
-              <div className="flex items-center gap-2.5 text-white font-medium text-[13px] h-[34px] font-display">
-                <img 
-                  src="https://dd.mocup.in/assets/web/images/all/support-icon.svg" 
-                  alt="Support Icon" 
-                  className="w-[34px] h-[34px]"
-                />
-                <span className="whitespace-nowrap">+91 9873282812 / +1 4694410125</span>
-              </div>
-              
-              {/* Orange consultation button */}
-              <button
-                onClick={triggerModal}
-                className="bg-[#f58331] text-white hover:bg-white hover:text-black transition-colors w-[186.24px] h-[44px] rounded-[4px] font-bold text-[13px] uppercase cursor-pointer flex items-center justify-center whitespace-nowrap px-[15px] focus:outline-none focus-visible:outline-none font-display"
-              >
-                FREE CONSULTATION
-              </button>
-            </div>
+              <li className="flex items-center gap-[25px] select-none h-full">
+                {/* support numbers with 24 hours support icon */}
+                <div className="flex items-center gap-2.5 text-white h-[34px]">
+                  <img
+                    src="https://dd.mocup.in/assets/web/images/all/support-icon.svg"
+                    alt="Support Icon"
+                    className="w-[34px] h-[34px]"
+                  />
+                  <span className="whitespace-nowrap">+91 9873282812 / +1 4694410125</span>
+                </div>
+
+                {/* Orange consultation button */}
+                <button
+                  onClick={(e) => {
+                    triggerModal();
+                    if (typeof window !== 'undefined' && (window as any).cycleTheme) {
+                      (window as any).cycleTheme(e.clientX, e.clientY);
+                    }
+                  }}
+                  className="bg-[#f58331] text-white hover:bg-white hover:text-black transition-colors w-[186.24px] h-[44px] rounded-[4px] uppercase cursor-pointer flex items-center justify-center whitespace-nowrap px-[15px] focus:outline-none focus-visible:outline-none"
+                >
+                  FREE CONSULTATION
+                </button>
+              </li>
+            </ul>
           </div>
 
           {/* Right Logo */}
           <div className="flex items-center pl-6 select-none shrink-0">
             <a href="#" className="flex flex-col items-end select-none focus:outline-none focus-visible:outline-none">
-              <img 
-                src={isScrolled ? "https://dd.mocup.in/assets/web/images/logo-icon.svg" : "https://dd.mocup.in/assets/web/images/designdot_logo.svg"} 
-                className={isScrolled ? "w-[36px] h-[36px] object-contain" : "w-[202px] h-[56px] object-contain"} 
-                alt="DesignDot" 
+              <img
+                src={isScrolled ? "https://dd.mocup.in/assets/web/images/logo-icon.svg" : "https://dd.mocup.in/assets/web/images/designdot_logo.svg"}
+                className={isScrolled ? "w-[36px] h-[36px] object-contain" : "w-[202px] h-[56px] object-contain"}
+                alt="DesignDot"
               />
             </a>
           </div>
@@ -573,8 +589,8 @@ export default function Navbar() {
                       onMouseEnter={() => setActiveExpertiseCategory(cat)}
                       onClick={() => setActiveExpertiseCategory(cat)}
                       className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeExpertiseCategory === cat
-                          ? 'bg-[#00539c] text-white shadow-sm'
-                          : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
+                        ? 'bg-[#00539c] text-white shadow-sm'
+                        : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
                         }`}
                     >
                       <span>{cat}</span>
@@ -691,8 +707,8 @@ export default function Navbar() {
                       onMouseEnter={() => setActiveAICategory(cat)}
                       onClick={() => setActiveAICategory(cat)}
                       className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeAICategory === cat
-                          ? 'bg-[#00539c] text-white shadow-sm'
-                          : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
+                        ? 'bg-[#00539c] text-white shadow-sm'
+                        : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
                         }`}
                     >
                       <span>{cat}</span>
@@ -809,8 +825,8 @@ export default function Navbar() {
                       onMouseEnter={() => setActiveTechCategory(cat)}
                       onClick={() => setActiveTechCategory(cat)}
                       className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeTechCategory === cat
-                          ? 'bg-[#00539c] text-white shadow-sm'
-                          : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
+                        ? 'bg-[#00539c] text-white shadow-sm'
+                        : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
                         }`}
                     >
                       <span>{cat}</span>
