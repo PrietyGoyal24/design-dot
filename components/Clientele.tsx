@@ -14,36 +14,34 @@ export default function Clientele() {
     <section className="relative py-24 bg-[#ffffff] text-slate-900 overflow-hidden select-none border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 space-y-12">
         {/* Section Heading */}
-        <div className="flex items-center w-full whitespace-nowrap mb-10">
-          <span className="text-[15px] font-extrabold tracking-widest text-[#f27820] mr-6">
-            06.
-          </span>
-          <div className="w-[80px] h-[1.5px] bg-[#f27820] mr-6" />
-          <span className="text-[22px] font-extrabold tracking-wide text-slate-900">
-            Clientele.
-          </span>
-          <div className="flex-1" />
-          <div className="w-[60px] h-[1px] bg-slate-900 mr-6 hidden sm:block" />
-          <a
-            href="https://dd.mocup.in/clientele"
-            target="_blank"
-            className="bg-[#f27820] text-slate-950 hover:bg-black hover:text-white transition-colors px-[14px] py-[6px] text-[11px] font-bold tracking-widest uppercase"
-          >
-            EXPLORE
-          </a>
+        <div className="flex items-center flex-wrap md:flex-nowrap text-left mb-10 w-full">
+          <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">06.</p>
+          <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+          <h2 className="text-[24px] leading-[30px] font-bold font-sans text-[#111111] tracking-[1px] flex items-center flex-wrap capitalize">
+            Clientele<span className="w-[8px] h-[8px] rounded-full bg-black inline-block ml-[2px] shrink-0" />
+          </h2>
+          <div className="hidden md:flex flex-1 items-center gap-[15px] justify-end">
+            <div className="w-[96px] h-[2px] bg-[#727272]" />
+            <a
+              href="https://dd.mocup.in/clientele"
+              target="_blank"
+              className="bg-[#f27820] text-[#111111] px-[12px] py-[6px] rounded-[10px] text-[12px] font-bold font-sans tracking-[1px] uppercase transition-colors"
+            >
+              EXPLORE
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5 text-left">
-
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight font-display text-slate-900 leading-tight">
-              Inspired design, bold solutions & bottom line results<span className="text-[#f27820]">.</span>
+            <h2 className="text-[24px] leading-[30px] font-bold font-sans text-black mb-[20px]">
+              Inspired design, bold solutions & bottom line results
             </h2>
           </div>
 
-          <div className="lg:col-span-7 lg:pt-10 text-left">
-            <p className="text-slate-500 font-sans text-sm md:text-base leading-relaxed font-medium max-w-2xl">
-              We turn information into experiences people care about. Combining <strong className="text-slate-900">Strategic Thinking and Compelling Design</strong> to deliver bottom line results for companies globally.
+          <div className="lg:col-span-7 text-left">
+            <p className="text-[16px] leading-[1.5] font-sans font-light text-black max-w-2xl">
+              We turn information into experiences people care about. Combining <strong className="text-black font-bold">Strategic Thinking and Compelling Design</strong> to deliver bottom line results for companies globally.
             </p>
           </div>
         </div>

@@ -34,21 +34,19 @@ export default function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row md:items-center gap-4 text-left"
+          className="flex items-center flex-wrap md:flex-nowrap text-left mb-[60px]"
         >
-          <div className="flex items-center gap-4 text-xs font-display font-semibold tracking-widest text-[#f27820] shrink-0">
-            <span>03.</span>
-            <div className="w-12 h-[1px] bg-[#f27820]/40" />
-          </div>
-          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight font-display text-slate-900 uppercase">
-            Our Range Of Frameworks And Cutting-Edge Technology Expertise<span className="text-[#f27820]">.</span>
+          <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">03.</p>
+          <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+          <h2 className="text-[24px] leading-[30px] font-bold font-sans text-[#111111] tracking-[1px] flex items-center flex-wrap capitalize">
+            Our Range Of Frameworks And Cutting-Edge Technology Expertise<span className="w-[8px] h-[8px] rounded-full bg-black inline-block ml-[2px] shrink-0" />
           </h2>
         </motion.div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid grid-cols-12 gap-8 items-stretch min-h-[500px]">
+        <div className="hidden lg:flex min-h-[500px]">
           {/* Left Vertical Menu */}
-          <div className="col-span-5 flex flex-col border-r border-slate-100 pr-6 gap-2">
+          <div className="w-[450px] shrink-0 bg-[#2f2b54] py-10 flex flex-col relative">
             {MENU_ITEMS.map((item) => {
               const Icon = item.icon;
               const isActive = activeCategory === item.id;
@@ -56,24 +54,25 @@ export default function TechStack() {
                 <button
                   key={item.id}
                   onClick={() => setActiveCategory(item.id)}
-                  className={`flex justify-between items-center px-4 py-3.5 rounded-xl text-xs font-bold font-display tracking-wide transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#131126] text-white shadow-xl'
-                      : 'hover:bg-slate-50 text-slate-500 hover:text-slate-900'
-                  }`}
+                  className={`flex justify-between items-center px-10 py-5 text-[15px] font-bold font-sans tracking-wide transition-all duration-200 cursor-pointer relative ${isActive
+                    ? 'text-white'
+                    : 'text-white hover:text-white'
+                    }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <Icon size={18} className={isActive ? 'text-[var(--accent)]' : 'text-slate-400'} />
+                  <div className="flex items-center gap-4">
+                    <Icon size={20} className={isActive ? 'text-white' : 'text-white'} />
                     <span>{item.label}</span>
                   </div>
-                  <ChevronRight size={14} className={isActive ? 'text-[var(--accent)] translate-x-1 transition-transform' : 'text-slate-300'} />
+                  {isActive && (
+                    <div className="absolute right-0 top-0 bottom-0 w-[4px] bg-[#675f99]" />
+                  )}
                 </button>
               );
             })}
           </div>
 
           {/* Right Content Panel */}
-          <div className="col-span-7 bg-[#f8f9fc] rounded-[20px] p-8 flex flex-col justify-start border border-slate-100/50">
+          <div className="flex-1 bg-[#eaeaea] py-10 px-12 flex flex-col justify-start">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCategory}
@@ -86,12 +85,12 @@ export default function TechStack() {
                 {GRID_TECH_DATA[activeCategory as keyof typeof GRID_TECH_DATA]?.map((tech) => (
                   <div
                     key={tech.name}
-                    className="flex items-center gap-4 bg-white border border-slate-100 p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                    className="flex items-center gap-6 bg-[#f4f4f4] px-6 py-4 rounded-xl shadow-sm hover:shadow-md transition-shadow"
                   >
                     <div className="w-10 h-10 flex items-center justify-center shrink-0">
                       <img src={tech.img} alt={tech.name} className="max-w-full max-h-full object-contain" loading="lazy" />
                     </div>
-                    <span className="text-xs font-bold text-slate-800 tracking-wide font-display">
+                    <span className="text-[15px] font-bold text-[#111111] tracking-wide font-sans">
                       {tech.name}
                     </span>
                   </div>
@@ -110,7 +109,7 @@ export default function TechStack() {
               <div key={item.id} className="border border-slate-100 rounded-xl overflow-hidden bg-[#f8f9fc]">
                 <button
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full flex justify-between items-center px-4 py-4 bg-white text-xs font-bold font-display tracking-wide text-slate-800 cursor-pointer"
+                  className="w-full flex justify-between items-center px-4 py-4 bg-white text-[15px] font-bold font-sans tracking-wide text-slate-800 cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
                     <Icon size={18} className="text-[#f27820]" />
@@ -129,7 +128,7 @@ export default function TechStack() {
                         <div className="w-8 h-8 flex items-center justify-center shrink-0">
                           <img src={tech.img} alt={tech.name} className="max-w-full max-h-full object-contain" />
                         </div>
-                        <span className="text-[11px] font-bold text-slate-800 font-display">
+                        <span className="text-[14px] font-bold text-slate-800 font-sans">
                           {tech.name}
                         </span>
                       </div>

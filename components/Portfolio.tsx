@@ -41,14 +41,12 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex items-center gap-4 text-left"
+            className="flex items-center flex-wrap md:flex-nowrap text-left"
           >
-            <div className="flex items-center gap-4 text-xs font-display font-semibold tracking-widest text-[var(--accent)] shrink-0">
-              <span>04.</span>
-              <div className="w-12 h-[1px] bg-[var(--accent)]/40" />
-            </div>
-            <h2 className="text-xl md:text-2xl font-extrabold tracking-tight font-display text-white uppercase">
-              What's Good<span className="text-[var(--accent)]">.</span>
+            <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">04.</p>
+            <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
+            <h2 className="text-[24px] leading-[30px] font-bold font-sans text-white tracking-[1px] flex items-center flex-wrap capitalize">
+              What's Good<span className="w-[8px] h-[8px] rounded-full bg-white inline-block ml-[2px] shrink-0" />
             </h2>
           </motion.div>
 
@@ -83,9 +81,8 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.95, x: -20 }}
                 transition={{ duration: 0.5 }}
                 // Hide second item on mobile, only show 1
-                className={`flex-col justify-between p-6 bg-white/5 border border-slate-800 rounded-[20px] shadow-2xl relative overflow-hidden group hover:border-[var(--accent)] transition-all duration-300 min-h-[480px] ${
-                  index === 1 ? 'hidden md:flex' : 'flex'
-                }`}
+                className={`flex-col justify-between p-6 bg-white/5 border border-slate-800 rounded-[20px] shadow-2xl relative overflow-hidden group hover:border-[var(--accent)] transition-all duration-300 min-h-[480px] ${index === 1 ? 'hidden md:flex' : 'flex'
+                  }`}
               >
                 {/* Image Cover */}
                 <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-6 bg-slate-900 border border-slate-800">
@@ -104,20 +101,20 @@ export default function Portfolio() {
 
                 {/* Footer text content of card */}
                 <div className="space-y-4 text-left">
-                  <div className="flex justify-between items-baseline gap-4">
-                    <h3 className="text-xl md:text-2xl font-extrabold font-display text-white tracking-wide">
+                  <div className="flex justify-between items-baseline gap-4 mb-[25px]">
+                    <h3 className="text-[32px] leading-[48px] font-bold font-sans text-white tracking-wide">
                       {project.title}
                     </h3>
                     <a
                       href={project.href}
                       target="_blank"
-                      className="text-xs font-bold font-display tracking-widest text-[var(--accent)] hover:text-white transition-colors flex items-center gap-1.5 shrink-0"
+                      className="text-[14px] font-bold font-sans tracking-[2px] uppercase text-[#f27820] hover:text-white transition-colors flex items-center gap-[10px] shrink-0"
                     >
-                      <span className="w-6 h-[1.5px] bg-[var(--accent)]" />
+                      <span className="w-[15px] h-[2px] bg-[#f27820]" />
                       <span>CASE STUDY</span>
                     </a>
                   </div>
-                  <p className="text-xs text-slate-400 font-medium tracking-wide uppercase leading-relaxed font-sans line-clamp-2">
+                  <p className="text-[16px] text-white/90 font-light font-sans leading-[1.5] line-clamp-2">
                     {project.description}
                   </p>
                 </div>

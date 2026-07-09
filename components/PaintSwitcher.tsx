@@ -23,9 +23,11 @@ export default function PaintSwitcher() {
 
     let cW = window.innerWidth;
     let cH = window.innerHeight;
-    let bgColor = THEMES[0].background;
-    let animations: any[] = [];
+    let currentTargetColor = THEMES[0].background;
+    let localThemeIndex = 0;
     let timeouts: NodeJS.Timeout[] = [];
+    let resetTimer: NodeJS.Timeout | null = null;
+    let animationFrameId: number | null = null;
 
     const resizeCanvas = () => {
       cW = window.innerWidth;
@@ -34,6 +36,10 @@ export default function PaintSwitcher() {
       canvas.width = cW * dpr;
       canvas.height = cH * dpr;
       ctx.scale(dpr, dpr);
+      
+      // Re-fill on resize to avoid flashes
+      ctx.fillStyle = currentTargetColor;
+      ctx.fillRect(0, 0, cW, cH);
     };
 
     resizeCanvas();
@@ -95,6 +101,10 @@ export default function PaintSwitcher() {
     const triggerRipple = (x: number, y: number, nextColor: string, accentColor: string) => {
       timeouts.forEach(clearTimeout);
       timeouts = [];
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+      const startColor = currentTargetColor;
+      currentTargetColor = nextColor;
 
       const targetR = calcPageFillRadius(x, y);
       const rippleSize = Math.min(200, cW * 0.4);
@@ -172,7 +182,7 @@ export default function PaintSwitcher() {
         });
 
         // Draw everything
-        ctx.fillStyle = bgColor;
+        ctx.fillStyle = startColor;
         ctx.fillRect(0, 0, cW, cH);
 
         pageFill.draw();
@@ -180,15 +190,71 @@ export default function PaintSwitcher() {
         particles.forEach(p => p.draw());
 
         if (fillProgress < 1 || rippleProgress < 1 || particles.some(p => p.r > 0)) {
-          requestAnimationFrame(animateStep);
+          animationFrameId = requestAnimationFrame(animateStep);
         } else {
-          bgColor = pageFill.fill;
-          ctx.fillStyle = bgColor;
+          ctx.fillStyle = nextColor;
           ctx.fillRect(0, 0, cW, cH);
         }
       };
 
-      requestAnimationFrame(animateStep);
+      animationFrameId = requestAnimationFrame(animateStep);
+    };
+
+    const triggerFade = (nextColor: string) => {
+      timeouts.forEach(clearTimeout);
+      timeouts = [];
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+      const startColor = currentTargetColor;
+      currentTargetColor = nextColor;
+
+      const startTime = performance.now();
+      const duration = 600; // Smooth 600ms CSS-like crossfade
+
+      const animateFade = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, Math.max(0, elapsed / duration));
+        const ease = easeOutQuart(progress);
+
+        // Draw the initial background
+        ctx.fillStyle = startColor;
+        ctx.fillRect(0, 0, cW, cH);
+        
+        // Overlay the new color with an easing opacity
+        ctx.globalAlpha = ease;
+        ctx.fillStyle = nextColor;
+        ctx.fillRect(0, 0, cW, cH);
+        ctx.globalAlpha = 1;
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animateFade);
+        } else {
+          ctx.fillStyle = nextColor;
+          ctx.fillRect(0, 0, cW, cH);
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(animateFade);
+    };
+
+    const performThemeCycle = (x: number, y: number) => {
+      localThemeIndex = (localThemeIndex + 1) % THEMES.length;
+      const nextTheme = THEMES[localThemeIndex];
+      
+      document.documentElement.style.setProperty('--background', nextTheme.background);
+      document.documentElement.style.setProperty('--accent', nextTheme.accent);
+      triggerRipple(x, y, nextTheme.background, nextTheme.accent);
+
+      if (resetTimer) clearTimeout(resetTimer);
+      
+      // Auto reset to default theme after 1 second
+      resetTimer = setTimeout(() => {
+        localThemeIndex = 0;
+        const baseTheme = THEMES[0];
+        document.documentElement.style.setProperty('--background', baseTheme.background);
+        document.documentElement.style.setProperty('--accent', baseTheme.accent);
+        triggerFade(baseTheme.background);
+      }, 1000);
     };
 
     (window as any).triggerThemeRipple = (x: number, y: number, nextColor: string, accentColor: string) => {
@@ -196,14 +262,7 @@ export default function PaintSwitcher() {
     };
 
     (window as any).cycleTheme = (x: number, y: number) => {
-      setThemeIndex((prevIndex) => {
-        const nextIndex = (prevIndex + 1) % THEMES.length;
-        const nextTheme = THEMES[nextIndex];
-        document.documentElement.style.setProperty('--background', nextTheme.background);
-        document.documentElement.style.setProperty('--accent', nextTheme.accent);
-        triggerRipple(x, y, nextTheme.background, nextTheme.accent);
-        return nextIndex;
-      });
+      performThemeCycle(x, y);
     };
 
     const handleDocumentClick = (e: MouseEvent) => {
@@ -223,26 +282,21 @@ export default function PaintSwitcher() {
         return;
       }
 
-      setThemeIndex((prevIndex) => {
-        const nextIndex = (prevIndex + 1) % THEMES.length;
-        const nextTheme = THEMES[nextIndex];
-        document.documentElement.style.setProperty('--background', nextTheme.background);
-        document.documentElement.style.setProperty('--accent', nextTheme.accent);
-        triggerRipple(e.clientX, e.clientY, nextTheme.background, nextTheme.accent);
-        return nextIndex;
-      });
+      performThemeCycle(e.clientX, e.clientY);
     };
 
     document.addEventListener('mousedown', handleDocumentClick);
 
     // Initial canvas paint fill
-    ctx.fillStyle = bgColor;
+    ctx.fillStyle = currentTargetColor;
     ctx.fillRect(0, 0, cW, cH);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       document.removeEventListener('mousedown', handleDocumentClick);
       timeouts.forEach(clearTimeout);
+      if (resetTimer) clearTimeout(resetTimer);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       delete (window as any).triggerThemeRipple;
       delete (window as any).cycleTheme;
     };
