@@ -32,26 +32,35 @@ export default function Portfolio() {
 
   return (
     <section className="relative py-24 bg-[#131126] text-white overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 space-y-12">
-        {/* Section Heading & Controls */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-6">
-          {/* Index and title */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col z-10 relative">
+        
+        {/* Row 1: Heading & Controls */}
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-6 mb-[80px] lg:mb-[100px] w-full">
+          {/* Index and title with Hanging Indent */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex items-center flex-wrap md:flex-nowrap text-left"
+            className="flex items-center w-full"
           >
-            <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">04.</p>
-            <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
-            <h2 className="text-[24px] leading-[30px] font-bold font-sans text-white tracking-[1px] flex items-center flex-wrap capitalize">
-              What's Good<span className="w-[8px] h-[8px] rounded-full bg-white inline-block ml-[2px] shrink-0" />
-            </h2>
+            {/* Hanging Prefix Column */}
+            <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
+              <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#F58331]">04.</span>
+              <div className="flex-grow h-[1px] bg-[#727272] mx-[15px] mr-[15px]" />
+            </div>
+            
+            {/* Content Column Start */}
+            <div className="flex items-baseline">
+              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-white">
+                What's Good
+              </h2>
+              <div className="w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] bg-white rounded-full ml-[6px]" />
+            </div>
           </motion.div>
 
           {/* Slider Arrow Buttons */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 shrink-0">
             <button
               onClick={handlePrev}
               className="w-12 h-12 rounded-full border border-white/20 hover:border-[var(--accent)] hover:text-[var(--accent)] flex items-center justify-center transition-colors cursor-pointer"
@@ -69,8 +78,10 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Carousel Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        {/* Indented Content Block */}
+        <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
+          {/* Carousel Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* We render visible items using Framer Motion layout to animate switches */}
           <AnimatePresence mode="popLayout">
             {visibleItems.map((project, index) => (
@@ -121,6 +132,7 @@ export default function Portfolio() {
               </motion.div>
             ))}
           </AnimatePresence>
+        </div>
         </div>
       </div>
     </section>

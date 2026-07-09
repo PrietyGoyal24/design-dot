@@ -7,25 +7,37 @@ import { TESTIMONIALS } from '@/constants';
 export default function Testimonials() {
   return (
     <section className="relative py-24 bg-[#ffffff] text-slate-900 overflow-hidden select-none border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 space-y-12">
-        {/* Section Heading & Subheading */}
-        <div className="flex items-center flex-wrap md:flex-nowrap text-left mb-10 w-full">
-          <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">05.</p>
-          <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
-          <h2 className="text-[24px] leading-[30px] font-bold font-sans text-[#111111] tracking-[1px] flex items-center flex-wrap capitalize">
-            What Are Client Says<span className="w-[8px] h-[8px] rounded-full bg-black inline-block ml-[2px] shrink-0" />
-          </h2>
-          <div className="hidden md:flex flex-1 items-center gap-[15px] justify-end">
-            <div className="w-[96px] h-[2px] bg-[#727272]" />
-            <a
-              href="https://dd.mocup.in/testimonial"
-              target="_blank"
-              className="bg-[#f27820] text-[#111111] px-[12px] py-[6px] rounded-[10px] text-[12px] font-bold font-sans tracking-[1px] uppercase transition-colors"
-            >
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col z-10 relative">
+        
+        {/* Row 1: Index --- Heading */}
+        <div className="flex items-center mb-[80px] lg:mb-[100px] w-full justify-between">
+          <div className="flex items-center flex-1">
+            {/* Hanging Prefix Column */}
+            <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
+              <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#F58331]">05.</span>
+              <div className="flex-grow h-[1px] bg-[#111111]/30 mx-[15px] mr-[15px]" />
+            </div>
+            
+            {/* Content Column Start */}
+            <div className="flex items-baseline">
+              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-black">
+                What Are Client Says
+              </h2>
+              <div className="w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] bg-black rounded-full ml-[6px]" />
+            </div>
+          </div>
+          
+          {/* Explore Button */}
+          <div className="hidden md:flex items-center gap-[24px] shrink-0">
+            <div className="w-[60px] lg:w-[100px] h-[1px] bg-[#1A1A1A]/40" />
+            <a href="https://dd.mocup.in/testimonial" className="bg-[#F58331] text-[#1A1A1A] px-[14px] py-[6px] rounded-sm text-[10px] font-bold font-sans tracking-[2px] uppercase transition-colors">
               EXPLORE
             </a>
           </div>
         </div>
+
+        {/* Indented Content Block */}
+        <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5 text-left">
@@ -85,6 +97,7 @@ export default function Testimonials() {
               </p>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>

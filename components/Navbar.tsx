@@ -425,8 +425,8 @@ export default function Navbar() {
     if (label.toLowerCase() === 'ai ingenuity') {
       return (
         <span className="relative flex items-center py-2 h-full focus:outline-none focus-visible:outline-none select-none text-[13px] font-display">
-          <span className={isActive ? 'text-white' : 'text-slate-200'}>AI&nbsp;</span>
-          <span className="text-[#f58331]">INGENUITY</span>
+          <span className={isActive ? 'text-white' : 'text-[#B2C5D4] transition-colors'}>AI&nbsp;</span>
+          <span className="bg-gradient-to-r from-[#D1C0AE] to-[#F67E29] text-transparent bg-clip-text transition-colors inline-block">INGENUITY</span>
         </span>
       );
     }
@@ -441,9 +441,9 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-40 bg-[var(--background)] shadow-lg py-0 border-b border-white/5 transition-colors duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+      <header className={`fixed top-0 left-0 w-full z-40 bg-[var(--background)] py-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'shadow-lg border-b border-white/5' : ''}`}>
         {/* Main Navbar (Always Compact Single-Row) */}
-        <div className="w-full px-[50px] flex justify-between items-center h-[72px] relative">
+        <div className={`w-full px-[50px] flex justify-between items-center relative transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
           
           {/* Left/Middle Group: Navigation links, Support and Consultation button */}
           <div className="flex items-center gap-[25px] h-full">

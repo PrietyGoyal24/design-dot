@@ -27,26 +27,38 @@ export default function TechStack() {
 
   return (
     <section className="relative py-24 bg-[#ffffff] text-slate-900 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 space-y-12">
-        {/* Section Heading */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col z-10 relative">
+        
+        {/* Row 1: Heading with Hanging Indent */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex items-center flex-wrap md:flex-nowrap text-left mb-[60px]"
+          className="flex items-center mb-[80px] lg:mb-[100px] w-full"
         >
-          <p className="font-sans font-bold text-[24px] leading-[30px] text-[#f27820]">03.</p>
-          <div className="w-[130px] h-[2px] bg-[#727272] mx-[15px] shrink-0" />
-          <h2 className="text-[24px] leading-[30px] font-bold font-sans text-[#111111] tracking-[1px] flex items-center flex-wrap capitalize">
-            Our Range Of Frameworks And Cutting-Edge Technology Expertise<span className="w-[8px] h-[8px] rounded-full bg-black inline-block ml-[2px] shrink-0" />
-          </h2>
+          {/* Hanging Prefix Column */}
+          <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
+            <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#111111]">03.</span>
+            <div className="flex-grow h-[1px] bg-[#111111]/40 ml-[15px] mr-[15px]" />
+          </div>
+          
+          {/* Content Column Start */}
+          <div className="flex items-baseline">
+            <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-[#111111]">
+              Our Range Of Frameworks And Cutting-Edge Technology Expertise
+            </h2>
+            <div className="w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] bg-[#111111] rounded-full ml-[6px]" />
+          </div>
         </motion.div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex min-h-[500px]">
-          {/* Left Vertical Menu */}
-          <div className="w-[450px] shrink-0 bg-[#2f2b54] py-10 flex flex-col relative">
+        {/* Indented Content Block */}
+        <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
+          
+          {/* Desktop Layout */}
+          <div className="hidden lg:flex min-h-[500px]">
+            {/* Left Vertical Menu */}
+            <div className="w-[350px] lg:w-[450px] shrink-0 bg-[#2f2b54] py-10 flex flex-col relative h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
             {MENU_ITEMS.map((item) => {
               const Icon = item.icon;
               const isActive = activeCategory === item.id;
@@ -138,6 +150,7 @@ export default function TechStack() {
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>
