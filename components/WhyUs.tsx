@@ -2,65 +2,86 @@
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="relative bg-white text-[#111] w-full overflow-x-hidden py-[50px] md:py-[100px]">
+    <section id="why-us" className="relative bg-white text-[#111] w-full overflow-x-hidden py-[60px] md:py-[100px]">
       <div className="flex flex-col md:flex-row items-stretch w-full">
 
         {/* Left column — text */}
-        <div className="w-full md:w-[58.33%] flex items-center">
-          <div className="w-full px-10 md:pl-[65px] md:pr-0">
+        <div className="w-full md:w-[58.33%] flex items-start">
+          <div className="w-full px-6 md:pl-[160px] lg:pl-[200px] xl:pl-[260px] md:pr-[40px]">
 
-            {/* Row 1: 00. + separator + 'Why Us' (inline) */}
-            <div className="flex items-center">
-              <p
-                className="text-[18px] md:text-[24px] leading-[30px] m-0 shrink-0"
-                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-              >
+            {/* Row 1: 00. + separator + 'Why Us' (inline, left-aligned) */}
+            <div className="flex items-center md:ml-[-140px] lg:ml-[-180px] xl:ml-[-240px] text-[#111]">
+              <div className="hidden md:flex w-[50px] lg:w-[60px] xl:w-[80px] items-center pr-[10px] lg:pr-[20px]">
+                <span
+                  className="text-[18px] md:text-[28px] leading-[30px] font-extrabold"
+                  style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                >
+                   00.
+                </span>
+                <span className="flex-grow" />
+              </div>
+
+              <span className="md:hidden font-extrabold text-[18px] mr-2" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
                 00.
-              </p>
-              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] ml-[15px] mr-[18px]" />
+              </span>
+
+              <span className="block w-[120px] md:w-[70px] lg:w-[100px] xl:w-[140px] h-[2px] bg-[#727272] relative -top-[1.5px] md:-top-[2.5px]" />
 
               <span
-                className="text-[18px] md:text-[24px] leading-[30px] tracking-[1px]"
+                className="text-[18px] md:text-[24px] leading-[30px] tracking-[1px] font-extrabold ml-[20px] flex items-center"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
               >
                 Why Us
-                <span className="inline-block w-[8px] h-[8px] rounded-full bg-black ml-[8px] align-middle" />
+                <span className="inline-block w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-[#111] ml-[6px] md:ml-[8px] relative -top-[1px]" />
               </span>
             </div>
 
-            <div className="w-full mt-5">
+            {/* vertical spacing between top row and heading */}
+            <div className="w-full mt-[40px] md:mt-[75px]">
 
-              <h2
-                className="text-[23px] sm:text-[27px] lg:text-[32px] xl:text-[38px] leading-[1.4] tracking-[2px] uppercase m-0"
-                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-              >
-                A CREATIVE DIGITAL AGENCY
-                <span className="inline-block w-[11px] h-[11px] rounded-full bg-black ml-[2px] align-middle" />
-              </h2>
+              <div className="w-full md:max-w-[900px]">
+                <h2
+                  className="text-[22px] sm:text-[28px] lg:text-[36px] xl:text-[42px] leading-[1.02] tracking-[2px] uppercase m-0 font-extrabold whitespace-nowrap flex items-center"
+                  style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
+                >
+                  A CREATIVE DIGITAL AGENCY
+                  <span className="inline-block w-[8px] h-[8px] md:w-[10px] md:h-[10px] rounded-full bg-[#111] ml-[6px] md:ml-[10px] relative -top-[2px] md:-top-[4px]" />
+                </h2>
 
-              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] mt-[10px] mb-[50px]" />
+                <span className="block w-[80px] md:w-[100px] h-[2px] bg-[#727272] mt-[8px] md:mt-[10px] mb-[24px] md:mb-[34px]" />
 
-              <p
-                className="text-[16px] md:text-[18px] leading-[30px] text-[#111] m-0 md:mr-[22px]"
-                style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
-              >
-                DesignDot is a Global creative agency. We{' '}
-                <span style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
-                  Design & Build Brands, UI / UX, Interface & Application Development,
-                  Campaigns & Digital Projects, Signage & Advertising, Visualisation & Interior, Exhibition & Event
-                </span>{' '}
-                {'{'}360 Services, support and solutions{'}'} provider for businesses provider for businesses Small, Medium, Large Enterprises across the world. We are at our best in the following areas…
-              </p>
-
-              <div className="flex items-center mt-[50px] md:mt-[90px]">
-                <span className="inline-block w-[96px] md:w-[130px] h-[2px] bg-[#727272]" />
-                <a
-                  href="https://dd.mocup.in/about-us"
-                  className="inline-block ml-[18px] px-[7px] py-[5px] bg-[#f3812f] text-black text-[14px] uppercase tracking-wide transition-opacity hover:opacity-90"
+                <p
+                  className="text-[15px] md:text-[16px] leading-[1.8] text-[#111] m-0 md:max-w-[440px]"
                   style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
                 >
-                  EXPLORE
-                </a>
+                  DesignDot is a Global creative agency. We{' '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Design & Build Brands</span>
+                  {', '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>UI / UX</span>
+                  {', '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Interface & Application Development</span>
+                  {', '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Campaigns & Digital Projects</span>
+                  {', '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Signage & Advertising</span>
+                  {', '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Visualisation & Interior</span>
+                  {', '}
+                  <span className="font-extrabold" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Exhibition & Event</span>
+                  {' '}
+                  {'{360 Services, support and solutions} provider for businesses provider for businesses Small, Medium, Large Enterprises across the world. We are at our best in the following areas...'}
+                </p>
+
+                <div className="flex items-center mt-[40px] md:mt-[60px]">
+                  <span className="inline-block w-[80px] md:w-[100px] h-[2px] bg-[#727272] relative -top-[1px]" />
+                  <a
+                    href="https://dd.mocup.in/about-us"
+                    className="inline-block ml-[18px] px-[24px] py-[8px] bg-[#f3812f] text-black text-[14px] uppercase tracking-wide font-extrabold transition-opacity hover:opacity-90"
+                    style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                  >
+                    EXPLORE
+                  </a>
+                </div>
               </div>
             </div>
           </div>
