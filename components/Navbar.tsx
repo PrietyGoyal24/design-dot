@@ -351,7 +351,7 @@ const NAVIGATION_LINKS = [
   { label: 'Design Build', key: 'design-build', hasMegaMenu: false, href: '#design-build' },
   { label: 'Technology', key: 'technology', hasMegaMenu: true },
   { label: 'Corporate', key: 'corporate', hasMegaMenu: true },
-  { label: 'Contact Us', key: 'contact-us', hasMegaMenu: false, href: '#contact-us' }
+  { label: 'Contact Us', key: 'contact-us', hasMegaMenu: false, href: '/contact-us' }
 ];
 
 export default function Navbar() {
