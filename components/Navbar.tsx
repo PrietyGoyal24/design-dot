@@ -420,6 +420,11 @@ export default function Navbar() {
     }, 200); // 200ms grace period to translate cursor without closing menu
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.href = '/';
+  };
+
   const renderLinkLabel = (label: string, isScrolled: boolean, menuKey: string) => {
     const isActive = hoveredMenu === menuKey || activeMenu === menuKey;
     if (label.toLowerCase() === 'ai ingenuity') {
@@ -530,10 +535,14 @@ export default function Navbar() {
 
           {/* Right Logo */}
           <div className="flex items-center pl-6 select-none shrink-0">
-            <a href="#" className="flex flex-col items-end select-none focus:outline-none focus-visible:outline-none">
+            <a
+              href="/"
+              onClick={handleLogoClick}
+              className="flex flex-col items-end select-none focus:outline-none focus-visible:outline-none cursor-pointer"
+            >
               <img
                 src={isScrolled ? "https://dd.mocup.in/assets/web/images/logo-icon.svg" : "https://dd.mocup.in/assets/web/images/designdot_logo.svg"}
-                className={isScrolled ? "w-[36px] h-[36px] object-contain" : "w-[202px] h-[56px] object-contain"}
+                className={isScrolled ? "w-[70px] h-[70px] object-contain" : "w-[202px] h-[56px] object-contain"}
                 alt="DesignDot"
               />
             </a>
@@ -964,7 +973,11 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 bg-[#131126] text-white flex flex-col animate-in slide-in-from-left duration-300">
           {/* Header of Mobile Menu */}
           <div className="flex justify-between items-center p-6 border-b border-slate-800">
-            <a href="#" className="flex items-center font-display text-xl font-bold">
+            <a
+              href="/"
+              onClick={handleLogoClick}
+              className="flex items-center font-display text-xl font-bold cursor-pointer"
+            >
               <span className="text-white font-normal">design</span>
               <span className="text-[var(--accent)] font-extrabold">dot</span>
             </a>
