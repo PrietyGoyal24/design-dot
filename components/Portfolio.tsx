@@ -1,42 +1,53 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { MoveLeft, MoveRight } from 'lucide-react';
 import { WHAT_GOOD_PROJECTS } from '@/constants';
 
 export default function Portfolio() {
-  const [startIndex, setStartIndex] = useState(0);
+  const sliderRef = useRef<Slider>(null);
 
   const handleNext = () => {
-    // Cycles forward: on desktop we show 2, so max index is length - 2. On mobile we show 1, max is length - 1.
-    // Let's support cycling item by item:
-    setStartIndex((prev) => (prev + 1) % WHAT_GOOD_PROJECTS.length);
+    sliderRef.current?.slickNext();
   };
 
   const handlePrev = () => {
-    setStartIndex((prev) => (prev - 1 + WHAT_GOOD_PROJECTS.length) % WHAT_GOOD_PROJECTS.length);
+    sliderRef.current?.slickPrev();
   };
 
-  // Get items to display based on index
-  const getVisibleItems = () => {
-    const items = [];
-    for (let i = 0; i < 2; i++) {
-      const idx = (startIndex + i) % WHAT_GOOD_PROJECTS.length;
-      items.push(WHAT_GOOD_PROJECTS[idx]);
-    }
-    return items;
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 600, // smooth transition speed
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
-
-  const visibleItems = getVisibleItems();
 
   return (
-    <section className="relative py-24 bg-[#131126] text-white overflow-hidden select-none">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col z-10 relative">
+    <section 
+      className="relative bg-[#191919] text-[#FFFFFF] overflow-hidden select-none w-full"
+      style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}
+    >
+      <div className="w-full flex flex-col z-10 relative">
         
         {/* Row 1: Heading & Controls */}
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-6 mb-[80px] lg:mb-[100px] w-full">
-          {/* Index and title with Hanging Indent */}
+        <div className="section-heading slider-heading flex justify-between items-center w-full pt-[40px] px-[20px] lg:pt-[120px] lg:pr-[65px] lg:pb-[50px] lg:pl-[65px]">
+          
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,95 +55,96 @@ export default function Portfolio() {
             transition={{ duration: 0.8 }}
             className="flex items-center w-full"
           >
-            {/* Hanging Prefix Column */}
+            {/* Hanging Prefix */}
             <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
-              <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#F58331]">04.</span>
-              <div className="flex-grow h-[1px] bg-[#727272] mx-[15px] mr-[15px]" />
+              <div className="flex items-baseline">
+                <span className="text-[24px] lg:text-[28px] font-bold leading-none tracking-tight text-[#F58331]" style={{ fontFamily: "'SocialGothic', sans-serif" }}>04</span>
+                <div className="w-[6px] h-[6px] lg:w-[8px] lg:h-[8px] bg-[#F58331] rounded-full ml-[4px]" />
+              </div>
+              <div className="flex-grow h-[1px] bg-[#FFFFFF]/40 mx-[15px]" />
             </div>
             
-            {/* Content Column Start */}
-            <div className="flex items-baseline">
-              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-white">
-                What's Good
-              </h2>
-              <div className="w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] bg-white rounded-full ml-[6px]" />
+            {/* Content */}
+            <div className="flex items-center">
+              <div className="flex items-baseline">
+                <h2 className="font-bold text-[24px] lg:text-[32px] leading-none tracking-tight text-[#FFFFFF] m-0 p-0" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
+                  What's Good
+                </h2>
+                <div className="w-[6px] h-[6px] lg:w-[8px] lg:h-[8px] bg-white rounded-full ml-[6px]" />
+              </div>
             </div>
           </motion.div>
 
           {/* Slider Arrow Buttons */}
-          <div className="flex gap-4 shrink-0">
+          <div className="flex gap-4 shrink-0 text-white/80">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full border border-white/20 hover:border-[var(--accent)] hover:text-[var(--accent)] flex items-center justify-center transition-colors cursor-pointer"
+              className="hover:text-white transition-colors cursor-pointer"
               aria-label="Previous Slide"
             >
-              <ChevronLeft size={20} />
+              <MoveLeft size={32} strokeWidth={1} />
             </button>
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full border border-white/20 hover:border-[var(--accent)] hover:text-[var(--accent)] flex items-center justify-center transition-colors cursor-pointer"
+              className="hover:text-white transition-colors cursor-pointer"
               aria-label="Next Slide"
             >
-              <ChevronRight size={20} />
+              <MoveRight size={32} strokeWidth={1} />
             </button>
           </div>
         </div>
 
         {/* Indented Content Block */}
-        <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
-          {/* Carousel Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          {/* We render visible items using Framer Motion layout to animate switches */}
-          <AnimatePresence mode="popLayout">
-            {visibleItems.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, scale: 0.95, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.95, x: -20 }}
-                transition={{ duration: 0.5 }}
-                // Hide second item on mobile, only show 1
-                className={`flex-col justify-between p-6 bg-white/5 border border-slate-800 rounded-[20px] shadow-2xl relative overflow-hidden group hover:border-[var(--accent)] transition-all duration-300 min-h-[480px] ${index === 1 ? 'hidden md:flex' : 'flex'
-                  }`}
-              >
-                {/* Image Cover */}
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-6 bg-slate-900 border border-slate-800">
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-white text-[#131126] rounded-full flex items-center justify-center shadow-lg">
-                      <ArrowUpRight size={20} />
+        <div className="sliderContainer what-good-container w-full px-[20px] lg:px-0 lg:pl-[256px]">
+          {/* Carousel Slider */}
+          <div className="w-full">
+            <Slider ref={sliderRef} {...settings}>
+              {WHAT_GOOD_PROJECTS.map((project, index) => (
+                <div key={`${project.title}-${index}`} className="focus:outline-none">
+                  <div className="w-full flex-col bg-[#191919] lg:pr-[78px] flex">
+                    {/* Image Cover */}
+                    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-[8px]">
+                      <img
+                        src={project.img}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Footer text content of card */}
+                    <div 
+                      className="what-good-text flex flex-col w-full text-[#FFFFFF]" 
+                      style={{ margin: '0px 0px 30px', padding: '20px 20px 20px 0px' }}
+                    >
+                      <div className="flex justify-between items-center w-full mb-[15px]">
+                        <h3 
+                          className="font-bold text-[24px] md:text-[28px] tracking-wide m-0 p-0"
+                          style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}
+                        >
+                          {project.title}
+                        </h3>
+                        <a
+                          href={project.href}
+                          target="_blank"
+                          className="text-[12px] md:text-[14px] font-bold tracking-wider text-[#FFFFFF] flex items-center gap-[10px] shrink-0 hover:text-[#F58331] transition-colors"
+                        >
+                          <span className="w-[30px] md:w-[50px] h-[1px] bg-[#FFFFFF]/40" />
+                          <span>View Case Study</span>
+                        </a>
+                      </div>
+                      <p 
+                        className="text-[14px] md:text-[16px] text-[#FFFFFF]/80 font-normal leading-[1.5] m-0 p-0"
+                        style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}
+                      >
+                        {project.description}
+                      </p>
                     </div>
                   </div>
                 </div>
-
-                {/* Footer text content of card */}
-                <div className="space-y-4 text-left">
-                  <div className="flex justify-between items-baseline gap-4 mb-[25px]">
-                    <h3 className="text-[32px] leading-[48px] font-bold font-sans text-white tracking-wide">
-                      {project.title}
-                    </h3>
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      className="text-[14px] font-bold font-sans tracking-[2px] uppercase text-[#f27820] hover:text-white transition-colors flex items-center gap-[10px] shrink-0"
-                    >
-                      <span className="w-[15px] h-[2px] bg-[#f27820]" />
-                      <span>CASE STUDY</span>
-                    </a>
-                  </div>
-                  <p className="text-[16px] text-white/90 font-light font-sans leading-[1.5] line-clamp-2">
-                    {project.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     </section>
