@@ -380,32 +380,31 @@ export default function Footer() {
           </div>
 
           {/* Row 2: Values & Center Links */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center w-full gap-4 lg:gap-0">
-            {/* Mobile label fallback */}
-            <span className="text-[#8e8e8e] text-[11px] block sm:hidden font-[500] uppercase tracking-wider">Working Hours</span>
-            <span 
-              className="text-[#111] text-[14px] font-bold tracking-wide" 
-              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
-            >
-              / MON - FRI, 9AM TO 6PM /
-            </span>
+          <div className="flex flex-row justify-between items-center w-full flex-wrap gap-4 sm:gap-0">
+            {/* Left aligned values and links */}
+            <div className="flex items-center gap-[24px] md:gap-[40px] flex-wrap">
+              <span 
+                className="text-[#111] text-[14px] font-bold tracking-wide" 
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
+              >
+                / MON - FRI, 9AM TO 6PM /
+              </span>
 
-            {/* Policies Links (Centered) */}
-            <div 
-              className="flex flex-wrap text-[13px] font-medium text-[#111] items-center gap-[4px] py-2 lg:py-0" 
-              style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
-            >
-              <a href="https://dd.mocup.in/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Privacy Policy</a>
-              <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
-              <a href="https://dd.mocup.in/cookies-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Cookies Policy</a>
-              <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
-              <a href="https://dd.mocup.in/terms-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Terms & Conditions</a>
-              <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
-              <a href="https://dd.mocup.in/refund-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Refund Policy</a>
+              {/* Policies Links */}
+              <div 
+                className="flex flex-wrap text-[13px] font-medium text-[#111] items-center gap-[4px] py-1" 
+                style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+              >
+                <a href="https://dd.mocup.in/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Privacy Policy</a>
+                <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
+                <a href="https://dd.mocup.in/cookies-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Cookies Policy</a>
+                <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
+                <a href="https://dd.mocup.in/terms-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Terms & Conditions</a>
+                <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
+                <a href="https://dd.mocup.in/refund-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Refund Policy</a>
+              </div>
             </div>
 
-            {/* Mobile label fallback */}
-            <span className="text-[#8e8e8e] text-[11px] block sm:hidden font-[500] uppercase tracking-wider mt-2">Local Time</span>
             <span 
               className="text-[#111] text-[14px] font-bold tracking-wide" 
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
