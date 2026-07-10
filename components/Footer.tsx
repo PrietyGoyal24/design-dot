@@ -343,7 +343,7 @@ export default function Footer() {
                 <div className="pt-[10px]">
                   <button
                     type="submit"
-                    className="w-full bg-[#bdc0cb] hover:bg-[#aab0bf] text-[#111] transition-colors h-[54px] rounded-[4px] font-extrabold text-[14px] tracking-wider uppercase cursor-pointer focus:outline-none"
+                    className="w-full bg-[#bdc0cb] hover:bg-[#aab0bf] text-[#111] transition-colors h-[42px] rounded-[6px] font-bold text-[12px] tracking-[0.08em] uppercase cursor-pointer focus:outline-none"
                     style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
                   >
                     REQUEST PROPOSAL
