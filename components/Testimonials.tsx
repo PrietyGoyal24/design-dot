@@ -10,20 +10,19 @@ export default function Testimonials() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col z-10 relative">
         
         {/* Row 1: Index --- Heading */}
-        <div className="flex items-center mb-[80px] lg:mb-[100px] w-full justify-between">
+        <div className="flex items-center mb-[40px] lg:mb-[60px] w-full justify-between">
           <div className="flex items-center flex-1">
             {/* Hanging Prefix Column */}
             <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
-              <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#F58331]">05.</span>
+              <span className="text-[24px] lg:text-[28px] font-bold leading-none tracking-tight text-[#F58331]" style={{ fontFamily: "'SocialGothic', sans-serif" }}>05.</span>
               <div className="flex-grow h-[1px] bg-[#111111]/30 mx-[15px] mr-[15px]" />
             </div>
             
             {/* Content Column Start */}
             <div className="flex items-baseline">
-              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-black">
-                What Are Client Says
+              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none capitalize tracking-tight text-black" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
+                What Are Client Says<span className="inline-block w-[6px] h-[6px] lg:w-[8px] lg:h-[8px] bg-black rounded-full ml-[4px]"></span>
               </h2>
-              <div className="w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] bg-black rounded-full ml-[6px]" />
             </div>
           </div>
           
@@ -39,22 +38,17 @@ export default function Testimonials() {
         {/* Indented Content Block */}
         <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 text-left">
-            <h2 className="text-[24px] leading-[30px] font-bold font-sans text-black mb-[20px]">
+        <div className="flex flex-col text-left mb-[60px] max-w-lg">
+          <p className="text-[18px] lg:text-[22px] leading-[1.6] text-black" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
+            <strong className="font-black" style={{ fontFamily: "'GT-Walsheim-Pro-Black', sans-serif" }}>
               Over 1500+ Happy Clients, we turn Ideas into reality for a living
-            </h2>
-          </div>
-
-          <div className="lg:col-span-7 text-left">
-            <p className="text-[16px] leading-[1.5] font-sans font-light text-black max-w-2xl">
-              We are in the business of digital transformation. We help our clients see what they cannot, unlocking new opportunities and engineering beautiful products.
-            </p>
-          </div>
+            </strong>
+            {' '}We are in the business of digital transformation. We help our clients see what they cannot.
+          </p>
         </div>
 
         {/* Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {TESTIMONIALS.map((testi, index) => (
             <motion.div
               key={testi.name}
@@ -62,11 +56,11 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-[#f8f9fc] border border-slate-100 p-6 rounded-[20px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between text-left h-full"
+              className="bg-transparent flex flex-col justify-start text-left h-full"
             >
               {/* Header profile info */}
-              <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+              <div className="flex items-center gap-3.5 mb-4">
+                <div className="w-12 h-12 overflow-hidden shrink-0">
                   <img
                     src={testi.avatar}
                     alt={testi.name}
@@ -75,10 +69,10 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <h6 className="text-[14px] font-bold font-sans text-black uppercase">
+                  <h6 className="text-[13px] font-black text-black uppercase" style={{ fontFamily: "'GT-Walsheim-Pro-Black', sans-serif" }}>
                     {testi.name}
                   </h6>
-                  <span className="text-[12px] text-slate-500 font-sans font-light leading-snug">
+                  <span className="text-[11px] text-black uppercase tracking-wide leading-snug mt-[2px]" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
                     {testi.role}
                   </span>
 
@@ -92,7 +86,7 @@ export default function Testimonials() {
               </div>
 
               {/* Review paragraph */}
-              <p className="text-[14px] leading-[22px] font-sans font-light text-[#555] flex-1">
+              <p className="text-[14px] lg:text-[16px] leading-[1.7] font-normal text-black text-justify" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
                 {testi.text}
               </p>
             </motion.div>
