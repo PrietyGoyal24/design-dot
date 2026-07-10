@@ -15,20 +15,19 @@ export default function Clientele() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col z-10 relative">
         
         {/* Row 1: Index --- Heading */}
-        <div className="flex items-center mb-[80px] lg:mb-[100px] w-full justify-between">
+        <div className="flex items-center mb-[40px] lg:mb-[60px] w-full justify-between">
           <div className="flex items-center flex-1">
             {/* Hanging Prefix Column */}
             <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
-              <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#F58331]">06.</span>
+              <span className="text-[24px] lg:text-[28px] font-bold leading-none tracking-tight text-[#F58331]" style={{ fontFamily: "'SocialGothic', sans-serif" }}>06.</span>
               <div className="flex-grow h-[1px] bg-[#111111]/30 mx-[15px] mr-[15px]" />
             </div>
             
             {/* Content Column Start */}
             <div className="flex items-baseline">
-              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-black">
-                Clientele
+              <h2 className="font-bold text-[20px] lg:text-[24px] leading-none capitalize tracking-tight text-black" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
+                Clientele<span className="inline-block w-[6px] h-[6px] lg:w-[8px] lg:h-[8px] bg-black rounded-full ml-[4px]"></span>
               </h2>
-              <div className="w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] bg-black rounded-full ml-[6px]" />
             </div>
           </div>
           
@@ -44,63 +43,36 @@ export default function Clientele() {
         {/* Indented Content Block */}
         <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 text-left">
-            <h2 className="text-[24px] leading-[30px] font-bold font-sans text-black mb-[20px]">
-              Inspired design, bold solutions & bottom line results
-            </h2>
-          </div>
-
-          <div className="lg:col-span-7 text-left">
-            <p className="text-[16px] leading-[1.5] font-sans font-light text-black max-w-2xl">
-              We turn information into experiences people care about. Combining <strong className="text-black font-bold">Strategic Thinking and Compelling Design</strong> to deliver bottom line results for companies globally.
-            </p>
-          </div>
+        <div className="flex flex-col text-left mb-[60px] lg:mb-[100px]">
+          <p className="text-[16px] lg:text-[18px] leading-[1.8] text-black" style={{ fontFamily: "'GT-Walsheim-Pro', sans-serif" }}>
+            <strong className="font-black" style={{ fontFamily: "'GT-Walsheim-Pro-Black', sans-serif" }}>
+              Inspired design, bold solutions & bottom<br className="hidden sm:block" />
+              line results
+            </strong>
+            {' '}We turn information into<br className="hidden sm:block" />
+            experiences people care about{' '}
+            <strong className="font-black" style={{ fontFamily: "'GT-Walsheim-Pro-Black', sans-serif" }}>
+              Strategic<br className="hidden sm:block" />
+              Thinking Compelling Design
+            </strong>
+          </p>
         </div>
 
-        {/* Infinitely scrolling logos lists */}
-        <div className="space-y-6 pt-6 overflow-hidden relative">
-          {/* Faders overlay gradient left and right */}
-          <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-          {/* Row 1 Marquee (slides left) */}
-          <div className="flex w-full overflow-hidden py-2">
-            <div className="animate-marquee flex gap-8 items-center">
-              {row1Doubled.map((logo, index) => (
-                <div
-                  key={`${logo.name}-${index}`}
-                  className="w-32 sm:w-40 h-16 sm:h-20 bg-slate-50 border border-slate-100 flex items-center justify-center p-4 rounded-xl shadow-sm hover:scale-105 hover:bg-white transition-all duration-300 group shrink-0"
-                >
-                  <img
-                    src={logo.url}
-                    alt={logo.name}
-                    className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
+        {/* Static Logos Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 border-t border-l border-[#b3b3b3] border-dotted w-full">
+          {CLIENTELE_LOGOS.flat().map((logo, index) => (
+            <div
+              key={`${logo.name}-${index}`}
+              className="border-r border-b border-[#b3b3b3] border-dotted flex items-center justify-center aspect-square transition-all duration-300"
+            >
+              <img
+                src={logo.url}
+                alt={logo.name}
+                className="w-[85%] h-[85%] object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                loading="lazy"
+              />
             </div>
-          </div>
-
-          {/* Row 2 Marquee (slides right / reverse animation) */}
-          <div className="flex w-full overflow-hidden py-2">
-            <div className="animate-marquee flex gap-8 items-center [animation-direction:reverse]">
-              {row2Doubled.map((logo, index) => (
-                <div
-                  key={`${logo.name}-${index}`}
-                  className="w-32 sm:w-40 h-16 sm:h-20 bg-slate-50 border border-slate-100 flex items-center justify-center p-4 rounded-xl shadow-sm hover:scale-105 hover:bg-white transition-all duration-300 group shrink-0"
-                >
-                  <img
-                    src={logo.url}
-                    alt={logo.name}
-                    className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
         </div>
       </div>
