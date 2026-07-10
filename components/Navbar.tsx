@@ -373,16 +373,25 @@ export default function Navbar() {
   const [mobileOpenSubSection, setMobileOpenSubSection] = useState<string | null>(null);
 
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 10) {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY <= 10) {
+        setIsScrolled(false);
+      } else if (scrollDelta > 5) {
         setIsScrolled(true);
-      } else {
+      } else if (scrollDelta < -5) {
         setIsScrolled(false);
       }
+
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
