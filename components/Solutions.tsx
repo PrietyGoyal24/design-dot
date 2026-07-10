@@ -31,8 +31,8 @@ export default function Solutions() {
               </p>
               <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] mx-[15px] relative -top-[1.5px] md:-top-[2.5px]" />
               <span
-                className="text-[18px] md:text-[24px] leading-[30px] text-white"
-                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                className="text-[18px] md:text-[24px] leading-[30px] text-white font-extrabold"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 1200 }}
               >
                 We Build Smarter, Faster Solutions
                 <span className="inline-block w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-white ml-[4px] md:ml-[6px] align-baseline" />
