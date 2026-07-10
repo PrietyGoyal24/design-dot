@@ -67,8 +67,8 @@ export default function Footer() {
           <div className="flex flex-col text-left justify-start w-full">
             
             {/* Heading */}
-            <div className="flex items-center gap-[20px] md:gap-[40px] w-full">
-              <div className="w-[60px] md:w-[80px] h-[2px] bg-[#111]/30 shrink-0 hidden sm:block" />
+            <div className="flex items-start gap-[20px] md:gap-[40px] w-full">
+              <div className="w-[60px] md:w-[80px] h-[2px] bg-[#111]/30 shrink-0 mt-[16px] hidden sm:block" />
               <h2 
                 className="text-[26px] md:text-[30px] leading-[1.2] font-extrabold text-[#111111] lowercase"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
@@ -175,7 +175,7 @@ export default function Footer() {
           {/* Right Column: Write us Proposal Form */}
           <div className="flex flex-col text-left font-sans w-full">
             <h3 
-              className="text-[20px] md:text-[24px] font-extrabold text-[#111111] mb-[24px] mt-[10px] md:mt-[22px]"
+              className="text-[20px] md:text-[24px] font-extrabold text-[#111111] mb-[24px] mt-0 md:mt-[4px]"
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
             >
               Feel Free To Write Us
@@ -343,7 +343,7 @@ export default function Footer() {
                 <div className="pt-[10px]">
                   <button
                     type="submit"
-                    className="w-full bg-[#dbe0e6] hover:bg-[#f27820] hover:text-white text-slate-800 transition-colors h-[54px] rounded-[4px] font-extrabold text-[14px] tracking-wider uppercase cursor-pointer focus:outline-none"
+                    className="w-full bg-[#bdc0cb] hover:bg-[#aab0bf] text-[#111] transition-colors h-[54px] rounded-[4px] font-extrabold text-[14px] tracking-wider uppercase cursor-pointer focus:outline-none"
                     style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
                   >
                     REQUEST PROPOSAL
