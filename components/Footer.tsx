@@ -445,9 +445,9 @@ export default function Footer() {
           </div>
 
           {/* Achievement */}
-          <div className="flex flex-col md:flex-row gap-[16px] md:gap-[32px] items-start pt-[4px]">
+          <div className="flex flex-col gap-[20px] items-start pt-[4px]">
             <h5 
-              className="text-[18px] md:text-[20px] leading-[1.15] font-extrabold tracking-wide text-[#111111] uppercase"
+              className="text-[18px] md:text-[20px] leading-[1.1] font-extrabold tracking-wide text-[#111111] uppercase"
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
             >
               OUR<br/>ACHIEVEMENT.
