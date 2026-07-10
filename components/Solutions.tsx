@@ -17,10 +17,10 @@ export default function Solutions() {
     <section className="relative bg-[#191919] text-white select-none py-[60px] md:py-[80px]">
       <div className="w-full max-w-[1440px] mx-auto px-5 md:pl-[65px] md:pr-[78px]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
 
           {/* Left sticky column */}
-          <div className="lg:sticky lg:top-5 self-start">
+          <div className="lg:sticky lg:top-[120px] self-start">
 
             <div className="flex items-center flex-wrap">
               <p
@@ -29,35 +29,35 @@ export default function Solutions() {
               >
                 02.
               </p>
-              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] mx-[15px]" />
+              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] mx-[15px] relative -top-[1.5px] md:-top-[2.5px]" />
               <span
                 className="text-[18px] md:text-[24px] leading-[30px] text-white"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
               >
                 We Build Smarter, Faster Solutions
-                <span className="inline-block w-[8px] h-[8px] rounded-full bg-white ml-[2px] align-middle" />
+                <span className="inline-block w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-white ml-[4px] md:ml-[6px] align-baseline" />
               </span>
             </div>
 
-            <div className="mt-[30px] ml-0 md:ml-[11.8rem] w-full md:w-[65%] p-8 md:p-10 rounded-[8px] bg-[#2c2c2c4f] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+            <div className="mt-[40px] md:mt-[60px] ml-0 md:ml-[11.8rem] w-full md:w-[65%] p-8 md:p-10 rounded-[8px] bg-[#2c2c2c4f] shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
               <div className="mb-6">
                 <i className="fas fa-paper-plane text-white text-[24px]" />
               </div>
               <h5
-                className="text-[22px] md:text-[24px] leading-[30px] text-white mb-3 tracking-[1px] font-bold"
-                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                className="text-[22px] md:text-[24px] leading-[30px] text-white mb-3 tracking-[1px] font-extrabold"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
               >
                 Fuel Your Digital-First Idea
               </h5>
               <p
-                className="text-[16px] md:text-[18px] leading-[30px] text-white mb-8"
+                className="text-[15px] md:text-[16px] leading-[1.6] text-[#adadad] mb-8"
                 style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
               >
                 With 1600+ Transformation Experts
               </p>
               <a
                 href="#"
-                className="inline-block px-6 py-3 bg-[#f58331] text-white text-[14px] tracking-[1px] rounded-[21px] transition-opacity hover:opacity-80 uppercase font-bold"
+                className="inline-block px-6 py-3 bg-[#f58331] text-white text-[14px] tracking-[1px] rounded-[21px] transition-opacity hover:opacity-80 uppercase font-extrabold"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
               >
                 Innovate With Us
@@ -72,9 +72,9 @@ export default function Solutions() {
               return (
                 <div
                   key={item.title}
-                  className="industry-item border-b border-white/20 last:border-b-0"
+                  className="industry-item border-b border-white/10 last:border-b-0"
                 >
-                  <div className="industry-item-inner group flex gap-6 md:gap-8 items-start py-10 px-0 cursor-pointer transition-all duration-300 ease-linear hover:bg-[#232323] hover:px-5">
+                  <div className="industry-item-inner group flex gap-6 md:gap-8 items-start py-6 md:py-8 px-0 cursor-pointer transition-all duration-300 ease-linear hover:bg-[#232323] hover:pl-4 hover:pr-4">
                     <div className="w-[30px] shrink-0 text-center pt-1">
                       <i className={`${iconClass} text-white text-[22px] md:text-[24px]`} />
                     </div>
@@ -82,8 +82,8 @@ export default function Solutions() {
                     <div className="flex-1 min-w-0 mr-2 md:mr-4">
                       <div className="flex items-start justify-between gap-4 mb-4">
                         <h5
-                          className="text-[20px] md:text-[24px] leading-[30px] text-white m-0 font-bold tracking-[0.5px]"
-                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                          className="text-[20px] md:text-[24px] leading-[30px] text-white m-0 font-extrabold tracking-[0.5px]"
+                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
                         >
                           {item.title}
                         </h5>
@@ -97,7 +97,7 @@ export default function Solutions() {
                         />
                       </div>
                       <p
-                        className="text-[16px] md:text-[18px] leading-[30px] text-white m-0"
+                        className="text-[15px] md:text-[16px] leading-[1.65] text-[#adadad] m-0"
                         style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
                       >
                         {item.description}
