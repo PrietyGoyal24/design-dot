@@ -144,19 +144,19 @@ export default function Footer() {
                   Connect with us
                 </span>
                 <div className="flex gap-[12px] text-[#111111]">
-                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Facebook">
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111] rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Facebook">
                     <i className="fab fa-facebook-f text-[12px]" />
                   </a>
-                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="LinkedIn">
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111] rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="LinkedIn">
                     <i className="fab fa-linkedin-in text-[12px]" />
                   </a>
-                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Twitter">
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111] rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Twitter">
                     <i className="fab fa-twitter text-[12px]" />
                   </a>
-                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="YouTube">
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111] rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="YouTube">
                     <i className="fab fa-youtube text-[12px]" />
                   </a>
-                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Instagram">
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111] rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Instagram">
                     <i className="fab fa-instagram text-[12px]" />
                   </a>
                 </div>
