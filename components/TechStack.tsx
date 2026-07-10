@@ -150,13 +150,21 @@ export default function TechStack() {
         >
           {/* Hanging Prefix Column */}
           <div className="w-[120px] lg:w-[160px] flex items-center shrink-0">
-            <span className="font-sans font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#111111]">03.</span>
+            <span
+              className="font-black text-[20px] lg:text-[24px] leading-none tracking-tight text-[#111111]"
+              style={{ fontFamily: 'GTWalsheimPro-Bold' }}
+            >
+              03.
+            </span>
             <div className="flex-grow h-[1px] bg-[#111111]/40 ml-[15px] mr-[15px]" />
           </div>
 
           {/* Content Column Start */}
           <div className="flex items-baseline">
-            <h2 className="font-bold text-[20px] lg:text-[24px] leading-none font-sans capitalize tracking-tight text-[#111111]">
+            <h2
+              className="font-bold text-[20px] lg:text-[24px] leading-none capitalize tracking-tight text-[#111111]"
+              style={{ fontFamily: 'GTWalsheimPro-Bold' }}
+            >
               Our Range Of Frameworks And Cutting-Edge Technology Expertise
             </h2>
             <div className="w-[6px] h-[6px] lg:w-[8px] lg:h-[8px] bg-[#111111] rounded-full ml-[6px]" />
@@ -167,9 +175,9 @@ export default function TechStack() {
         <div className="w-full pl-0 md:pl-[120px] lg:pl-[160px]">
 
           {/* Desktop Layout */}
-          <div className="hidden lg:flex h-[515px] w-full">
+          <div className="hidden lg:flex h-[515px] w-full overflow-hidden rounded-[25px]">
             {/* Left Vertical Menu */}
-            <div className="w-1/2 shrink-0 bg-[#363266] pt-[20px] pb-[15px] pl-[20px] pr-[15px] flex flex-col relative h-full">
+            <div className="w-1/2 shrink-0 bg-[#363266] pt-[20px] pb-[15px] pl-[20px] pr-[15px] flex flex-col relative h-full rounded-l-[25px]">
               <div data-lenis-prevent="true" className="flex flex-col relative h-full overflow-y-auto scroll-smooth custom-scrollbar pr-[10px]">
                 {MENU_ITEMS.map((item) => {
                   const isActive = activeCategory === item.id;
@@ -177,10 +185,11 @@ export default function TechStack() {
                     <button
                       key={item.id}
                       onClick={() => setActiveCategory(item.id)}
-                      className={`flex justify-between items-center px-[20px] py-[24px] mb-[10px] mr-[10px] rounded-[12px] text-[18px] font-bold font-sans tracking-wide transition-all duration-200 cursor-pointer relative group ${isActive
+                      className={`flex justify-between items-center px-[20px] py-[24px] mb-[10px] mr-[10px] rounded-[10px] text-[18px] font-bold tracking-wide transition-all duration-200 cursor-pointer relative group ${isActive
                         ? 'bg-white/20 text-white'
                         : 'text-white hover:bg-white/10'
                         }`}
+                      style={{ fontFamily: 'GTWalsheimPro-Bold' }}
                     >
                       <div className="flex items-center gap-[20px]">
                         <div className="w-[24px] h-[24px] flex justify-center items-center opacity-90 text-white">
@@ -198,7 +207,7 @@ export default function TechStack() {
             </div>
 
             {/* Right Content Panel */}
-            <div className="w-1/2 bg-[#E8E8E8] p-[30px] flex flex-col justify-start">
+            <div className="w-1/2 bg-[#E8E8E8] p-[30px] flex flex-col justify-start rounded-r-[25px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory}
@@ -211,12 +220,15 @@ export default function TechStack() {
                   {GRID_TECH_DATA[activeCategory as keyof typeof GRID_TECH_DATA]?.map((tech) => (
                     <div
                       key={tech.name}
-                      className="flex items-center gap-[20px] bg-white px-[20px] py-[16px] rounded-[10px] shadow-sm hover:shadow-md transition-all"
+                      className="flex items-center gap-[32px] bg-[#f8f9fa] px-[20px] py-[16px] rounded-[10px] shadow-sm hover:shadow-md transition-all min-h-[65px]"
                     >
-                      <div className="w-[40px] h-[40px] flex items-center justify-center shrink-0">
-                        <img src={tech.img} alt={tech.name} className="max-w-full max-h-full object-contain" loading="lazy" />
+                      <div className="w-[65px] h-[35px] flex items-center justify-center shrink-0">
+                        <img src={tech.img} alt={tech.name} className="w-[65px] max-h-[35px] object-contain" loading="lazy" />
                       </div>
-                      <span className="text-[14px] font-bold text-[#111111] tracking-wider font-sans uppercase">
+                      <span
+                        className="text-[14px] md:text-[16px] font-bold text-[#111111] tracking-wider uppercase leading-[20px]"
+                        style={{ fontFamily: 'GTWalsheimPro-Bold' }}
+                      >
                         {tech.name}
                       </span>
                     </div>
@@ -234,7 +246,8 @@ export default function TechStack() {
                 <div key={item.id} className="border border-slate-100 rounded-xl overflow-hidden bg-[#f8f9fc]">
                   <button
                     onClick={() => toggleAccordion(item.id)}
-                    className="w-full flex justify-between items-center px-4 py-4 bg-white text-[15px] font-bold font-sans tracking-wide text-slate-800 cursor-pointer"
+                    className="w-full flex justify-between items-center px-4 py-4 bg-white text-[15px] font-bold tracking-wide text-slate-800 cursor-pointer"
+                    style={{ fontFamily: 'GTWalsheimPro-Bold' }}
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-[20px] h-[20px] flex items-center justify-center text-[#f27820]">
@@ -255,7 +268,10 @@ export default function TechStack() {
                           <div className="w-8 h-8 flex items-center justify-center shrink-0">
                             <img src={tech.img} alt={tech.name} className="max-w-full max-h-full object-contain" />
                           </div>
-                          <span className="text-[14px] font-bold text-slate-800 font-sans">
+                          <span
+                            className="text-[14px] font-bold text-slate-800"
+                            style={{ fontFamily: 'GTWalsheimPro-Bold' }}
+                          >
                             {tech.name}
                           </span>
                         </div>

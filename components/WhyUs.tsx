@@ -1,88 +1,88 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 export default function WhyUs() {
   return (
-    <section id="why-us" className="relative bg-[#ffffff] text-[#1A1A1A] select-none w-full overflow-x-hidden pt-[100px] pb-[100px]">
+    <section id="why-us" className="relative bg-white text-[#111] w-full overflow-x-hidden py-[50px] md:py-[100px]">
+      <div className="flex flex-col md:flex-row items-stretch w-full">
 
-      {/* Desktop Absolute White Box (anchored to right edge, precise aspect ratio) */}
-      <div className="absolute right-0 top-[40px] lg:top-[60px] h-[calc(100%-80px)] lg:h-[calc(100%-120px)] aspect-[645/778] flex items-center justify-center overflow-hidden hidden md:flex z-20">
-        <img
-          src="https://designdot.co.in/assets/web/images/d-logo-2.jpg"
-          alt="DesignDot Logo"
-          className="w-full h-full object-cover"
-        />
-      </div>
+        {/* Left column — text */}
+        <div className="w-full md:w-[58.33%] flex items-center">
+          <div className="w-full px-10 md:pl-[65px] md:pr-0">
 
-      {/* Main Content Container (Standard Centered Width for text alignment) */}
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 flex items-center min-h-[450px]">
-
-        {/* Left Column Content - Pixel-perfect alignment and spacing */}
-        <div className="w-full md:w-[60%] flex flex-col justify-center text-left py-16 md:py-0 relative">
-
-          {/* Row 1: 00. --- Why Us. */}
-          <div className="flex items-center mb-[40px] lg:mb-[60px]">
-            {/* Hanging Prefix Column */}
-            <div className="w-[120px] lg:w-[140px] flex items-center shrink-0">
-              <span className="font-sans font-bold text-[20px] lg:text-[24px] tracking-tight text-[#1A1A1A] leading-none">00.</span>
-              <div className="flex-grow h-[1px] bg-[#1A1A1A]/30 mx-[16px] lg:mx-[20px]" />
+            {/* Row 1: 00. + line (full width, on its own row) */}
+            <div className="flex items-center">
+              <p
+                className="text-[18px] md:text-[24px] leading-[30px] m-0 shrink-0"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+              >
+                00.
+              </p>
+              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] ml-[15px]" />
             </div>
 
-            {/* Content Column Start */}
-            <div className="flex items-baseline">
-              <h3 className="font-sans font-bold text-[20px] lg:text-[24px] tracking-wide text-[#1A1A1A] capitalize leading-none">
+            {/* Row 2: section text (below 00., not beside it) */}
+            <div className="w-full mt-5">
+
+              <span
+                className="block text-[18px] md:text-[24px] leading-[30px] tracking-[1px] mb-[22px]"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+              >
                 Why Us
-              </h3>
-              <div className="w-[8px] h-[8px] lg:w-[10px] lg:h-[10px] bg-[#1A1A1A] rounded-full ml-[6px]" />
+                <span className="inline-block w-[8px] h-[8px] rounded-full bg-black ml-[2px] align-middle" />
+              </span>
+
+              <h2
+                className="text-[23px] sm:text-[27px] lg:text-[32px] xl:text-[38px] leading-[1.4] tracking-[2px] uppercase m-0"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+              >
+                A CREATIVE DIGITAL AGENCY
+                <span className="inline-block w-[11px] h-[11px] rounded-full bg-black ml-[2px] align-middle" />
+              </h2>
+
+              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] mt-[10px] mb-[50px]" />
+
+              <p
+                className="text-[16px] md:text-[18px] leading-[30px] text-[#111] m-0 md:mr-[22px]"
+                style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+              >
+                DesignDot is a Global creative agency. We{' '}
+                <span style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
+                  Design & Build Brands, UI / UX, Interface & Application Development,
+                  Campaigns & Digital Projects, Signage & Advertising, Visualisation & Interior, Exhibition & Event
+                </span>{' '}
+                {'{'}360 Services, support and solutions{'}'} provider for businesses provider for businesses Small, Medium, Large Enterprises across the world. We are at our best in the following areas…
+              </p>
+
+              <div className="flex items-center mt-[50px] md:mt-[90px]">
+                <span className="inline-block w-[96px] md:w-[130px] h-[2px] bg-[#727272]" />
+                <a
+                  href="https://dd.mocup.in/about-us"
+                  className="inline-block ml-[18px] px-[7px] py-[5px] bg-[#f3812f] text-black text-[14px] uppercase tracking-wide transition-opacity hover:opacity-90"
+                  style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+                >
+                  EXPLORE
+                </a>
+              </div>
             </div>
           </div>
-
-          {/* Row 2: Heading */}
-          <div className="pl-[120px] lg:pl-[140px] mb-[24px] flex items-baseline">
-            <h2 className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-bold tracking-wide font-sans text-[#1A1A1A] leading-none uppercase flex items-baseline whitespace-nowrap">
-              A CREATIVE DIGITAL AGENCY
-            </h2>
-            <div className="w-[10px] h-[10px] lg:w-[14px] lg:h-[14px] bg-[#1A1A1A] rounded-full ml-[8px]" />
-          </div>
-
-          {/* Row 3: Line Below Heading */}
-          <div className="pl-[120px] lg:pl-[140px] mb-[40px] lg:mb-[50px]">
-            <div className="w-[140px] lg:w-[180px] h-[1px] bg-[#1A1A1A]/40" />
-          </div>
-
-          {/* Row 4: Description Paragraph */}
-          <div className="pl-[120px] lg:pl-[140px] mb-[60px] lg:mb-[80px] pr-4 lg:pr-10">
-            <p className="text-[#1A1A1A] text-[15px] lg:text-[17px] leading-[30px] lg:leading-[34px] w-full max-w-[500px] lg:max-w-[540px] font-medium tracking-wide">
-              DesignDot is a Global creative agency. We <strong className="font-bold text-[#1A1A1A]">Design & Build Brands, UI / UX, Interface & Application Development, Campaigns & Digital Projects, Signage & Advertising, Visualisation & Interior, Exhibition & Event</strong> {'{'}360 Services, support and solutions{'}'} provider for businesses provider for businesses Small, Medium, Large Enterprises across the world. We are at our best in the following areas...
-            </p>
-          </div>
-
-          {/* Row 5: EXPLORE button block */}
-          <div className="pl-[120px] lg:pl-[140px] flex items-center">
-            <div className="w-[100px] lg:w-[140px] h-[1px] bg-[#1A1A1A]/30 mr-[20px] lg:mr-[24px]" />
-            <a
-              href="https://dd.mocup.in/about-us"
-              className="bg-[#F58331] text-[#1A1A1A] px-[12px] py-[4px] lg:px-[16px] lg:py-[6px] rounded-sm text-[10px] lg:text-[11px] font-medium font-sans tracking-[2px] uppercase transition-opacity hover:opacity-90"
-            >
-              EXPLORE
-            </a>
-          </div>
-
         </div>
-      </div>
 
-      {/* Mobile-only Layout for Right Column Graphics */}
-      <div className="w-full flex md:hidden flex-col items-center justify-center py-12 mt-10 relative z-10 px-6">
-        <div className="w-full max-w-[320px] aspect-[645/778] flex items-center justify-center overflow-hidden">
-          <img
-            src="https://designdot.co.in/assets/web/images/d-logo-2.jpg"
-            alt="DesignDot Logo"
-            className="w-full h-full object-cover"
-          />
+        {/* Right column — logo */}
+        <div className="w-full md:w-[41.67%] flex items-center justify-end p-0 mt-10 md:mt-0">
+          <div className="w-full max-w-[645px]">
+            <img
+              src="https://dd.mocup.in/assets/web/images/d-logo-2.jpg"
+              alt="design dot logo"
+              width={645}
+              height={780}
+              loading="lazy"
+              className="w-full h-auto"
+              style={{ boxShadow: '-9px 8px 24px 17px #f4f4f4' }}
+            />
+          </div>
         </div>
-      </div>
 
+      </div>
     </section>
   );
 }
