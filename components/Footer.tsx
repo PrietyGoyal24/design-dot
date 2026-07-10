@@ -68,9 +68,9 @@ export default function Footer() {
             
             {/* Heading */}
             <div className="relative">
-              <div className="absolute left-[-120px] top-[1.95rem] w-[80px] h-[2px] bg-[#111]/30 hidden sm:block" />
+              <div className="absolute left-[-120px] top-[16px] w-[80px] h-[2px] bg-[#111]/30 hidden sm:block" />
               <h2 
-                className="text-[42px] sm:text-[55px] md:text-[68px] lg:text-[72px] leading-[1.05] font-extrabold text-[#111111] lowercase"
+                className="text-[26px] md:text-[30px] leading-[1.2] font-extrabold text-[#111111] lowercase"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
               >
                 let&apos;s build something<br/>awesome
