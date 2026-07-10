@@ -567,91 +567,131 @@ export default function Navbar() {
               onMouseDown={(e) => handleMegaTabClick(e, 'expertise')}
               className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
-              <div className="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 px-10 py-10 select-none text-left">
-                {/* Left Column (col-span-4) */}
-                <div className="col-span-4 border-r border-slate-200 pr-8">
-                  <img
-                    src={EXPERTISE_MENU.left.image}
-                    alt="Expertise Development"
-                    className="w-full h-40 object-cover rounded-lg mb-5 shadow-sm border border-slate-100"
-                  />
-                  <h3 className="font-extrabold text-[18px] tracking-wider text-slate-900 mb-1">
-                    {EXPERTISE_MENU.left.title}
-                  </h3>
-                  <p className="text-[13px] text-slate-500 font-semibold mb-6">
-                    {EXPERTISE_MENU.left.subtitle}
-                  </p>
+              <div className="max-w-[1440px] mx-auto w-full flex flex-col select-none text-left bg-white shadow-xl">
+                <div className="w-full grid grid-cols-[1.3fr_1fr_1.7fr] gap-0 px-[40px] py-[40px]">
+                  {/* Left Column */}
+                  <div className="pr-[40px]">
+                    <img
+                      src={EXPERTISE_MENU.left.image}
+                      alt="Expertise Development"
+                      className="w-full h-[220px] object-cover mb-[20px]"
+                    />
+                    <h3 className="font-extrabold text-[20px] tracking-wide text-[#111] mb-[4px] uppercase" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
+                      ENGAGEMENT MODELS
+                    </h3>
+                    <p className="text-[13px] mb-[30px]">
+                      <span className="font-extrabold text-[#111]" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Hiring Software Developers.</span>
+                      <span className="text-slate-500 font-medium"> It Only Takes A Few Clicks</span>
+                    </p>
 
-                  <div className="flex flex-col gap-[24px]">
-                    {EXPERTISE_MENU.left.items.map((item: any) => (
-                      <div key={item.title} className="grid grid-cols-[auto_1fr] items-start gap-4">
-                        <img src={item.icon} alt={item.title} className="w-[32px] h-[32px] mt-1" />
-                        <div className="flex flex-col">
-                          <span className="text-[13px] font-[800] tracking-widest text-slate-800 uppercase leading-snug">
-                            {item.title}
-                          </span>
-                          <span className="text-[12px] text-slate-600 font-[400] leading-normal mt-1">
-                            {item.desc}
-                          </span>
+                    <div className="flex flex-col gap-[24px]">
+                      {EXPERTISE_MENU.left.items.map((item: any) => (
+                        <div key={item.title} className="flex items-start gap-[16px]">
+                          <img src={item.icon} alt={item.title} className="w-[30px] h-[30px] shrink-0" />
+                          <div className="flex flex-col">
+                            <span className="text-[13px] font-extrabold tracking-wide text-[#111] uppercase" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
+                              {item.title}
+                            </span>
+                            <span className="text-[13px] text-slate-500 font-medium mt-[4px] capitalize">
+                              {item.desc}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Center Column (col-span-3) */}
-                <div className="col-span-3 border-r-[2.5px] border-slate-200 pr-[32px] flex flex-col gap-4 select-none">
-                  {EXPERTISE_MENU.center.categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onMouseEnter={() => setActiveExpertiseCategory(cat)}
-                      onClick={() => setActiveExpertiseCategory(cat)}
-                      className={`flex items-center justify-between w-full text-left px-4 py-[8px] font-bold text-[13px] tracking-widest uppercase rounded-[4px] transition-all duration-150 cursor-pointer ${activeExpertiseCategory === cat
-                        ? 'bg-[#00539c] text-white shadow-sm'
-                        : 'text-slate-800 hover:bg-slate-100/80 hover:text-[#00539c]'
-                        }`}
-                    >
-                      <span>{cat}</span>
-                      <span className={activeExpertiseCategory === cat ? 'text-white' : 'text-slate-400'}>
-                        ▸
-                      </span>
-                    </button>
-                  ))}
-                </div>
+                  {/* Center Column */}
+                  <div className="border-r-[1.5px] border-[#00539c] pr-[24px] flex flex-col justify-between">
+                    <div className="flex flex-col gap-[2px]">
+                      {EXPERTISE_MENU.center.categories.map((cat) => (
+                        <button
+                          key={cat}
+                          onMouseEnter={() => setActiveExpertiseCategory(cat)}
+                          onClick={() => setActiveExpertiseCategory(cat)}
+                          className={`flex items-center justify-between w-full text-left px-[16px] py-[8px] font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer ${
+                            activeExpertiseCategory === cat
+                              ? 'bg-[#00539c] text-white'
+                              : 'text-[#00539c] hover:bg-slate-50'
+                          }`}
+                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                        >
+                          <span>{cat}</span>
+                          <span className={`text-[9px] ${activeExpertiseCategory === cat ? 'text-white' : 'text-[#00539c]'}`}>
+                            ▶
+                          </span>
+                        </button>
+                      ))}
+                    </div>
 
-                {/* Right Column (col-span-5) */}
-                <div className="col-span-5 pl-4">
-                  <div className="flex items-center gap-4 mb-6">
-                    <h4 className="font-black text-[14px] tracking-widest text-[#00539c] uppercase">
-                      {activeExpertiseCategory}
-                    </h4>
-                    <div className="flex-1 h-[1px] bg-slate-200" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-[16px] pr-4">
-                    {(EXPERTISE_MENU.center.subServices[activeExpertiseCategory as keyof typeof EXPERTISE_MENU.center.subServices] || []).map((serv) => (
+                    {/* Bottom line and All Services Button */}
+                    <div className="flex items-center mt-[30px] pl-[16px]">
+                      <div className="w-[80px] h-[1.5px] bg-slate-300 mr-[12px]" />
                       <a
-                        key={serv}
-                        href="#"
-                        className="text-[#333333] hover:text-[#00539c] transition-colors text-[13px] font-[200] leading-[24px] py-0.5"
+                        onClick={triggerModal}
+                        className="bg-[#f58331] text-white hover:bg-black transition-colors px-[12px] py-[4px] font-bold tracking-wider text-[9px] uppercase select-none cursor-pointer"
+                        style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
                       >
-                        {serv}
+                        All Services
                       </a>
-                    ))}
+                    </div>
+                  </div>
+
+                  {/* Right Column */}
+                  <div className="pl-[30px]">
+                    <div className="flex items-center gap-[16px] mb-[20px]">
+                      <h4 className="font-extrabold text-[15px] tracking-wide text-[#00539c] uppercase" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
+                        {activeExpertiseCategory}
+                      </h4>
+                      <div className="flex-1 h-[1.5px] bg-[#00539c]" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-x-[30px] gap-y-[16px]">
+                      {(EXPERTISE_MENU.center.subServices[activeExpertiseCategory as keyof typeof EXPERTISE_MENU.center.subServices] || []).map((serv) => (
+                        <a
+                          key={serv}
+                          href="#"
+                          className="text-[#00539c] hover:underline text-[13.5px] font-medium tracking-wide"
+                        >
+                          {serv}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Bottom line and All Services Button */}
-                <div className="col-span-12 flex justify-center items-center mt-6 border-t border-slate-200/60 pt-6">
-                  <div className="w-1/3 h-[1px] bg-slate-200" />
-                  <a
-                    onClick={triggerModal}
-                    className="bg-[#f58331] text-white hover:bg-black transition-colors px-6 py-2 rounded-[4px] font-bold tracking-widest text-[9px] uppercase mx-4 select-none cursor-pointer"
-                  >
-                    All Services
-                  </a>
-                  <div className="w-1/3 h-[1px] bg-slate-200" />
-                </div>
+                {/* Full-width bottom banner */}
+                <div 
+                  className="w-full text-white flex items-center justify-between px-[40px] py-[16px]"
+                  style={{
+                    background: 'linear-gradient(90deg, #0e2038 0%, #d87019 45%, #e27a1e 55%, #423d38 100%)',
+                  }}
+                >
+                  {/* Left: Stats */}
+                  <div className="flex items-center gap-[60px] pl-[10px]">
+                    <div className="flex flex-col items-center">
+                      <span className="text-[28px] font-extrabold leading-none mb-1" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>20 +</span>
+                      <span className="text-[10px] font-bold tracking-widest uppercase">YEARS IN BUSINESS</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span className="text-[28px] font-extrabold leading-none mb-1" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>5000 +</span>
+                      <span className="text-[10px] font-bold tracking-widest uppercase">CLIENTS WORLDWIDE</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span className="text-[28px] font-extrabold leading-none mb-1" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>1700 +</span>
+                      <span className="text-[10px] font-bold tracking-widest uppercase">PROJECT EXECUTED</span>
+                    </div>
+                  </div>
 
+                  {/* Right: Text and Button */}
+                  <div className="flex items-center gap-[24px]">
+                    <div className="flex flex-col text-right max-w-[540px]">
+                      <span className="text-[14px] font-extrabold mb-1" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>Want to consult with us on a project but need a quote? For an estimate, click this button.</span>
+                      <span className="text-[11px] text-slate-100 font-medium">Start with a free exploratory call—we'll listen to your needs and suggest tailored strategies, obligation-free.</span>
+                    </div>
+                    {/* Empty spacer to reserve space for the global floating WhatsApp button */}
+                    <div className="w-[48px] h-[48px] shrink-0" />
+                  </div>
+                </div>
               </div>
             </div>
           )}
