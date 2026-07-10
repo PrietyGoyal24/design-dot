@@ -2,7 +2,7 @@
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="relative bg-white text-[#111] w-full overflow-x-hidden py-[60px] md:py-[100px]">
+    <section id="why-us" className="relative bg-white text-[#111] w-full overflow-x-hidden pt-[60px] pb-[40px] md:pt-[100px] md:pb-[50px]">
       <div className="flex flex-col md:flex-row items-stretch w-full">
 
         {/* Left column — text */}

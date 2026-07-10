@@ -16,7 +16,7 @@ const ICON_MAP: Record<string, string> = {
 
 export default function Services() {
   return (
-    <section className="relative pt-[120px] lg:pt-[160px] pb-[96px] bg-[#ffffff] text-slate-900 overflow-hidden select-none">
+    <section className="relative pt-[50px] md:pt-[70px] lg:pt-[85px] pb-[96px] bg-[#ffffff] text-slate-900 overflow-hidden select-none">
       <div className="w-full max-w-[1920px] mx-auto relative z-10 flex flex-col">
 
         {/* Row 1: Heading with Hanging Indent */}
