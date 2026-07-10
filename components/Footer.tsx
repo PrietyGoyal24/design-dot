@@ -362,54 +362,57 @@ export default function Footer() {
         </div>
 
         {/* Working Hours, Policies & Local Time Strip */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center w-full pb-[30px] gap-6 lg:gap-0">
-          
-          {/* Working Hours */}
-          <div className="flex flex-col gap-[6px] text-left">
+        <div className="flex flex-col w-full pb-[30px]">
+          {/* Row 1: Labels */}
+          <div className="flex justify-between items-center w-full mb-[6px] hidden sm:flex">
             <span 
-              className="text-[#a0a0a0] text-[13px] font-[500] uppercase tracking-wider" 
+              className="text-[#8e8e8e] text-[13px] font-[500] uppercase tracking-wider" 
               style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
             >
               Working Hours
             </span>
             <span 
-              className="text-[#1a1a1a] text-[14px] font-extrabold tracking-widest" 
-              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-            >
-              / MON - FRI, 9AM TO 6PM /
-            </span>
-          </div>
-
-          {/* Policies Links (Centered) */}
-          <div 
-            className="flex flex-wrap text-[13px] font-extrabold text-[#1a1a1a] items-center gap-[4px]" 
-            style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-          >
-            <a href="https://dd.mocup.in/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Privacy Policy</a>
-            <span className="text-[#a0a0a0] font-normal mx-[10px]">|</span>
-            <a href="https://dd.mocup.in/cookies-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Cookies Policy</a>
-            <span className="text-[#a0a0a0] font-normal mx-[10px]">|</span>
-            <a href="https://dd.mocup.in/terms-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Terms & Conditions</a>
-            <span className="text-[#a0a0a0] font-normal mx-[10px]">|</span>
-            <a href="https://dd.mocup.in/refund-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Refund Policy</a>
-          </div>
-
-          {/* Local Time */}
-          <div className="flex flex-col gap-[6px] text-left lg:text-right items-start lg:items-end">
-            <span 
-              className="text-[#a0a0a0] text-[13px] font-[500] uppercase tracking-wider" 
+              className="text-[#8e8e8e] text-[13px] font-[500] uppercase tracking-wider" 
               style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
             >
               Local Time
             </span>
+          </div>
+
+          {/* Row 2: Values & Center Links */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center w-full gap-4 lg:gap-0">
+            {/* Mobile label fallback */}
+            <span className="text-[#8e8e8e] text-[11px] block sm:hidden font-[500] uppercase tracking-wider">Working Hours</span>
             <span 
-              className="text-[#1a1a1a] text-[14px] font-extrabold tracking-widest" 
-              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+              className="text-[#111] text-[14px] font-bold tracking-wide" 
+              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
+            >
+              / MON - FRI, 9AM TO 6PM /
+            </span>
+
+            {/* Policies Links (Centered) */}
+            <div 
+              className="flex flex-wrap text-[13px] font-medium text-[#111] items-center gap-[4px] py-2 lg:py-0" 
+              style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+            >
+              <a href="https://dd.mocup.in/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Privacy Policy</a>
+              <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
+              <a href="https://dd.mocup.in/cookies-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Cookies Policy</a>
+              <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
+              <a href="https://dd.mocup.in/terms-conditions" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Terms & Conditions</a>
+              <span className="text-[#8e8e8e] font-normal mx-[10px]">|</span>
+              <a href="https://dd.mocup.in/refund-policy" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">Refund Policy</a>
+            </div>
+
+            {/* Mobile label fallback */}
+            <span className="text-[#8e8e8e] text-[11px] block sm:hidden font-[500] uppercase tracking-wider mt-2">Local Time</span>
+            <span 
+              className="text-[#111] text-[14px] font-bold tracking-wide" 
+              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
             >
               {localTime}
             </span>
           </div>
-
         </div>
 
         {/* Bottom Divider Line */}
@@ -428,8 +431,8 @@ export default function Footer() {
             />
             <div className="flex flex-col gap-[10px] pt-[4px]">
               <h5 
-                className="text-[14px] font-extrabold tracking-wide text-[#1a1a1a]"
-                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                className="text-[14px] font-extrabold tracking-wide text-[#111111]"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
               >
                 Happiness guarantee
               </h5>
@@ -443,12 +446,12 @@ export default function Footer() {
           </div>
 
           {/* Achievement */}
-          <div className="flex flex-col gap-[16px] items-start pt-[4px]">
+          <div className="flex flex-col md:flex-row gap-[16px] md:gap-[32px] items-start pt-[4px]">
             <h5 
-              className="text-[14px] font-extrabold tracking-wide text-[#1a1a1a] uppercase"
-              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+              className="text-[18px] md:text-[20px] leading-[1.15] font-extrabold tracking-wide text-[#111111] uppercase"
+              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
             >
-              OUR ACHIEVEMENT.
+              OUR<br/>ACHIEVEMENT.
             </h5>
             <div className="flex gap-[20px]">
               <img src="https://dd.mocup.in/assets/web/images/footer-award-2.png" alt="Award 2" className="h-[96px] object-contain" loading="lazy" />
@@ -463,12 +466,12 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#f27820] hover:text-black font-extrabold text-[14px] tracking-wide transition-colors cursor-pointer"
-              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+              style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
             >
               Download Brochure
             </a>
             <p 
-              className="text-[11px] text-[#1a1a1a] font-extrabold tracking-widest uppercase mt-[28px]"
+              className="text-[11px] text-[#8e8e8e] font-extrabold tracking-widest uppercase mt-[16px]"
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
             >
               © ALL RIGHTS RESERVED 2026, DESIGNDOT
