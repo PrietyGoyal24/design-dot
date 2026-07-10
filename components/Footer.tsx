@@ -64,13 +64,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-[100px] items-start">
           
           {/* Left Column: Let's build something awesome & details */}
-          <div className="flex flex-col text-left">
+          <div className="flex flex-col text-left pl-0 sm:pl-[120px] relative">
             
             {/* Heading */}
-            <div className="flex items-start">
-              <div className="w-[100px] flex justify-end pr-[20px] shrink-0 mt-[15px] hidden sm:flex">
-                <div className="w-[60px] h-[2px] bg-[#111]/30" />
-              </div>
+            <div className="relative">
+              <div className="absolute left-[-120px] top-[1.95rem] w-[80px] h-[2px] bg-[#111]/30 hidden sm:block" />
               <h2 
                 className="text-[42px] sm:text-[55px] md:text-[68px] lg:text-[72px] leading-[1.05] font-extrabold text-[#111111] lowercase"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
@@ -82,101 +80,85 @@ export default function Footer() {
             <div className="flex flex-col gap-[36px] mt-[50px]">
               
               {/* Phone number */}
-              <div className="flex items-start">
-                <div className="w-[100px] flex justify-end pr-[20px] shrink-0 mt-[10px] hidden sm:flex">
-                  <div className="w-[40px] h-[1.5px] bg-[#111]/30" />
-                </div>
-                <div className="flex flex-col gap-[6px]">
-                  <span 
-                    className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
-                    style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
-                  >
-                    Phone number
-                  </span>
-                  <div 
-                    className="text-[15px] md:text-[17px] font-extrabold tracking-wide flex flex-col gap-[6px] text-[#1a1a1a]"
-                    style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
-                  >
-                    <a href="tel:+919873282812" className="hover:text-[#f27820] transition-colors">+91-9873.282.812</a>
-                    <a href="tel:+14694410125" className="hover:text-[#f27820] transition-colors">+1 469-441-0125</a>
-                  </div>
+              <div className="relative flex flex-col gap-[6px]">
+                <div className="absolute left-[-120px] top-[10px] w-[50px] h-[1.5px] bg-[#111]/30 hidden sm:block" />
+                <span 
+                  className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
+                  style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+                >
+                  Phone number
+                </span>
+                <div 
+                  className="text-[15px] md:text-[17px] font-extrabold tracking-wide flex flex-col gap-[6px] text-[#1a1a1a]"
+                  style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
+                >
+                  <a href="tel:+919873282812" className="hover:text-[#f27820] transition-colors">+91-9873.282.812</a>
+                  <a href="tel:+14694410125" className="hover:text-[#f27820] transition-colors">+1 469-441-0125</a>
                 </div>
               </div>
 
               {/* Mail at */}
-              <div className="flex items-start">
-                <div className="w-[100px] flex justify-end pr-[20px] shrink-0 mt-[10px] hidden sm:flex">
-                  <div className="w-[40px] h-[1.5px] bg-[#111]/30" />
-                </div>
-                <div className="flex flex-col gap-[6px]">
-                  <span 
-                    className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
-                    style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
-                  >
-                    Mail at
-                  </span>
-                  <div 
-                    className="text-[15px] md:text-[17px] font-extrabold tracking-wide text-[#1a1a1a]"
-                    style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
-                  >
-                    <a href="mailto:info@designdot.co" className="hover:text-[#f27820] transition-colors font-extrabold">info@designdot.co</a>
-                  </div>
+              <div className="relative flex flex-col gap-[6px]">
+                <div className="absolute left-[-120px] top-[10px] w-[50px] h-[1.5px] bg-[#111]/30 hidden sm:block" />
+                <span 
+                  className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
+                  style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+                >
+                  Mail at
+                </span>
+                <div 
+                  className="text-[15px] md:text-[17px] font-extrabold tracking-wide text-[#1a1a1a]"
+                  style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
+                >
+                  <a href="mailto:info@designdot.co" className="hover:text-[#f27820] transition-colors font-extrabold">info@designdot.co</a>
                 </div>
               </div>
 
               {/* Direct Chat */}
-              <div className="flex items-start">
-                <div className="w-[100px] flex justify-end pr-[20px] shrink-0 mt-[10px] hidden sm:flex">
-                  <div className="w-[40px] h-[1.5px] bg-[#111]/30" />
-                </div>
-                <div className="flex flex-col gap-[6px]">
-                  <span 
-                    className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
-                    style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
-                  >
-                    Direct Chat
-                  </span>
-                  <div 
-                    className="text-[15px] md:text-[17px] font-extrabold tracking-wide text-[#1a1a1a] flex items-center gap-[8px]"
-                    style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
-                  >
-                    <i className="fab fa-whatsapp text-[18px] text-[#1a1a1a]" />
-                    <a href="https://api.whatsapp.com/send?phone=+919873282812&text=Hii" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">
-                      Whats app
-                    </a>
-                  </div>
+              <div className="relative flex flex-col gap-[6px]">
+                <div className="absolute left-[-120px] top-[10px] w-[50px] h-[1.5px] bg-[#111]/30 hidden sm:block" />
+                <span 
+                  className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
+                  style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+                >
+                  Direct Chat
+                </span>
+                <div 
+                  className="text-[15px] md:text-[17px] font-extrabold tracking-wide text-[#1a1a1a] flex items-center gap-[8px]"
+                  style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
+                >
+                  <i className="fab fa-whatsapp text-[18px] text-[#1a1a1a]" />
+                  <a href="https://api.whatsapp.com/send?phone=+919873282812&text=Hii" target="_blank" rel="noopener noreferrer" className="hover:text-[#f27820] transition-colors">
+                    Whats app
+                  </a>
                 </div>
               </div>
 
               {/* Connect */}
-              <div className="flex items-start">
-                <div className="w-[100px] flex justify-end pr-[20px] shrink-0 mt-[10px] hidden sm:flex">
-                  <div className="w-[40px] h-[1.5px] bg-[#111]/30" />
-                </div>
-                <div className="flex flex-col gap-[8px]">
-                  <span 
-                    className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
-                    style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
-                  >
-                    Connect with us
-                  </span>
-                  <div className="flex gap-[12px] text-slate-800">
-                    <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Facebook">
-                      <i className="fab fa-facebook-f text-[12px]" />
-                    </a>
-                    <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="LinkedIn">
-                      <i className="fab fa-linkedin-in text-[12px]" />
-                    </a>
-                    <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Twitter">
-                      <i className="fab fa-twitter text-[12px]" />
-                    </a>
-                    <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="YouTube">
-                      <i className="fab fa-youtube text-[12px]" />
-                    </a>
-                    <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Instagram">
-                      <i className="fab fa-instagram text-[12px]" />
-                    </a>
-                  </div>
+              <div className="relative flex flex-col gap-[8px]">
+                <div className="absolute left-[-120px] top-[10px] w-[50px] h-[1.5px] bg-[#111]/30 hidden sm:block" />
+                <span 
+                  className="text-[13px] font-[500] text-[#a0a0a0] uppercase tracking-wider"
+                  style={{ fontFamily: 'GTWalsheimPro-Regular, sans-serif' }}
+                >
+                  Connect with us
+                </span>
+                <div className="flex gap-[12px] text-slate-800">
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Facebook">
+                    <i className="fab fa-facebook-f text-[12px]" />
+                  </a>
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="LinkedIn">
+                    <i className="fab fa-linkedin-in text-[12px]" />
+                  </a>
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Twitter">
+                    <i className="fab fa-twitter text-[12px]" />
+                  </a>
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="YouTube">
+                    <i className="fab fa-youtube text-[12px]" />
+                  </a>
+                  <a href="#" className="w-[30px] h-[30px] border border-[#111]/15 rounded-full flex items-center justify-center hover:bg-slate-100 hover:border-black transition-colors" aria-label="Instagram">
+                    <i className="fab fa-instagram text-[12px]" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -185,7 +167,7 @@ export default function Footer() {
           {/* Right Column: Write us Proposal Form */}
           <div className="flex flex-col text-left font-sans w-full">
             <h3 
-              className="text-[20px] md:text-[24px] font-extrabold text-[#111111] mb-[24px]"
+              className="text-[20px] md:text-[24px] font-extrabold text-[#111111] mb-[24px] mt-[10px] md:mt-[22px]"
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
             >
               Feel Free To Write Us
