@@ -34,7 +34,7 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${montserrat.variable} h-full antialiased`}
     >
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" />
       </head>
       <body className="min-h-full flex flex-col bg-bg-dark text-white selection:bg-accent selection:text-bg-dark">
         <ScrollProvider>
