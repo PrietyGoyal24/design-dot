@@ -9,7 +9,7 @@ export default function WhyUs() {
         <div className="w-full md:w-[58.33%] flex items-center">
           <div className="w-full px-10 md:pl-[65px] md:pr-0">
 
-            {/* Row 1: 00. + line (full width, on its own row) */}
+            {/* Row 1: 00. + separator + 'Why Us' (inline) */}
             <div className="flex items-center">
               <p
                 className="text-[18px] md:text-[24px] leading-[30px] m-0 shrink-0"
@@ -17,19 +17,18 @@ export default function WhyUs() {
               >
                 00.
               </p>
-              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] ml-[15px]" />
-            </div>
-
-            {/* Row 2: section text (below 00., not beside it) */}
-            <div className="w-full mt-5">
+              <span className="block w-[96px] md:w-[130px] h-[2px] bg-[#727272] ml-[15px] mr-[18px]" />
 
               <span
-                className="block text-[18px] md:text-[24px] leading-[30px] tracking-[1px] mb-[22px]"
+                className="text-[18px] md:text-[24px] leading-[30px] tracking-[1px]"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
               >
                 Why Us
-                <span className="inline-block w-[8px] h-[8px] rounded-full bg-black ml-[2px] align-middle" />
+                <span className="inline-block w-[8px] h-[8px] rounded-full bg-black ml-[8px] align-middle" />
               </span>
+            </div>
+
+            <div className="w-full mt-5">
 
               <h2
                 className="text-[23px] sm:text-[27px] lg:text-[32px] xl:text-[38px] leading-[1.4] tracking-[2px] uppercase m-0"
