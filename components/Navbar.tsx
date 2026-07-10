@@ -348,7 +348,7 @@ const CORPORATE_MENU = {
 const NAVIGATION_LINKS = [
   { label: 'Expertise', key: 'expertise', hasMegaMenu: true },
   { label: 'AI Ingenuity', key: 'ai-ingenuity', hasMegaMenu: true },
-  { label: 'Design Build', key: 'design-build', hasMegaMenu: false, href: '#design-build' },
+  { label: 'Design Build', key: 'design-build', hasMegaMenu: false, href: '/services/design-build' },
   { label: 'Technology', key: 'technology', hasMegaMenu: true },
   { label: 'Corporate', key: 'corporate', hasMegaMenu: true },
   { label: 'Contact Us', key: 'contact-us', hasMegaMenu: false, href: '/contact-us' }
