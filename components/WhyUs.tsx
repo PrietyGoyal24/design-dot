@@ -28,11 +28,11 @@ export default function WhyUs() {
               <span className="block w-[120px] md:w-[70px] lg:w-[100px] xl:w-[140px] h-[2px] bg-[#727272] relative -top-[1.5px] md:-top-[2.5px]" />
 
               <span
-                className="text-[18px] md:text-[24px] leading-[30px] tracking-[1px] font-extrabold ml-[20px] flex items-center"
+                className="text-[18px] md:text-[24px] leading-[30px] tracking-[1px] font-extrabold ml-[20px]"
                 style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
               >
                 Why Us
-                <span className="inline-block w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-[#111] ml-[6px] md:ml-[8px] relative -top-[1px]" />
+                <span className="inline-block w-[6px] h-[6px] md:w-[8px] md:h-[8px] rounded-full bg-[#111] ml-[4px] md:ml-[6px] align-baseline" />
               </span>
             </div>
 
@@ -41,11 +41,11 @@ export default function WhyUs() {
 
               <div className="w-full md:max-w-[900px]">
                 <h2
-                  className="text-[22px] sm:text-[28px] lg:text-[36px] xl:text-[42px] leading-[1.02] tracking-[2px] uppercase m-0 font-extrabold whitespace-nowrap flex items-center"
+                  className="text-[22px] sm:text-[26px] lg:text-[32px] xl:text-[38px] leading-[1.02] tracking-[2px] uppercase m-0 font-extrabold whitespace-nowrap"
                   style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 900 }}
                 >
                   A CREATIVE DIGITAL AGENCY
-                  <span className="inline-block w-[8px] h-[8px] md:w-[10px] md:h-[10px] rounded-full bg-[#111] ml-[6px] md:ml-[10px] relative -top-[2px] md:-top-[4px]" />
+                  <span className="inline-block w-[8px] h-[8px] md:w-[10px] md:h-[10px] rounded-full bg-[#111] ml-[4px] md:ml-[6px] align-baseline" />
                 </h2>
 
                 <span className="block w-[80px] md:w-[100px] h-[2px] bg-[#727272] mt-[8px] md:mt-[10px] mb-[24px] md:mb-[34px]" />
