@@ -393,7 +393,11 @@ const NAVIGATION_LINKS = [
   { label: 'Contact Us', key: 'contact-us', hasMegaMenu: false, href: '/contact-us' }
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  theme?: 'light' | 'dark';
+}
+
+export default function Navbar({ theme = 'dark' }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -479,9 +483,9 @@ export default function Navbar() {
       return (
         <span className="relative flex items-center h-full focus:outline-none focus-visible:outline-none select-none">
           <span className="relative">
-            <span className={isActive ? 'text-white' : 'text-[#B2C5D4] transition-colors'}>AI&nbsp;</span>
+            <span className={isActive ? (theme === 'light' ? 'text-[#f58331]' : 'text-white') : (theme === 'light' ? 'text-[#111111]' : 'text-[#B2C5D4] transition-colors')}>AI&nbsp;</span>
             <span className="bg-gradient-to-r from-[#D1C0AE] to-[#F67E29] text-transparent bg-clip-text transition-colors inline-block">INGENUITY</span>
-            <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] bg-white transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+            <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] ${theme === 'light' ? 'bg-[#f58331]' : 'bg-white'} transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
           </span>
         </span>
       );
@@ -490,9 +494,9 @@ export default function Navbar() {
     const displayLabel = label.toUpperCase();
     return (
       <span className="relative flex items-center h-full focus:outline-none focus-visible:outline-none select-none">
-        <span className="relative text-white">
+        <span className={`relative ${theme === 'light' ? (isActive ? 'text-[#f58331]' : 'text-[#111111] hover:text-[#f58331]') : 'text-white'}`}>
           {displayLabel}
-          <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] bg-white transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+          <span className={`absolute -bottom-1.5 left-0 w-full h-[2px] ${theme === 'light' ? 'bg-[#f58331]' : 'bg-white'} transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
         </span>
       </span>
     );
@@ -500,7 +504,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full z-40 bg-[var(--background)] py-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'shadow-lg border-b border-white/5' : ''}`}>
+      <header className={`fixed top-0 left-0 w-full z-40 ${theme === 'light' ? 'bg-[#fffbf8]' : 'bg-[var(--background)]'} py-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'shadow-lg border-b border-black/5' : ''}`}>
         {/* Main Navbar (Always Compact Single-Row) */}
         <div className={`w-full px-[30px] flex justify-between items-center relative transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'h-[72px]' : 'h-[96px] pb-[16px]'}`}>
 
@@ -510,7 +514,7 @@ export default function Navbar() {
             <div className="flex lg:hidden items-center">
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="flex items-center gap-2 text-white hover:text-[#f58331] font-bold text-xs tracking-wider cursor-pointer focus:outline-none focus-visible:outline-none font-display"
+                className={`flex items-center gap-2 ${theme === 'light' ? 'text-[#111111]' : 'text-white'} hover:text-[#f58331] font-bold text-xs tracking-wider cursor-pointer focus:outline-none focus-visible:outline-none font-display`}
               >
                 <Menu size={16} />
                 <span>MENU</span>
@@ -556,11 +560,11 @@ export default function Navbar() {
 
               <li className="flex items-center gap-[25px] select-none h-full">
                 {/* support numbers with 24 hours support icon */}
-                <div className="flex items-center gap-2.5 text-white h-[34px]">
+                <div className={`flex items-center gap-2.5 h-[34px] ${theme === 'light' ? 'text-[#111111]' : 'text-white'}`}>
                   <img
                     src="https://dd.mocup.in/assets/web/images/all/support-icon.svg"
                     alt="Support Icon"
-                    className="w-[34px] h-[34px]"
+                    className={`w-[34px] h-[34px] ${theme === 'light' ? 'invert' : ''}`}
                   />
                   <span className="whitespace-nowrap font-bold text-[12px]">+91 9873282812 / +1 4694410125</span>
                 </div>

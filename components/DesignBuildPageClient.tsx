@@ -29,16 +29,16 @@ export default function DesignBuildPageClient() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-white text-[#111111] overflow-x-hidden selection:bg-[#f27820] selection:text-white">
+    <div className="w-full min-h-screen bg-[#fffbf8] text-[#111111] overflow-x-hidden selection:bg-[#f27820] selection:text-white">
       {/* Navigation Header */}
-      <Navbar />
+      <Navbar theme="light" />
 
       <main className="w-full pt-[96px] lg:pt-[120px]">
         {/* Banner Top Strip Message */}
-        <div className="w-full bg-[#fcf5f5] py-5 border-b border-gray-200">
-          <div className="max-w-[1240px] mx-auto px-6 md:px-12 text-center">
+        <div className="w-full flex justify-center py-[40px] md:py-[60px] bg-[#fffbf8]">
+          <div className="bg-[#003666] px-[30px] md:px-[50px] py-[14px] md:py-[18px] inline-flex items-center justify-center">
             <h5 
-              className="text-[13px] md:text-[15px] font-bold text-[#111111] uppercase tracking-wider"
+              className="text-[16px] md:text-[22px] font-extrabold text-white uppercase tracking-[0.06em]"
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
             >
               Rapid delivery. Total team coordination.
@@ -47,15 +47,15 @@ export default function DesignBuildPageClient() {
         </div>
 
         {/* Video & Banner Text Section */}
-        <div className="max-w-[1240px] mx-auto px-6 md:px-12 py-10">
-          <div className="relative w-full h-[320px] md:h-[450px] overflow-hidden rounded-2xl bg-black">
+        <div className="w-full px-[30px] md:px-[80px] pb-10 bg-[#fffbf8]">
+          <div className="relative w-full h-[350px] md:h-[600px] overflow-hidden bg-black">
             {/* Desktop Video background */}
             <video 
               autoPlay 
               loop 
               muted 
               playsInline 
-              className="absolute inset-0 w-full h-full object-cover opacity-85 hidden md:block"
+              className="absolute inset-0 w-full h-full object-cover hidden md:block"
             >
               <source src="https://dd.mocup.in/assets/web/images/video/design-build.mp4" type="video/mp4" />
             </video>
@@ -66,35 +66,32 @@ export default function DesignBuildPageClient() {
               loop 
               muted 
               playsInline 
-              className="absolute inset-0 w-full h-full object-cover opacity-85 block md:hidden"
+              className="absolute inset-0 w-full h-full object-cover block md:hidden"
             >
               <source src="https://dd.mocup.in/assets/web/images/video/designbuild-mobile.mp4" type="video/mp4" />
             </video>
 
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/35" />
-
             {/* Video overlay texts */}
-            <div className="absolute left-[30px] md:left-[60px] bottom-[40px] md:bottom-[60px] text-left z-10">
+            <div className="absolute left-[30px] md:left-[60px] lg:left-[80px] top-[45%] md:top-[50%] -translate-y-1/2 text-left z-10 w-full max-w-[90%]">
               <h1 
-                className="text-[42px] md:text-[70px] leading-none font-extrabold tracking-widest text-[#f58331] uppercase mb-1"
-                style={{ fontFamily: 'GT-Walsheim-Pro-Black, sans-serif' }}
+                className="text-[60px] md:text-[140px] lg:text-[180px] xl:text-[200px] leading-[0.8] font-bold tracking-normal text-white uppercase mb-0 drop-shadow-lg"
+                style={{ fontFamily: 'Impact, GT-Walsheim-Pro-Black, sans-serif' }}
               >
-                DESIGN-BUILD<span className="inline-block w-4 h-4 rounded-full bg-white ml-2"></span>
+                DESIGN-BUILD.
               </h1>
-              <p 
-                className="text-[18px] md:text-[24px] uppercase text-white tracking-wide"
-                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif', fontWeight: 800 }}
+              <p
+                className="text-[18px] md:text-[24px] lg:text-[30px] text-white lowercase mt-[60px] md:mt-[90px] lg:mt-[120px] tracking-wide drop-shadow-md flex items-center"
+                style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
               >
-                total turnkey solutions<span className="inline-block w-2.5 h-2.5 rounded-full bg-white ml-2"></span>
+                total turnkey solutions<span className="inline-block w-[6px] h-[6px] md:w-[8px] md:h-[8px] lg:w-[10px] lg:h-[10px] rounded-full bg-white ml-2 mb-[2px]"></span>
               </p>
             </div>
           </div>
 
           {/* Let's talk description paragraph */}
-          <div className="mt-12 max-w-[900px] text-left">
+          <div className="mt-12 max-w-[900px] text-left mx-auto px-6">
             <h2 
-              className="text-[32px] md:text-[44px] font-extrabold text-[#2a255e] uppercase tracking-wide mb-4 leading-[1.25]"
+              className="text-[28px] md:text-[40px] font-bold text-[#2a255e] uppercase tracking-wide mb-4 leading-[1.25]"
               style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
             >
               DESIGN-BUILD. YOU MIGHT SAY IT’S A SIMPLE APPROACH TO 
@@ -111,7 +108,7 @@ export default function DesignBuildPageClient() {
         </div>
 
         {/* Benefits Grid Section */}
-        <section className="bg-white border-t border-gray-150 py-16">
+        <section className="bg-[#fffbf8] border-t border-gray-150 py-16">
           <div className="max-w-[1240px] mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               
