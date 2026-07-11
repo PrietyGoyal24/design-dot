@@ -90,41 +90,80 @@ const EXPERTISE_MENU = {
         'Rebranding Strategy'
       ],
       'MEDIA ADVERTISING': [
-        'Creative Ad Campaigns',
-        'Paid Media Planning',
-        'Video Production & Editing',
-        'Display Ads & Strategy'
+        'Visual Identity',
+        'Public Relations',
+        'Outdoor Advertising',
+        'Media Planning & Buying',
+        'Corporate Communication',
+        'Content Strategy',
+        'Market Research & Consumer Study',
+        'Illustration / Sketch Design',
+        'Motion & Video Creation'
       ],
       'DIGITAL MARKETING': [
         'Search Engine Optimization',
-        'Content Marketing Strategy',
-        'Social Media Management',
-        'Email Campaigns & Flows',
-        'PPC & Ad Performance'
+        'Paid Advertising',
+        'Social Media Marketing',
+        'Specialized ECommerce SEO',
+        'Content Marketing',
+        'Conversion Rate Optimization',
+        'Mobile Advertising',
+        'Brand Management',
+        'Influencer Marketing',
+        'Internet Advertising'
       ],
       'DIGITAL TRANSFORMATION': [
-        'Legacy Modernization',
-        'Workflow Automation',
-        'Data-Driven Decoupling',
-        'Enterprise Integrations'
+        'Internet Of Things',
+        'Wearable App Development',
+        'Enterprise Solutions',
+        'IT Consulting',
+        'Software Consulting',
+        'Enterprise Mobility Services',
+        'AI Marketplace Engine',
+        'Digital Product Engineering'
       ],
       'EMERGING TECHNOLOGIES': [
-        'Generative AI Integrations',
-        'Blockchain Solutions',
-        'IoT Hardware Pipelines',
-        'AR/VR Applications'
+        'AI Chatbot Development',
+        'DApps Development',
+        'AR/VR Development',
+        'NFT Marketplace',
+        'Encrypted Video Streaming',
+        'Metaverse',
+        'IBeacon App Development',
+        'Cryptocurrency Wallet',
+        'IoT Development',
+        'Point Of Sales Application',
+        'IWatch App Development',
+        'Warehouse Management System',
+        'Blockchain'
       ],
       'QUALITY & SUPPORT': [
-        'Automation QA Testing',
-        'Manual Acceptance Testing',
-        '24/7 Server Monitoring',
-        'Security Penetration Testing'
+        'Quality Assurance Testing',
+        'Support'
       ],
       'SOLUTIONS': [
-        'Custom CRM Systems',
-        'ERP Platforms',
-        'Healthcare Applications',
-        'FinTech Gateways'
+        'Enterprise Solution',
+        'Marketing & Advertising',
+        'Business Intelligence',
+        'Kiosk Software',
+        'Portal/Portlet Development',
+        'Operations Management',
+        'CMS',
+        'Supply Chain Management',
+        'CRM Application',
+        'Warehouse Management',
+        'E-Commerce Application',
+        'Enterprise Asset Management',
+        'Point Of Sales Application',
+        'Fleet Management',
+        'HRM Application',
+        'Vendor Management',
+        'Mobile Application Solution',
+        'Project Management',
+        'ERP On Demand Designing Solution',
+        'Document Management',
+        'Ecommerce',
+        'ELearning Solutions'
       ]
     }
   }
@@ -463,7 +502,7 @@ export default function Navbar() {
     <>
       <header className={`fixed top-0 left-0 w-full z-40 bg-[var(--background)] py-0 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'shadow-lg border-b border-white/5' : ''}`}>
         {/* Main Navbar (Always Compact Single-Row) */}
-        <div className={`w-full px-[50px] flex justify-between items-center relative transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
+        <div className={`w-full px-[30px] flex justify-between items-center relative transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${isScrolled ? 'h-[72px]' : 'h-[96px] pb-[16px]'}`}>
 
           {/* Left/Middle Group: Navigation links, Support and Consultation button */}
           <div className="flex items-center gap-[25px] h-full">
@@ -480,13 +519,13 @@ export default function Navbar() {
 
             {/* Navigation Links and Support/Consultation */}
             <ul
-              className={`desk-menu navbar px-0 hidden lg:flex items-center gap-[25px] h-full -mt-2 ${isScrolled ? '!hidden' : ''}`}
+              className={`desk-menu navbar px-0 hidden lg:flex items-center gap-[25px] h-full ${isScrolled ? '!hidden' : ''}`}
               style={{
                 color: '#1A1A1A',
                 fontFamily: 'GTWalsheimPro-Bold, sans-serif',
-                fontSize: '14px',
+                fontSize: '12px',
+                fontWeight: 'bold',
                 padding: '8px 0px',
-                margin: 0,
                 listStyle: 'none'
               }}
             >
@@ -523,7 +562,7 @@ export default function Navbar() {
                     alt="Support Icon"
                     className="w-[34px] h-[34px]"
                   />
-                  <span className="whitespace-nowrap">+91 9873282812 / +1 4694410125</span>
+                  <span className="whitespace-nowrap font-bold text-[12px]">+91 9873282812 / +1 4694410125</span>
                 </div>
 
                 {/* Orange consultation button */}
@@ -534,7 +573,7 @@ export default function Navbar() {
                       (window as any).cycleTheme(e.clientX, e.clientY);
                     }
                   }}
-                  className="bg-[#f58331] text-white hover:bg-white hover:text-black transition-colors w-[186.24px] h-[44px] rounded-[4px] uppercase cursor-pointer flex items-center justify-center whitespace-nowrap px-[15px] focus:outline-none focus-visible:outline-none"
+                  className="bg-[#f58331] text-white w-auto h-[36px] rounded-[4px] uppercase cursor-pointer flex items-center justify-center whitespace-nowrap px-[20px] focus:outline-none focus-visible:outline-none font-bold text-[12px]"
                 >
                   FREE CONSULTATION
                 </button>
@@ -565,9 +604,9 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('expertise')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'expertise')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
+              className="fixed left-0 w-screen bg-[var(--background)] px-[30px] border-b border-white/5 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
-              <div className="max-w-[1440px] mx-auto w-full flex flex-col select-none text-left bg-white shadow-xl">
+              <div className="w-full flex flex-col select-none text-left bg-[#fffbf8] shadow-xl">
                 <div className="w-full grid grid-cols-[1.3fr_1fr_1.7fr] gap-0 px-[40px] py-[40px]">
                   {/* Left Column */}
                   <div className="pr-[40px]">
@@ -607,17 +646,18 @@ export default function Navbar() {
                       {EXPERTISE_MENU.center.categories.map((cat) => (
                         <button
                           key={cat}
-                          onMouseEnter={() => setActiveExpertiseCategory(cat)}
                           onClick={() => setActiveExpertiseCategory(cat)}
-                          className={`flex items-center justify-between w-full text-left px-[16px] py-[8px] font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer ${
+                          className="flex items-center justify-between w-full text-left font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer"
+                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                        >
+                          <span className={`px-[16px] py-[8px] rounded-[4px] ${
                             activeExpertiseCategory === cat
                               ? 'bg-[#00539c] text-white'
                               : 'text-[#00539c] hover:bg-slate-50'
-                          }`}
-                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-                        >
-                          <span>{cat}</span>
-                          <span className={`text-[9px] ${activeExpertiseCategory === cat ? 'text-white' : 'text-[#00539c]'}`}>
+                          }`}>
+                            {cat}
+                          </span>
+                          <span className="text-[7px] text-[#00539c] pr-[16px]">
                             ▶
                           </span>
                         </button>
@@ -645,7 +685,7 @@ export default function Navbar() {
                       </h4>
                       <div className="flex-1 h-[1.5px] bg-[#00539c]" />
                     </div>
-                    <div className="grid grid-cols-2 gap-x-[30px] gap-y-[16px]">
+                    <div className={['SOLUTIONS', 'EMERGING TECHNOLOGIES'].includes(activeExpertiseCategory) ? "grid grid-cols-2 gap-x-[30px] gap-y-[16px]" : "flex flex-col gap-[16px]"}>
                       {(EXPERTISE_MENU.center.subServices[activeExpertiseCategory as keyof typeof EXPERTISE_MENU.center.subServices] || []).map((serv) => (
                         <a
                           key={serv}
@@ -702,9 +742,9 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('ai-ingenuity')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'ai-ingenuity')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
+              className="fixed left-0 w-screen bg-[var(--background)] px-[30px] border-b border-white/5 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
-              <div className="max-w-[1440px] mx-auto w-full flex flex-col select-none text-left">
+              <div className="w-full flex flex-col select-none text-left bg-[#fffbf8] shadow-xl">
                 <div className="w-full grid grid-cols-[1.3fr_1fr_1.7fr] gap-0 px-[40px] py-[40px]">
                   {/* Left Column */}
                   <div className="pr-[40px]">
@@ -727,9 +767,7 @@ export default function Navbar() {
                           {item.icon ? (
                             <img src={item.icon} alt={item.title} className="w-[30px] h-[30px] shrink-0" />
                           ) : (
-                            <div className="w-[30px] h-[30px] bg-slate-100 flex items-center justify-center text-[#f58331] font-bold text-[10px] shrink-0 border border-slate-200 rounded-full">
-                              AI
-                            </div>
+                            <div className="w-[30px] h-[30px] shrink-0" />
                           )}
                           <div className="flex flex-col">
                             <span className="text-[13px] font-extrabold tracking-wide text-[#111] uppercase" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
@@ -765,17 +803,18 @@ export default function Navbar() {
                       {AI_MENU.center.categories.map((cat) => (
                         <button
                           key={cat}
-                          onMouseEnter={() => setActiveAICategory(cat)}
                           onClick={() => setActiveAICategory(cat)}
-                          className={`flex items-center justify-between w-full text-left px-[16px] py-[8px] font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer ${
+                          className="flex items-center justify-between w-full text-left font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer"
+                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                        >
+                          <span className={`px-[16px] py-[8px] rounded-[4px] ${
                             activeAICategory === cat
                               ? 'bg-[#00539c] text-white'
                               : 'text-[#00539c] hover:bg-slate-50'
-                          }`}
-                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-                        >
-                          <span>{cat}</span>
-                          <span className={`text-[9px] ${activeAICategory === cat ? 'text-white' : 'text-[#00539c]'}`}>
+                          }`}>
+                            {cat}
+                          </span>
+                          <span className="text-[7px] text-[#00539c] pr-[16px]">
                             ▶
                           </span>
                         </button>
@@ -803,7 +842,7 @@ export default function Navbar() {
                       </h4>
                       <div className="flex-1 h-[1.5px] bg-[#00539c]" />
                     </div>
-                    <div className="grid grid-cols-2 gap-x-[30px] gap-y-[16px]">
+                    <div className="flex flex-col gap-[16px]">
                       {(AI_MENU.center.subServices[activeAICategory as keyof typeof AI_MENU.center.subServices] || []).map((serv) => (
                         <a
                           key={serv}
@@ -859,9 +898,9 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('technology')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'technology')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
+              className="fixed left-0 w-screen bg-[var(--background)] px-[30px] border-b border-white/5 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
-              <div className="max-w-[1440px] mx-auto w-full flex flex-col select-none text-left">
+              <div className="w-full flex flex-col select-none text-left bg-[#fffbf8] shadow-xl">
                 <div className="w-full grid grid-cols-[1.3fr_1fr_1.7fr] gap-0 px-[40px] py-[40px]">
                   {/* Left Column */}
                   <div className="pr-[40px]">
@@ -884,9 +923,7 @@ export default function Navbar() {
                           {item.icon ? (
                             <img src={item.icon} alt={item.title} className="w-[30px] h-[30px] shrink-0" />
                           ) : (
-                            <div className="w-[30px] h-[30px] bg-slate-100 flex items-center justify-center text-[#f58331] font-bold text-[10px] shrink-0 border border-slate-200 rounded-full">
-                              ⚙
-                            </div>
+                            <div className="w-[30px] h-[30px] shrink-0" />
                           )}
                           <div className="flex flex-col">
                             <span className="text-[13px] font-extrabold tracking-wide text-[#111] uppercase" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
@@ -922,17 +959,18 @@ export default function Navbar() {
                       {TECH_MENU.center.categories.map((cat) => (
                         <button
                           key={cat}
-                          onMouseEnter={() => setActiveTechCategory(cat)}
                           onClick={() => setActiveTechCategory(cat)}
-                          className={`flex items-center justify-between w-full text-left px-[16px] py-[8px] font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer ${
+                          className="flex items-center justify-between w-full text-left font-extrabold text-[12px] tracking-widest uppercase transition-colors cursor-pointer"
+                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
+                        >
+                          <span className={`px-[16px] py-[8px] rounded-[4px] ${
                             activeTechCategory === cat
                               ? 'bg-[#00539c] text-white'
                               : 'text-[#00539c] hover:bg-slate-50'
-                          }`}
-                          style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}
-                        >
-                          <span>{cat}</span>
-                          <span className={`text-[9px] ${activeTechCategory === cat ? 'text-white' : 'text-[#00539c]'}`}>
+                          }`}>
+                            {cat}
+                          </span>
+                          <span className="text-[7px] text-[#00539c] pr-[16px]">
                             ▶
                           </span>
                         </button>
@@ -960,7 +998,7 @@ export default function Navbar() {
                       </h4>
                       <div className="flex-1 h-[1.5px] bg-[#00539c]" />
                     </div>
-                    <div className="grid grid-cols-2 gap-x-[30px] gap-y-[16px]">
+                    <div className="flex flex-col gap-[16px]">
                       {(TECH_MENU.center.subServices[activeTechCategory as keyof typeof TECH_MENU.center.subServices] || []).map((serv) => (
                         <a
                           key={serv}
@@ -1016,9 +1054,9 @@ export default function Navbar() {
               onMouseEnter={() => handleMouseEnter('corporate')}
               onMouseLeave={handleMouseLeave}
               onMouseDown={(e) => handleMegaTabClick(e, 'corporate')}
-              className="fixed left-0 w-screen bg-[#fffbf8] border-t border-b border-slate-200/80 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
+              className="fixed left-0 w-screen bg-[var(--background)] px-[30px] border-b border-white/5 shadow-2xl z-50 text-slate-800 animate-in fade-in slide-in-from-top-1 duration-200 top-[72px]"
             >
-              <div className="max-w-[1440px] mx-auto w-full flex flex-col select-none text-left">
+              <div className="w-full flex flex-col select-none text-left bg-[#fffbf8] shadow-xl">
                 <div className="w-full grid grid-cols-[1.3fr_2.7fr] gap-0 px-[40px] py-[40px]">
                   {/* Left Column */}
                   <div className="pr-[40px]">
@@ -1061,14 +1099,14 @@ export default function Navbar() {
                   </div>
 
                   {/* Right Column */}
-                  <div className="pl-[20px] grid grid-cols-2 gap-x-[60px] gap-y-[30px]">
+                  <div className="pl-[20px] grid grid-cols-2 gap-x-[60px] gap-y-[30px] content-start">
                     {CORPORATE_MENU.columns.map((col) => (
                       <a
                         key={col.title}
                         href={col.href}
-                        className="flex flex-col border-b-[1.5px] border-[#00539c] pb-[16px] group cursor-pointer"
+                        className="flex flex-col border-b-[1.5px] border-[#00539c] pb-[16px] cursor-pointer"
                       >
-                        <h4 className="font-extrabold text-[15px] tracking-wide text-[#00539c] uppercase mb-[8px] group-hover:text-[#f58331] transition-colors" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
+                        <h4 className="font-extrabold text-[15px] tracking-wide text-[#00539c] uppercase mb-[8px]" style={{ fontFamily: 'GTWalsheimPro-Bold, sans-serif' }}>
                           {col.title}
                         </h4>
                         <p className="text-slate-500 text-[13.5px] font-medium leading-[1.6]">
